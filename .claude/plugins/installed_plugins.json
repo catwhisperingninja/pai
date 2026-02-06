@@ -3,838 +3,838 @@
   "plugins": {
     "context7@claude-plugins-official": [
       {
-        "scope": "user",
-        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/context7/6d3752c000e2",
-        "version": "6d3752c000e2",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/context7/236752ad9ab3",
+        "version": "236752ad9ab3",
         "installedAt": "2025-12-26T20:23:11.014Z",
-        "lastUpdated": "2025-12-28T01:58:07.732Z",
-        "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:51:05.429Z",
+        "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc"
       }
     ],
     "frontend-design@claude-plugins-official": [
       {
-        "scope": "user",
-        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/frontend-design/6d3752c000e2",
-        "version": "6d3752c000e2",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/frontend-design/236752ad9ab3",
+        "version": "236752ad9ab3",
         "installedAt": "2025-12-26T20:23:11.043Z",
-        "lastUpdated": "2025-12-28T01:58:07.728Z",
-        "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:51:05.447Z",
+        "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc"
       }
     ],
     "github@claude-plugins-official": [
       {
-        "scope": "user",
-        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/github/6d3752c000e2",
-        "version": "6d3752c000e2",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/github/236752ad9ab3",
+        "version": "236752ad9ab3",
         "installedAt": "2025-12-26T20:23:11.071Z",
-        "lastUpdated": "2025-12-28T01:58:07.729Z",
-        "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:51:05.474Z",
+        "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc"
       }
     ],
     "serena@claude-plugins-official": [
       {
-        "scope": "user",
-        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/serena/6d3752c000e2",
-        "version": "6d3752c000e2",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/serena/236752ad9ab3",
+        "version": "236752ad9ab3",
         "installedAt": "2025-12-26T20:23:11.104Z",
-        "lastUpdated": "2025-12-28T01:58:07.726Z",
-        "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:51:05.497Z",
+        "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc"
       }
     ],
     "feature-dev@claude-plugins-official": [
       {
-        "scope": "user",
-        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/feature-dev/6d3752c000e2",
-        "version": "6d3752c000e2",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/feature-dev/236752ad9ab3",
+        "version": "236752ad9ab3",
         "installedAt": "2025-12-26T20:23:11.136Z",
-        "lastUpdated": "2025-12-28T01:58:07.734Z",
-        "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:51:05.478Z",
+        "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc"
       }
     ],
     "code-review@claude-plugins-official": [
       {
-        "scope": "user",
-        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/code-review/6d3752c000e2",
-        "version": "6d3752c000e2",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/code-review/236752ad9ab3",
+        "version": "236752ad9ab3",
         "installedAt": "2025-12-26T20:23:11.166Z",
-        "lastUpdated": "2025-12-28T01:58:07.730Z",
-        "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:51:05.494Z",
+        "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc"
       }
     ],
     "commit-commands@claude-plugins-official": [
       {
-        "scope": "user",
-        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/commit-commands/6d3752c000e2",
-        "version": "6d3752c000e2",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/commit-commands/236752ad9ab3",
+        "version": "236752ad9ab3",
         "installedAt": "2025-12-26T20:23:11.199Z",
-        "lastUpdated": "2025-12-28T01:58:07.737Z",
-        "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:51:05.492Z",
+        "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc"
       }
     ],
     "security-guidance@claude-plugins-official": [
       {
-        "scope": "user",
-        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/security-guidance/6d3752c000e2",
-        "version": "6d3752c000e2",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/security-guidance/236752ad9ab3",
+        "version": "236752ad9ab3",
         "installedAt": "2025-12-26T20:23:11.230Z",
-        "lastUpdated": "2025-12-28T01:58:07.735Z",
-        "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:51:05.437Z",
+        "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc"
       }
     ],
     "agent-sdk-dev@claude-plugins-official": [
       {
-        "scope": "user",
-        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/agent-sdk-dev/6d3752c000e2",
-        "version": "6d3752c000e2",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/agent-sdk-dev/236752ad9ab3",
+        "version": "236752ad9ab3",
         "installedAt": "2025-12-26T20:23:11.261Z",
-        "lastUpdated": "2025-12-28T01:58:07.741Z",
-        "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:51:05.476Z",
+        "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc"
       }
     ],
     "pr-review-toolkit@claude-plugins-official": [
       {
-        "scope": "user",
-        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/pr-review-toolkit/6d3752c000e2",
-        "version": "6d3752c000e2",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/pr-review-toolkit/236752ad9ab3",
+        "version": "236752ad9ab3",
         "installedAt": "2025-12-26T20:23:11.305Z",
-        "lastUpdated": "2025-12-28T01:58:07.743Z",
-        "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:51:05.443Z",
+        "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc"
       }
     ],
     "playwright@claude-plugins-official": [
       {
-        "scope": "user",
-        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/playwright/6d3752c000e2",
-        "version": "6d3752c000e2",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/playwright/236752ad9ab3",
+        "version": "236752ad9ab3",
         "installedAt": "2025-12-26T20:23:11.340Z",
-        "lastUpdated": "2025-12-28T01:58:07.745Z",
-        "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:51:05.471Z",
+        "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc"
       }
     ],
     "explanatory-output-style@claude-plugins-official": [
       {
-        "scope": "user",
-        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/explanatory-output-style/6d3752c000e2",
-        "version": "6d3752c000e2",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/explanatory-output-style/236752ad9ab3",
+        "version": "236752ad9ab3",
         "installedAt": "2025-12-26T20:23:11.369Z",
-        "lastUpdated": "2025-12-28T01:58:07.747Z",
-        "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:51:05.452Z",
+        "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc"
       }
     ],
     "typescript-lsp@claude-plugins-official": [
       {
-        "scope": "user",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
         "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/typescript-lsp/1.0.0",
         "version": "1.0.0",
         "installedAt": "2025-12-26T20:23:11.407Z",
-        "lastUpdated": "2025-12-26T20:23:11.407Z",
-        "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc"
       }
     ],
     "ralph-wiggum@claude-plugins-official": [
       {
-        "scope": "user",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
         "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/ralph-wiggum/6d3752c000e2",
         "version": "6d3752c000e2",
         "installedAt": "2025-12-26T20:23:11.445Z",
-        "lastUpdated": "2025-12-28T01:58:07.751Z",
-        "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc"
       }
     ],
     "plugin-dev@claude-plugins-official": [
       {
-        "scope": "user",
-        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/plugin-dev/6d3752c000e2",
-        "version": "6d3752c000e2",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/plugin-dev/236752ad9ab3",
+        "version": "236752ad9ab3",
         "installedAt": "2025-12-26T20:23:11.498Z",
-        "lastUpdated": "2025-12-28T01:58:07.748Z",
-        "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:51:05.469Z",
+        "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc"
       }
     ],
     "laravel-boost@claude-plugins-official": [
       {
-        "scope": "user",
-        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/laravel-boost/6d3752c000e2",
-        "version": "6d3752c000e2",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/laravel-boost/236752ad9ab3",
+        "version": "236752ad9ab3",
         "installedAt": "2025-12-26T20:23:11.536Z",
-        "lastUpdated": "2025-12-28T01:58:07.749Z",
-        "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:51:05.487Z",
+        "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc"
       }
     ],
     "hookify@claude-plugins-official": [
       {
-        "scope": "user",
-        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/hookify/6d3752c000e2",
-        "version": "6d3752c000e2",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/hookify/236752ad9ab3",
+        "version": "236752ad9ab3",
         "installedAt": "2025-12-26T20:23:11.576Z",
-        "lastUpdated": "2025-12-28T01:58:07.752Z",
-        "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:51:05.504Z",
+        "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc"
       }
     ],
     "learning-output-style@claude-plugins-official": [
       {
-        "scope": "user",
-        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/learning-output-style/6d3752c000e2",
-        "version": "6d3752c000e2",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/learning-output-style/236752ad9ab3",
+        "version": "236752ad9ab3",
         "installedAt": "2025-12-26T20:23:11.619Z",
-        "lastUpdated": "2025-12-28T01:58:07.753Z",
-        "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:51:05.481Z",
+        "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc"
       }
     ],
     "sentry@claude-plugins-official": [
       {
-        "scope": "user",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
         "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/sentry/1.0.0",
         "version": "1.0.0",
         "installedAt": "2025-12-26T20:23:12.469Z",
-        "lastUpdated": "2025-12-26T20:23:12.469Z",
-        "gitCommitSha": "215e5f1bf44a5a332da8fb3661980658b8db116c",
-        "isLocal": false
+        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "gitCommitSha": "215e5f1bf44a5a332da8fb3661980658b8db116c"
       }
     ],
     "greptile@claude-plugins-official": [
       {
-        "scope": "user",
-        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/greptile/6d3752c000e2",
-        "version": "6d3752c000e2",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/greptile/236752ad9ab3",
+        "version": "236752ad9ab3",
         "installedAt": "2025-12-26T20:23:12.514Z",
-        "lastUpdated": "2025-12-28T01:58:07.755Z",
-        "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:51:05.484Z",
+        "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc"
       }
     ],
     "pyright-lsp@claude-plugins-official": [
       {
-        "scope": "user",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
         "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/pyright-lsp/1.0.0",
         "version": "1.0.0",
         "installedAt": "2025-12-26T20:23:12.542Z",
-        "lastUpdated": "2025-12-26T20:23:12.542Z",
-        "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc"
       }
     ],
     "gitlab@claude-plugins-official": [
       {
-        "scope": "user",
-        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/gitlab/6d3752c000e2",
-        "version": "6d3752c000e2",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/gitlab/236752ad9ab3",
+        "version": "236752ad9ab3",
         "installedAt": "2025-12-26T20:23:12.570Z",
-        "lastUpdated": "2025-12-28T01:58:07.757Z",
-        "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:51:05.433Z",
+        "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc"
       }
     ],
     "slack@claude-plugins-official": [
       {
-        "scope": "user",
-        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/slack/6d3752c000e2",
-        "version": "6d3752c000e2",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/slack/236752ad9ab3",
+        "version": "236752ad9ab3",
         "installedAt": "2025-12-26T20:23:12.598Z",
-        "lastUpdated": "2025-12-28T01:58:07.754Z",
-        "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:51:05.472Z",
+        "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc"
       }
     ],
     "vercel@claude-plugins-official": [
       {
-        "scope": "user",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
         "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/vercel/1.0.0",
         "version": "1.0.0",
         "installedAt": "2025-12-26T20:23:13.174Z",
-        "lastUpdated": "2025-12-26T20:23:13.174Z",
-        "gitCommitSha": "ae067751b4f42c97d13054211657275029ca8b6d",
-        "isLocal": false
+        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "gitCommitSha": "ae067751b4f42c97d13054211657275029ca8b6d"
       }
     ],
     "gopls-lsp@claude-plugins-official": [
       {
-        "scope": "user",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
         "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/gopls-lsp/1.0.0",
         "version": "1.0.0",
         "installedAt": "2025-12-26T20:23:13.209Z",
-        "lastUpdated": "2025-12-26T20:23:13.209Z",
-        "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc"
       }
     ],
     "firebase@claude-plugins-official": [
       {
-        "scope": "user",
-        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/firebase/6d3752c000e2",
-        "version": "6d3752c000e2",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/firebase/236752ad9ab3",
+        "version": "236752ad9ab3",
         "installedAt": "2025-12-26T20:23:13.240Z",
-        "lastUpdated": "2025-12-28T01:58:07.760Z",
-        "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:51:05.449Z",
+        "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc"
       }
     ],
     "rust-analyzer-lsp@claude-plugins-official": [
       {
-        "scope": "user",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
         "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/rust-analyzer-lsp/1.0.0",
         "version": "1.0.0",
         "installedAt": "2025-12-26T20:23:13.272Z",
-        "lastUpdated": "2025-12-26T20:23:13.272Z",
-        "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc"
       }
     ],
     "api-scaffolding@claude-code-workflows": [
       {
-        "scope": "user",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
         "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/api-scaffolding/1.2.1",
         "version": "1.2.1",
         "installedAt": "2025-12-26T20:26:00.776Z",
-        "lastUpdated": "2025-12-26T20:26:00.776Z",
-        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1"
       }
     ],
     "api-testing-observability@claude-code-workflows": [
       {
-        "scope": "user",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
         "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/api-testing-observability/1.2.0",
         "version": "1.2.0",
         "installedAt": "2025-12-26T20:26:00.776Z",
-        "lastUpdated": "2025-12-26T20:26:00.776Z",
-        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1"
       }
     ],
     "application-performance@claude-code-workflows": [
       {
-        "scope": "user",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
         "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/application-performance/1.2.1",
         "version": "1.2.1",
         "installedAt": "2025-12-26T20:26:00.776Z",
-        "lastUpdated": "2025-12-26T20:26:00.776Z",
-        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1"
       }
     ],
     "backend-api-security@claude-code-workflows": [
       {
-        "scope": "user",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
         "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/backend-api-security/1.2.0",
         "version": "1.2.0",
         "installedAt": "2025-12-26T20:26:00.776Z",
-        "lastUpdated": "2025-12-26T20:26:00.776Z",
-        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1"
       }
     ],
     "backend-development@claude-code-workflows": [
       {
-        "scope": "user",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
         "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/backend-development/1.2.4",
         "version": "1.2.4",
         "installedAt": "2025-12-26T20:26:00.776Z",
-        "lastUpdated": "2025-12-26T20:26:00.776Z",
-        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1"
       }
     ],
     "blockchain-web3@claude-code-workflows": [
       {
-        "scope": "user",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
         "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/blockchain-web3/1.2.1",
         "version": "1.2.1",
         "installedAt": "2025-12-26T20:26:00.776Z",
-        "lastUpdated": "2025-12-26T20:26:00.776Z",
-        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1"
       }
     ],
     "business-analytics@claude-code-workflows": [
       {
-        "scope": "user",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
         "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/business-analytics/1.2.1",
         "version": "1.2.1",
         "installedAt": "2025-12-26T20:26:00.776Z",
-        "lastUpdated": "2025-12-26T20:26:00.776Z",
-        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1"
       }
     ],
     "c4-architecture@claude-code-workflows": [
       {
-        "scope": "user",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
         "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/c4-architecture/1.0.0",
         "version": "1.0.0",
         "installedAt": "2025-12-26T20:26:00.776Z",
-        "lastUpdated": "2025-12-26T20:26:00.776Z",
-        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1"
       }
     ],
     "cicd-automation@claude-code-workflows": [
       {
-        "scope": "user",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
         "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/cicd-automation/1.2.1",
         "version": "1.2.1",
         "installedAt": "2025-12-26T20:26:00.776Z",
-        "lastUpdated": "2025-12-26T20:26:00.776Z",
-        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1"
       }
     ],
     "cloud-infrastructure@claude-code-workflows": [
       {
-        "scope": "user",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
         "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/cloud-infrastructure/1.2.2",
         "version": "1.2.2",
         "installedAt": "2025-12-26T20:26:00.776Z",
-        "lastUpdated": "2025-12-26T20:26:00.776Z",
-        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1"
       }
     ],
     "code-documentation@claude-code-workflows": [
       {
-        "scope": "user",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
         "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/code-documentation/1.2.0",
         "version": "1.2.0",
         "installedAt": "2025-12-26T20:26:00.776Z",
-        "lastUpdated": "2025-12-26T20:26:00.776Z",
-        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1"
       }
     ],
     "code-refactoring@claude-code-workflows": [
       {
-        "scope": "user",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
         "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/code-refactoring/1.2.0",
         "version": "1.2.0",
         "installedAt": "2025-12-26T20:26:00.776Z",
-        "lastUpdated": "2025-12-26T20:26:00.776Z",
-        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1"
       }
     ],
     "code-review-ai@claude-code-workflows": [
       {
-        "scope": "user",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
         "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/code-review-ai/1.2.0",
         "version": "1.2.0",
         "installedAt": "2025-12-26T20:26:00.776Z",
-        "lastUpdated": "2025-12-26T20:26:00.776Z",
-        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1"
       }
     ],
     "codebase-cleanup@claude-code-workflows": [
       {
-        "scope": "user",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
         "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/codebase-cleanup/1.2.0",
         "version": "1.2.0",
         "installedAt": "2025-12-26T20:26:00.776Z",
-        "lastUpdated": "2025-12-26T20:26:00.776Z",
-        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1"
       }
     ],
     "comprehensive-review@claude-code-workflows": [
       {
-        "scope": "user",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
         "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/comprehensive-review/1.2.1",
         "version": "1.2.1",
         "installedAt": "2025-12-26T20:26:00.776Z",
-        "lastUpdated": "2025-12-26T20:26:00.776Z",
-        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1"
       }
     ],
     "content-marketing@claude-code-workflows": [
       {
-        "scope": "user",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
         "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/content-marketing/1.2.0",
         "version": "1.2.0",
         "installedAt": "2025-12-26T20:26:00.776Z",
-        "lastUpdated": "2025-12-26T20:26:00.776Z",
-        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1"
       }
     ],
     "data-engineering@claude-code-workflows": [
       {
-        "scope": "user",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
         "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/data-engineering/1.2.2",
         "version": "1.2.2",
         "installedAt": "2025-12-26T20:26:00.776Z",
-        "lastUpdated": "2025-12-26T20:26:00.776Z",
-        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1"
       }
     ],
     "data-validation-suite@claude-code-workflows": [
       {
-        "scope": "user",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
         "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/data-validation-suite/1.2.0",
         "version": "1.2.0",
         "installedAt": "2025-12-26T20:26:00.776Z",
-        "lastUpdated": "2025-12-26T20:26:00.776Z",
-        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1"
       }
     ],
     "database-cloud-optimization@claude-code-workflows": [
       {
-        "scope": "user",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
         "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/database-cloud-optimization/1.2.0",
         "version": "1.2.0",
         "installedAt": "2025-12-26T20:26:00.776Z",
-        "lastUpdated": "2025-12-26T20:26:00.776Z",
-        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1"
       }
     ],
     "database-design@claude-code-workflows": [
       {
-        "scope": "user",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
         "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/database-design/1.2.0",
         "version": "1.2.0",
         "installedAt": "2025-12-26T20:26:00.776Z",
-        "lastUpdated": "2025-12-26T20:26:00.776Z",
-        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1"
       }
     ],
     "database-migrations@claude-code-workflows": [
       {
-        "scope": "user",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
         "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/database-migrations/1.2.0",
         "version": "1.2.0",
         "installedAt": "2025-12-26T20:26:00.776Z",
-        "lastUpdated": "2025-12-26T20:26:00.776Z",
-        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1"
       }
     ],
     "debugging-toolkit@claude-code-workflows": [
       {
-        "scope": "user",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
         "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/debugging-toolkit/1.2.0",
         "version": "1.2.0",
         "installedAt": "2025-12-26T20:26:00.776Z",
-        "lastUpdated": "2025-12-26T20:26:00.776Z",
-        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1"
       }
     ],
     "dependency-management@claude-code-workflows": [
       {
-        "scope": "user",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
         "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/dependency-management/1.2.0",
         "version": "1.2.0",
         "installedAt": "2025-12-26T20:26:00.776Z",
-        "lastUpdated": "2025-12-26T20:26:00.776Z",
-        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1"
       }
     ],
     "deployment-strategies@claude-code-workflows": [
       {
-        "scope": "user",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
         "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/deployment-strategies/1.2.0",
         "version": "1.2.0",
         "installedAt": "2025-12-26T20:26:00.776Z",
-        "lastUpdated": "2025-12-26T20:26:00.776Z",
-        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1"
       }
     ],
     "deployment-validation@claude-code-workflows": [
       {
-        "scope": "user",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
         "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/deployment-validation/1.2.0",
         "version": "1.2.0",
         "installedAt": "2025-12-26T20:26:00.776Z",
-        "lastUpdated": "2025-12-26T20:26:00.776Z",
-        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1"
       }
     ],
     "developer-essentials@claude-code-workflows": [
       {
-        "scope": "user",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
         "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/developer-essentials/1.0.1",
         "version": "1.0.1",
         "installedAt": "2025-12-26T20:26:00.776Z",
-        "lastUpdated": "2025-12-26T20:26:00.776Z",
-        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1"
       }
     ],
     "distributed-debugging@claude-code-workflows": [
       {
-        "scope": "user",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
         "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/distributed-debugging/1.2.0",
         "version": "1.2.0",
         "installedAt": "2025-12-26T20:26:00.776Z",
-        "lastUpdated": "2025-12-26T20:26:00.776Z",
-        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1"
       }
     ],
     "documentation-generation@claude-code-workflows": [
       {
-        "scope": "user",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
         "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/documentation-generation/1.2.1",
         "version": "1.2.1",
         "installedAt": "2025-12-26T20:26:00.776Z",
-        "lastUpdated": "2025-12-26T20:26:00.776Z",
-        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1"
       }
     ],
     "error-debugging@claude-code-workflows": [
       {
-        "scope": "user",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
         "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/error-debugging/1.2.0",
         "version": "1.2.0",
         "installedAt": "2025-12-26T20:26:00.776Z",
-        "lastUpdated": "2025-12-26T20:26:00.776Z",
-        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1"
       }
     ],
     "error-diagnostics@claude-code-workflows": [
       {
-        "scope": "user",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
         "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/error-diagnostics/1.2.0",
         "version": "1.2.0",
         "installedAt": "2025-12-26T20:26:00.776Z",
-        "lastUpdated": "2025-12-26T20:26:00.776Z",
-        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1"
       }
     ],
     "framework-migration@claude-code-workflows": [
       {
-        "scope": "user",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
         "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/framework-migration/1.2.2",
         "version": "1.2.2",
         "installedAt": "2025-12-26T20:26:00.776Z",
-        "lastUpdated": "2025-12-26T20:26:00.776Z",
-        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1"
       }
     ],
     "frontend-mobile-development@claude-code-workflows": [
       {
-        "scope": "user",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
         "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/frontend-mobile-development/1.2.1",
         "version": "1.2.1",
         "installedAt": "2025-12-26T20:26:00.776Z",
-        "lastUpdated": "2025-12-26T20:26:00.776Z",
-        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1"
       }
     ],
     "frontend-mobile-security@claude-code-workflows": [
       {
-        "scope": "user",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
         "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/frontend-mobile-security/1.2.0",
         "version": "1.2.0",
         "installedAt": "2025-12-26T20:26:00.776Z",
-        "lastUpdated": "2025-12-26T20:26:00.776Z",
-        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1"
       }
     ],
     "full-stack-orchestration@claude-code-workflows": [
       {
-        "scope": "user",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
         "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/full-stack-orchestration/1.2.1",
         "version": "1.2.1",
         "installedAt": "2025-12-26T20:26:00.776Z",
-        "lastUpdated": "2025-12-26T20:26:00.776Z",
-        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1"
       }
     ],
     "git-pr-workflows@claude-code-workflows": [
       {
-        "scope": "user",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
         "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/git-pr-workflows/1.2.1",
         "version": "1.2.1",
         "installedAt": "2025-12-26T20:26:00.776Z",
-        "lastUpdated": "2025-12-26T20:26:00.776Z",
-        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1"
       }
     ],
     "javascript-typescript@claude-code-workflows": [
       {
-        "scope": "user",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
         "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/javascript-typescript/1.2.1",
         "version": "1.2.1",
         "installedAt": "2025-12-26T20:26:00.776Z",
-        "lastUpdated": "2025-12-26T20:26:00.776Z",
-        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1"
       }
     ],
     "multi-platform-apps@claude-code-workflows": [
       {
-        "scope": "user",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
         "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/multi-platform-apps/1.2.1",
         "version": "1.2.1",
         "installedAt": "2025-12-26T20:26:00.776Z",
-        "lastUpdated": "2025-12-26T20:26:00.776Z",
-        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1"
       }
     ],
     "observability-monitoring@claude-code-workflows": [
       {
-        "scope": "user",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
         "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/observability-monitoring/1.2.1",
         "version": "1.2.1",
         "installedAt": "2025-12-26T20:26:00.776Z",
-        "lastUpdated": "2025-12-26T20:26:00.776Z",
-        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1"
       }
     ],
     "performance-testing-review@claude-code-workflows": [
       {
-        "scope": "user",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
         "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/performance-testing-review/1.2.0",
         "version": "1.2.0",
         "installedAt": "2025-12-26T20:26:00.776Z",
-        "lastUpdated": "2025-12-26T20:26:00.776Z",
-        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1"
       }
     ],
     "python-development@claude-code-workflows": [
       {
-        "scope": "user",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
         "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/python-development/1.2.1",
         "version": "1.2.1",
         "installedAt": "2025-12-26T20:26:00.776Z",
-        "lastUpdated": "2025-12-26T20:26:00.776Z",
-        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1"
       }
     ],
     "quantitative-trading@claude-code-workflows": [
       {
-        "scope": "user",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
         "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/quantitative-trading/1.2.1",
         "version": "1.2.1",
         "installedAt": "2025-12-26T20:26:00.776Z",
-        "lastUpdated": "2025-12-26T20:26:00.776Z",
-        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1"
       }
     ],
     "security-scanning@claude-code-workflows": [
       {
-        "scope": "user",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
         "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/security-scanning/1.2.3",
         "version": "1.2.3",
         "installedAt": "2025-12-26T20:26:00.776Z",
-        "lastUpdated": "2025-12-26T20:26:00.776Z",
-        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1"
       }
     ],
     "seo-analysis-monitoring@claude-code-workflows": [
       {
-        "scope": "user",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
         "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/seo-analysis-monitoring/1.2.0",
         "version": "1.2.0",
         "installedAt": "2025-12-26T20:26:00.776Z",
-        "lastUpdated": "2025-12-26T20:26:00.776Z",
-        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1"
       }
     ],
     "seo-content-creation@claude-code-workflows": [
       {
-        "scope": "user",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
         "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/seo-content-creation/1.2.0",
         "version": "1.2.0",
         "installedAt": "2025-12-26T20:26:00.776Z",
-        "lastUpdated": "2025-12-26T20:26:00.776Z",
-        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1"
       }
     ],
     "seo-technical-optimization@claude-code-workflows": [
       {
-        "scope": "user",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
         "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/seo-technical-optimization/1.2.0",
         "version": "1.2.0",
         "installedAt": "2025-12-26T20:26:00.776Z",
-        "lastUpdated": "2025-12-26T20:26:00.776Z",
-        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1"
       }
     ],
     "shell-scripting@claude-code-workflows": [
       {
-        "scope": "user",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
         "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/shell-scripting/1.2.1",
         "version": "1.2.1",
         "installedAt": "2025-12-26T20:26:00.776Z",
-        "lastUpdated": "2025-12-26T20:26:00.776Z",
-        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1"
       }
     ],
     "tdd-workflows@claude-code-workflows": [
       {
-        "scope": "user",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
         "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/tdd-workflows/1.2.1",
         "version": "1.2.1",
         "installedAt": "2025-12-26T20:26:00.776Z",
-        "lastUpdated": "2025-12-26T20:26:00.776Z",
-        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1"
       }
     ],
     "unit-testing@claude-code-workflows": [
       {
-        "scope": "user",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
         "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/unit-testing/1.2.0",
         "version": "1.2.0",
         "installedAt": "2025-12-26T20:26:00.776Z",
-        "lastUpdated": "2025-12-26T20:26:00.776Z",
-        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1"
       }
     ],
     "web-scripting@claude-code-workflows": [
       {
-        "scope": "user",
+        "scope": "project",
+        "projectPath": "/Users/dev/Documents/github-projects/pai",
         "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/web-scripting/1.2.0",
         "version": "1.2.0",
         "installedAt": "2025-12-26T20:26:00.776Z",
-        "lastUpdated": "2025-12-26T20:26:00.776Z",
-        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1",
-        "isLocal": true
+        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1"
       }
     ]
   }
