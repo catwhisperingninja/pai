@@ -8,6 +8,29 @@ Icon
 .Trashes
 Library
 
+
+.claude/debug/*
+.claude/file-history/*
+.claude/ide/*
+.claude/plans/*
+.claude/plugins/cache/*
+.claude/projects/*
+.claude/shell-snapshots/*
+.claude/Tools/setup/*
+.claude/Tools/testing/*
+.claude/Tools/training/*
+.claude/Tools/validation/*
+.claude/session-env/*
+.claude/stats-cache.json
+.claude/stats-cache.json.tmp
+.claude/stats-cache.json.tmp.tmp
+.claude/stats-cache.json.tmp.tmp.tmp
+.claude/stats-cache.json.tmp.tmp.tmp.tmp
+.claude/stats-cache.json.tmp.tmp.tmp.tmp.tmp
+.claude/stats-cache.json.tmp.tmp.tmp.tmp.tmp.tmp
+.claude/stats-cache.json.tmp.tmp.tmp.tmp.tmp.tmp.tmp
+
+
 # Environment files
 .env
 .env.local
