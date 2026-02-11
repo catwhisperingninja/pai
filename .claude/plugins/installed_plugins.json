@@ -5,10 +5,10 @@
       {
         "scope": "project",
         "projectPath": "/Users/dev/Documents/github-projects/pai",
-        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/context7/236752ad9ab3",
-        "version": "236752ad9ab3",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/context7/2cd88e7947b7",
+        "version": "2cd88e7947b7",
         "installedAt": "2025-12-26T20:23:11.014Z",
-        "lastUpdated": "2026-02-06T14:51:05.429Z",
+        "lastUpdated": "2026-02-11T03:13:46.465Z",
         "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc"
       }
     ],
@@ -16,10 +16,10 @@
       {
         "scope": "project",
         "projectPath": "/Users/dev/Documents/github-projects/pai",
-        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/frontend-design/236752ad9ab3",
-        "version": "236752ad9ab3",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/frontend-design/2cd88e7947b7",
+        "version": "2cd88e7947b7",
         "installedAt": "2025-12-26T20:23:11.043Z",
-        "lastUpdated": "2026-02-06T14:51:05.447Z",
+        "lastUpdated": "2026-02-11T03:13:46.472Z",
         "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc"
       }
     ],
@@ -27,10 +27,10 @@
       {
         "scope": "project",
         "projectPath": "/Users/dev/Documents/github-projects/pai",
-        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/github/236752ad9ab3",
-        "version": "236752ad9ab3",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/github/2cd88e7947b7",
+        "version": "2cd88e7947b7",
         "installedAt": "2025-12-26T20:23:11.071Z",
-        "lastUpdated": "2026-02-06T14:51:05.474Z",
+        "lastUpdated": "2026-02-11T03:13:46.467Z",
         "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc"
       }
     ],
@@ -38,10 +38,10 @@
       {
         "scope": "project",
         "projectPath": "/Users/dev/Documents/github-projects/pai",
-        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/serena/236752ad9ab3",
-        "version": "236752ad9ab3",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/serena/2cd88e7947b7",
+        "version": "2cd88e7947b7",
         "installedAt": "2025-12-26T20:23:11.104Z",
-        "lastUpdated": "2026-02-06T14:51:05.497Z",
+        "lastUpdated": "2026-02-11T03:13:46.502Z",
         "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc"
       }
     ],
@@ -49,10 +49,10 @@
       {
         "scope": "project",
         "projectPath": "/Users/dev/Documents/github-projects/pai",
-        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/feature-dev/236752ad9ab3",
-        "version": "236752ad9ab3",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/feature-dev/2cd88e7947b7",
+        "version": "2cd88e7947b7",
         "installedAt": "2025-12-26T20:23:11.136Z",
-        "lastUpdated": "2026-02-06T14:51:05.478Z",
+        "lastUpdated": "2026-02-11T03:13:46.515Z",
         "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc"
       }
     ],
@@ -60,10 +60,10 @@
       {
         "scope": "project",
         "projectPath": "/Users/dev/Documents/github-projects/pai",
-        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/code-review/236752ad9ab3",
-        "version": "236752ad9ab3",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/code-review/2cd88e7947b7",
+        "version": "2cd88e7947b7",
         "installedAt": "2025-12-26T20:23:11.166Z",
-        "lastUpdated": "2026-02-06T14:51:05.494Z",
+        "lastUpdated": "2026-02-11T03:13:46.470Z",
         "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc"
       }
     ],
@@ -71,10 +71,10 @@
       {
         "scope": "project",
         "projectPath": "/Users/dev/Documents/github-projects/pai",
-        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/commit-commands/236752ad9ab3",
-        "version": "236752ad9ab3",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/commit-commands/2cd88e7947b7",
+        "version": "2cd88e7947b7",
         "installedAt": "2025-12-26T20:23:11.199Z",
-        "lastUpdated": "2026-02-06T14:51:05.492Z",
+        "lastUpdated": "2026-02-11T03:13:46.507Z",
         "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc"
       }
     ],
@@ -82,10 +82,10 @@
       {
         "scope": "project",
         "projectPath": "/Users/dev/Documents/github-projects/pai",
-        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/security-guidance/236752ad9ab3",
-        "version": "236752ad9ab3",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/security-guidance/2cd88e7947b7",
+        "version": "2cd88e7947b7",
         "installedAt": "2025-12-26T20:23:11.230Z",
-        "lastUpdated": "2026-02-06T14:51:05.437Z",
+        "lastUpdated": "2026-02-11T03:13:46.522Z",
         "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc"
       }
     ],
@@ -93,10 +93,10 @@
       {
         "scope": "project",
         "projectPath": "/Users/dev/Documents/github-projects/pai",
-        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/agent-sdk-dev/236752ad9ab3",
-        "version": "236752ad9ab3",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/agent-sdk-dev/2cd88e7947b7",
+        "version": "2cd88e7947b7",
         "installedAt": "2025-12-26T20:23:11.261Z",
-        "lastUpdated": "2026-02-06T14:51:05.476Z",
+        "lastUpdated": "2026-02-11T03:13:46.540Z",
         "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc"
       }
     ],
@@ -104,10 +104,10 @@
       {
         "scope": "project",
         "projectPath": "/Users/dev/Documents/github-projects/pai",
-        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/pr-review-toolkit/236752ad9ab3",
-        "version": "236752ad9ab3",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/pr-review-toolkit/2cd88e7947b7",
+        "version": "2cd88e7947b7",
         "installedAt": "2025-12-26T20:23:11.305Z",
-        "lastUpdated": "2026-02-06T14:51:05.443Z",
+        "lastUpdated": "2026-02-11T03:13:46.512Z",
         "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc"
       }
     ],
@@ -115,10 +115,10 @@
       {
         "scope": "project",
         "projectPath": "/Users/dev/Documents/github-projects/pai",
-        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/playwright/236752ad9ab3",
-        "version": "236752ad9ab3",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/playwright/2cd88e7947b7",
+        "version": "2cd88e7947b7",
         "installedAt": "2025-12-26T20:23:11.340Z",
-        "lastUpdated": "2026-02-06T14:51:05.471Z",
+        "lastUpdated": "2026-02-11T03:13:46.519Z",
         "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc"
       }
     ],
@@ -126,10 +126,10 @@
       {
         "scope": "project",
         "projectPath": "/Users/dev/Documents/github-projects/pai",
-        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/explanatory-output-style/236752ad9ab3",
-        "version": "236752ad9ab3",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/explanatory-output-style/2cd88e7947b7",
+        "version": "2cd88e7947b7",
         "installedAt": "2025-12-26T20:23:11.369Z",
-        "lastUpdated": "2026-02-06T14:51:05.452Z",
+        "lastUpdated": "2026-02-11T03:13:46.537Z",
         "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc"
       }
     ],
@@ -159,10 +159,10 @@
       {
         "scope": "project",
         "projectPath": "/Users/dev/Documents/github-projects/pai",
-        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/plugin-dev/236752ad9ab3",
-        "version": "236752ad9ab3",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/plugin-dev/2cd88e7947b7",
+        "version": "2cd88e7947b7",
         "installedAt": "2025-12-26T20:23:11.498Z",
-        "lastUpdated": "2026-02-06T14:51:05.469Z",
+        "lastUpdated": "2026-02-11T03:13:46.500Z",
         "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc"
       }
     ],
@@ -170,10 +170,10 @@
       {
         "scope": "project",
         "projectPath": "/Users/dev/Documents/github-projects/pai",
-        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/laravel-boost/236752ad9ab3",
-        "version": "236752ad9ab3",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/laravel-boost/2cd88e7947b7",
+        "version": "2cd88e7947b7",
         "installedAt": "2025-12-26T20:23:11.536Z",
-        "lastUpdated": "2026-02-06T14:51:05.487Z",
+        "lastUpdated": "2026-02-11T03:13:46.504Z",
         "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc"
       }
     ],
@@ -181,10 +181,10 @@
       {
         "scope": "project",
         "projectPath": "/Users/dev/Documents/github-projects/pai",
-        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/hookify/236752ad9ab3",
-        "version": "236752ad9ab3",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/hookify/2cd88e7947b7",
+        "version": "2cd88e7947b7",
         "installedAt": "2025-12-26T20:23:11.576Z",
-        "lastUpdated": "2026-02-06T14:51:05.504Z",
+        "lastUpdated": "2026-02-11T03:13:46.534Z",
         "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc"
       }
     ],
@@ -192,10 +192,10 @@
       {
         "scope": "project",
         "projectPath": "/Users/dev/Documents/github-projects/pai",
-        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/learning-output-style/236752ad9ab3",
-        "version": "236752ad9ab3",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/learning-output-style/2cd88e7947b7",
+        "version": "2cd88e7947b7",
         "installedAt": "2025-12-26T20:23:11.619Z",
-        "lastUpdated": "2026-02-06T14:51:05.481Z",
+        "lastUpdated": "2026-02-11T03:13:46.518Z",
         "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc"
       }
     ],
@@ -214,10 +214,10 @@
       {
         "scope": "project",
         "projectPath": "/Users/dev/Documents/github-projects/pai",
-        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/greptile/236752ad9ab3",
-        "version": "236752ad9ab3",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/greptile/2cd88e7947b7",
+        "version": "2cd88e7947b7",
         "installedAt": "2025-12-26T20:23:12.514Z",
-        "lastUpdated": "2026-02-06T14:51:05.484Z",
+        "lastUpdated": "2026-02-11T03:13:46.524Z",
         "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc"
       }
     ],
@@ -236,10 +236,10 @@
       {
         "scope": "project",
         "projectPath": "/Users/dev/Documents/github-projects/pai",
-        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/gitlab/236752ad9ab3",
-        "version": "236752ad9ab3",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/gitlab/2cd88e7947b7",
+        "version": "2cd88e7947b7",
         "installedAt": "2025-12-26T20:23:12.570Z",
-        "lastUpdated": "2026-02-06T14:51:05.433Z",
+        "lastUpdated": "2026-02-11T03:13:46.541Z",
         "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc"
       }
     ],
@@ -247,10 +247,10 @@
       {
         "scope": "project",
         "projectPath": "/Users/dev/Documents/github-projects/pai",
-        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/slack/236752ad9ab3",
-        "version": "236752ad9ab3",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/slack/2cd88e7947b7",
+        "version": "2cd88e7947b7",
         "installedAt": "2025-12-26T20:23:12.598Z",
-        "lastUpdated": "2026-02-06T14:51:05.472Z",
+        "lastUpdated": "2026-02-11T03:13:46.543Z",
         "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc"
       }
     ],
@@ -280,10 +280,10 @@
       {
         "scope": "project",
         "projectPath": "/Users/dev/Documents/github-projects/pai",
-        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/firebase/236752ad9ab3",
-        "version": "236752ad9ab3",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/firebase/2cd88e7947b7",
+        "version": "2cd88e7947b7",
         "installedAt": "2025-12-26T20:23:13.240Z",
-        "lastUpdated": "2026-02-06T14:51:05.449Z",
+        "lastUpdated": "2026-02-11T03:13:46.544Z",
         "gitCommitSha": "f8a04c305af77160624e9cabea9152fe6f11bfdc"
       }
     ],
@@ -324,10 +324,10 @@
       {
         "scope": "project",
         "projectPath": "/Users/dev/Documents/github-projects/pai",
-        "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/application-performance/1.2.1",
-        "version": "1.2.1",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/application-performance/1.3.0",
+        "version": "1.3.0",
         "installedAt": "2025-12-26T20:26:00.776Z",
-        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "lastUpdated": "2026-02-11T03:13:46.453Z",
         "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1"
       }
     ],
@@ -346,10 +346,10 @@
       {
         "scope": "project",
         "projectPath": "/Users/dev/Documents/github-projects/pai",
-        "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/backend-development/1.2.4",
-        "version": "1.2.4",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/backend-development/1.3.0",
+        "version": "1.3.0",
         "installedAt": "2025-12-26T20:26:00.776Z",
-        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "lastUpdated": "2026-02-11T03:13:46.454Z",
         "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1"
       }
     ],
@@ -456,10 +456,10 @@
       {
         "scope": "project",
         "projectPath": "/Users/dev/Documents/github-projects/pai",
-        "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/comprehensive-review/1.2.1",
-        "version": "1.2.1",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/comprehensive-review/1.3.0",
+        "version": "1.3.0",
         "installedAt": "2025-12-26T20:26:00.776Z",
-        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "lastUpdated": "2026-02-11T03:13:46.455Z",
         "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1"
       }
     ],
@@ -478,10 +478,10 @@
       {
         "scope": "project",
         "projectPath": "/Users/dev/Documents/github-projects/pai",
-        "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/data-engineering/1.2.2",
-        "version": "1.2.2",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/data-engineering/1.3.0",
+        "version": "1.3.0",
         "installedAt": "2025-12-26T20:26:00.776Z",
-        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "lastUpdated": "2026-02-11T03:13:46.456Z",
         "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1"
       }
     ],
@@ -632,10 +632,10 @@
       {
         "scope": "project",
         "projectPath": "/Users/dev/Documents/github-projects/pai",
-        "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/framework-migration/1.2.2",
-        "version": "1.2.2",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/framework-migration/1.3.0",
+        "version": "1.3.0",
         "installedAt": "2025-12-26T20:26:00.776Z",
-        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "lastUpdated": "2026-02-11T03:13:46.457Z",
         "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1"
       }
     ],
@@ -665,10 +665,10 @@
       {
         "scope": "project",
         "projectPath": "/Users/dev/Documents/github-projects/pai",
-        "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/full-stack-orchestration/1.2.1",
-        "version": "1.2.1",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/full-stack-orchestration/1.3.0",
+        "version": "1.3.0",
         "installedAt": "2025-12-26T20:26:00.776Z",
-        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "lastUpdated": "2026-02-11T03:13:46.458Z",
         "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1"
       }
     ],
@@ -676,10 +676,10 @@
       {
         "scope": "project",
         "projectPath": "/Users/dev/Documents/github-projects/pai",
-        "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/git-pr-workflows/1.2.1",
-        "version": "1.2.1",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/git-pr-workflows/1.3.0",
+        "version": "1.3.0",
         "installedAt": "2025-12-26T20:26:00.776Z",
-        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "lastUpdated": "2026-02-11T03:13:46.459Z",
         "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1"
       }
     ],
@@ -698,10 +698,10 @@
       {
         "scope": "project",
         "projectPath": "/Users/dev/Documents/github-projects/pai",
-        "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/multi-platform-apps/1.2.1",
-        "version": "1.2.1",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/multi-platform-apps/1.3.0",
+        "version": "1.3.0",
         "installedAt": "2025-12-26T20:26:00.776Z",
-        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "lastUpdated": "2026-02-11T03:13:46.460Z",
         "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1"
       }
     ],
@@ -753,10 +753,10 @@
       {
         "scope": "project",
         "projectPath": "/Users/dev/Documents/github-projects/pai",
-        "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/security-scanning/1.2.3",
-        "version": "1.2.3",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/security-scanning/1.3.0",
+        "version": "1.3.0",
         "installedAt": "2025-12-26T20:26:00.776Z",
-        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "lastUpdated": "2026-02-11T03:13:46.461Z",
         "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1"
       }
     ],
@@ -808,10 +808,10 @@
       {
         "scope": "project",
         "projectPath": "/Users/dev/Documents/github-projects/pai",
-        "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/tdd-workflows/1.2.1",
-        "version": "1.2.1",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/tdd-workflows/1.3.0",
+        "version": "1.3.0",
         "installedAt": "2025-12-26T20:26:00.776Z",
-        "lastUpdated": "2026-02-06T14:48:14.229Z",
+        "lastUpdated": "2026-02-11T03:13:46.462Z",
         "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1"
       }
     ],

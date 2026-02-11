@@ -6,6 +6,7 @@ import { existsSync, writeFileSync, mkdirSync } from 'fs';
 import { join } from 'path';
 import { homedir } from 'os';
 import { sendEventToObservability, getCurrentTimestamp, getSourceApp } from './lib/observability';
+import { writeState, ensureMemoryStructure } from './lib/memory';
 
 interface SessionStartPayload {
   session_id: string;
@@ -95,28 +96,21 @@ async function main() {
     const projectName = getProjectName(payload.cwd);
     setTabTitle(`🤖 ${projectName}`);
 
-    // 2. Ensure required directories exist
-    const requiredDirs = [
-      join(paiDir, 'hooks', 'lib'),
-      join(paiDir, 'history', 'sessions'),
-      join(paiDir, 'history', 'learnings'),
-      join(paiDir, 'history', 'research'),
-    ];
+    // 2. Ensure MEMORY structure exists (creates dirs + seeds State files)
+    ensureMemoryStructure();
 
-    for (const dir of requiredDirs) {
-      if (!existsSync(dir)) {
-        mkdirSync(dir, { recursive: true });
-      }
-    }
-
-    // 3. Create session marker file (optional - for tracking)
-    const sessionFile = join(paiDir, '.current-session');
-    writeFileSync(sessionFile, JSON.stringify({
+    // 3. Write active session to MEMORY/State (used by capture-session on Stop)
+    const sessionData = {
       session_id: payload.session_id,
-      started: getLocalTimestamp(),
-      cwd: payload.cwd,
+      started: new Date().toISOString(),
+      cwd: payload.cwd || process.cwd(),
       project: projectName
-    }, null, 2));
+    };
+    writeState('active-session.json', sessionData);
+
+    // Also write legacy .current-session for backwards compatibility
+    const sessionFile = join(paiDir, '.current-session');
+    writeFileSync(sessionFile, JSON.stringify(sessionData, null, 2));
 
     // 4. Send to observability dashboard
     await sendEventToObservability({

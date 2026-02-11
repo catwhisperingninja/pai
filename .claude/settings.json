@@ -106,6 +106,10 @@
           {
             "type": "command",
             "command": "${PAI_DIR}/Hooks/stop-hook-voice.ts"
+          },
+          {
+            "type": "command",
+            "command": "${PAI_DIR}/Hooks/capture-session.ts"
           }
         ]
       }
