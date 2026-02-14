@@ -168,6 +168,7 @@ function extractVoiceMessage(text: string): string | null {
  */
 function getLastAssistantMessage(transcriptPath: string): string {
   try {
+    if (!existsSync(transcriptPath)) return '';
     const content = readFileSync(transcriptPath, 'utf-8');
     const lines = content.trim().split('\n');
 
@@ -250,8 +251,18 @@ async function main() {
   // Extract voice message from the last response
   let voiceMessage: string | null = null;
 
-  if (hookInput && hookInput.transcript_path && hookInput.transcript_path.includes('.claude/')) {
-    const lastMessage = getLastAssistantMessage(hookInput.transcript_path);
+  if (hookInput && hookInput.transcript_path) {
+    // Expand ~ — Node/Bun fs APIs don't handle shell tilde expansion
+    const transcriptPath = hookInput.transcript_path.startsWith('~')
+      ? hookInput.transcript_path.replace(/^~/, homedir())
+      : hookInput.transcript_path;
+
+    if (!transcriptPath.includes('.claude/')) {
+      console.error('[PAI] Rejected transcript_path: not within .claude/');
+      process.exit(0);
+    }
+
+    const lastMessage = getLastAssistantMessage(transcriptPath);
     if (lastMessage) {
       voiceMessage = extractVoiceMessage(lastMessage);
     }

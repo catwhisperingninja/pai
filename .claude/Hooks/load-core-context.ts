@@ -2,7 +2,7 @@
 // $PAI_DIR/hooks/load-core-context.ts
 // SessionStart hook: Inject skill/context files into Claude's context
 
-import { existsSync, readFileSync } from 'fs';
+import { existsSync, readFileSync, readdirSync } from 'fs';
 import { join } from 'path';
 import { homedir } from 'os';
 
@@ -65,6 +65,52 @@ async function main() {
     // Read the skill content
     const skillContent = readFileSync(coreSkillPath, 'utf-8');
 
+    // Build MEMORY status summary
+    const memDir = join(paiDir, 'MEMORY');
+    let memoryStatus = '';
+    try {
+      if (existsSync(memDir)) {
+        const lines: string[] = [];
+        lines.push('## MEMORY System (Active)');
+        lines.push(`Location: ${memDir}`);
+        lines.push('Dirs: sessions/, raw-outputs/, State/, Signals/, Learning/, Work/, decisions/');
+
+        // Show recent sessions
+        const now = new Date();
+        const ym = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
+        const sessDir = join(memDir, 'sessions', ym);
+        if (existsSync(sessDir)) {
+          const files = readdirSync(sessDir).filter(f => f.endsWith('.md')).sort().reverse().slice(0, 3);
+          if (files.length > 0) {
+            lines.push(`Recent sessions (${ym}): ${files.join(', ')}`);
+          }
+        }
+
+        // Show last session summary (most recent .md file)
+        const lastSessionDir = join(memDir, 'sessions');
+        if (existsSync(lastSessionDir)) {
+          const months = readdirSync(lastSessionDir).filter(f => !f.startsWith('.')).sort().reverse();
+          for (const month of months) {
+            const mDir = join(lastSessionDir, month);
+            const mFiles = readdirSync(mDir).filter(f => f.endsWith('.md')).sort().reverse();
+            if (mFiles.length > 0) {
+              const lastFile = join(mDir, mFiles[0]);
+              const content = readFileSync(lastFile, 'utf-8');
+              // Extract just the frontmatter or first ~20 lines
+              const preview = content.split('\n').slice(0, 20).join('\n');
+              lines.push(`\nLast session file: sessions/${month}/${mFiles[0]}`);
+              lines.push('```');
+              lines.push(preview);
+              lines.push('```');
+              break;
+            }
+          }
+        }
+
+        memoryStatus = '\n\n' + lines.join('\n');
+      }
+    } catch { /* silent — MEMORY status is best-effort */ }
+
     // Output as system-reminder for Claude to process
     // This format is recognized by Claude Code
     const output = `<system-reminder>
@@ -75,6 +121,7 @@ PAI CORE CONTEXT (Auto-loaded at Session Start)
 The following context has been loaded from ${coreSkillPath}:
 
 ${skillContent}
+${memoryStatus}
 
 This context is now active for this session. Follow all instructions, preferences, and guidelines contained above.
 </system-reminder>

@@ -13,6 +13,15 @@ import {
   writeState,
 } from './lib/memory';
 import { join } from 'path';
+import { homedir } from 'os';
+
+/**
+ * Expand leading ~ to the user's home directory.
+ * Node/Bun fs APIs don't handle ~ — only the shell does.
+ */
+function expandTilde(p: string): string {
+  return p.startsWith('~') ? p.replace(/^~/, homedir()) : p;
+}
 
 interface StopPayload {
   session_id: string;
@@ -146,8 +155,13 @@ async function main() {
     const payload: StopPayload = JSON.parse(stdinData);
     const mem = getMemoryDir();
 
+    // Resolve transcript path (Claude Code sends ~ which fs APIs don't expand)
+    const transcriptPath = payload.transcript_path
+      ? expandTilde(payload.transcript_path)
+      : '';
+
     // Validate transcript path (defense-in-depth against path traversal)
-    if (payload.transcript_path && !payload.transcript_path.includes('.claude/')) {
+    if (transcriptPath && !transcriptPath.includes('.claude/')) {
       console.error('[PAI] Rejected transcript_path: not within .claude/');
       process.exit(0);
     }
@@ -160,7 +174,7 @@ async function main() {
     }
 
     // Parse transcript stats
-    const stats = parseTranscript(payload.transcript_path);
+    const stats = parseTranscript(transcriptPath);
 
     // Calculate duration
     const startTime = new Date(session.started).getTime();
