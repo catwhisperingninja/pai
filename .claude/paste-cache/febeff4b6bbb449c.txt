@@ -1,0 +1,110 @@
+brew upgrade 
+✔︎ JSON API formula.jws.json                                                                                                     Downloaded   32.0MB/ 32.0MB
+✔︎ JSON API cask.jws.json                                                                                                        Downloaded   15.3MB/ 15.3MB
+==> Upgrading 8 outdated packages:
+go 1.25.7_1 -> 1.26.0
+libuv 1.51.0 -> 1.52.0
+grafana-alloy 1.12.2 -> 1.13.1
+gemini-cli 0.28.0 -> 0.28.2
+glab 1.82.0 -> 1.85.1
+jupyterlab 4.5.3_1 -> 4.5.4
+node 25.6.0 -> 25.6.1
+skillshare 0.11.3 -> 0.12.7
+==> Fetching downloads for: skillshare, libuv, grafana-alloy, node, gemini-cli, glab, jupyterlab and go
+✔︎ Bottle libuv (1.52.0)                                                                                                         Downloaded  375.0KB/375.0KB
+✔︎ Bottle skillshare (0.12.7)                                                                                                    Downloaded    4.4MB/  4.4MB
+✔︎ Bottle node (25.6.1)                                                                                                          Downloaded   18.3MB/ 18.3MB
+✔︎ Bottle glab (1.85.1)                                                                                                          Downloaded   15.9MB/ 15.9MB
+✔︎ Bottle jupyterlab (4.5.4)                                                                                                     Downloaded   46.6MB/ 46.6MB
+✔︎ Bottle grafana-alloy (1.13.1)                                                                                                 Downloaded   85.5MB/ 85.5MB
+✔︎ Bottle go (1.26.0)                                                                                                            Downloaded   64.0MB/ 64.0MB
+✔︎ Bottle gemini-cli (0.28.2)                                                                                                    Downloaded   58.9MB/ 58.9MB
+==> Upgrading skillshare
+  0.11.3 -> 0.12.7 
+==> Pouring skillshare--0.12.7.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/skillshare/0.12.7: 7 files, 11.4MB
+==> Running `brew cleanup skillshare`...
+Disable this behaviour by setting `HOMEBREW_NO_INSTALL_CLEANUP=1`.
+Hide these hints with `HOMEBREW_NO_ENV_HINTS=1` (see `man brew`).
+Removing: /opt/homebrew/Cellar/skillshare/0.11.3... (7 files, 10.9MB)
+Removing: /Users/dev/Library/Caches/Homebrew/skillshare_bottle_manifest--0.11.3... (7.4KB)
+Removing: /Users/dev/Library/Caches/Homebrew/skillshare--0.11.3... (4.3MB)
+==> Upgrading libuv
+  1.51.0 -> 1.52.0 
+==> Pouring libuv--1.52.0.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/libuv/1.52.0: 35 files, 1.3MB
+==> Running `brew cleanup libuv`...
+Removing: /opt/homebrew/Cellar/libuv/1.51.0... (20 files, 1.2MB)
+==> Upgrading grafana-alloy
+  1.12.2 -> 1.13.1 
+==> Pouring grafana-alloy--1.13.1.arm64_tahoe.bottle.tar.gz
+==> Caveats
+Alloy configuration directory is /opt/homebrew/etc/grafana-alloy
+
+To start grafana-alloy now and restart at login:
+  brew services start grafana-alloy
+Or, if you don't want/need a background service you can just run:
+  /opt/homebrew/opt/grafana-alloy/bin/alloy run --storage.path\=/opt/homebrew/var/lib/grafana-alloy/data /opt/homebrew/etc/grafana-alloy
+==> Summary
+🍺  /opt/homebrew/Cellar/grafana-alloy/1.13.1: 12 files, 341MB
+==> Running `brew cleanup grafana-alloy`...
+Removing: /opt/homebrew/Cellar/grafana-alloy/1.12.2... (12 files, 337.2MB)
+Removing: /Users/dev/Library/Caches/Homebrew/grafana-alloy_bottle_manifest--1.12.2... (15.4KB)
+Removing: /Users/dev/Library/Caches/Homebrew/grafana-alloy--1.12.2... (83.9MB)
+==> Upgrading node
+  25.6.0 -> 25.6.1 
+==> Pouring node--25.6.1.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/node/25.6.1: 1,931 files, 77.3MB
+==> Running `brew cleanup node`...
+Removing: /opt/homebrew/Cellar/node/25.6.0... (1,932 files, 77.4MB)
+Removing: /Users/dev/Library/Caches/Homebrew/node_bottle_manifest--25.6.0... (27.5KB)
+Removing: /Users/dev/Library/Caches/Homebrew/node--25.6.0... (18.3MB)
+==> Upgrading gemini-cli
+  0.28.0 -> 0.28.2 
+==> Pouring gemini-cli--0.28.2.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/gemini-cli/0.28.2: 44,734 files, 331.2MB
+==> Running `brew cleanup gemini-cli`...
+Removing: /opt/homebrew/Cellar/gemini-cli/0.28.0... (44,732 files, 324.7MB)
+Removing: /Users/dev/Library/Caches/Homebrew/gemini-cli_bottle_manifest--0.28.0... (74.2KB)
+Removing: /Users/dev/Library/Caches/Homebrew/gemini-cli--0.28.0... (52.4MB)
+==> Upgrading glab
+  1.82.0 -> 1.85.1 
+==> Pouring glab--1.85.1.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/glab/1.85.1: 10 files, 46.9MB
+==> Running `brew cleanup glab`...
+Removing: /opt/homebrew/Cellar/glab/1.82.0... (10 files, 44.6MB)
+Removing: /Users/dev/Library/Caches/Homebrew/glab_bottle_manifest--1.82.0... (7.4KB)
+Removing: /Users/dev/Library/Caches/Homebrew/glab--1.82.0... (15.5MB)
+==> Upgrading jupyterlab
+  4.5.3_1 -> 4.5.4 
+==> Pouring jupyterlab--4.5.4.arm64_tahoe.bottle.tar.gz
+==> Caveats
+Additional kernels can be installed into the shared jupyter directory
+  /opt/homebrew/etc/jupyter
+
+To start jupyterlab now and restart at login:
+  brew services start jupyterlab
+Or, if you don't want/need a background service you can just run:
+  /opt/homebrew/opt/jupyterlab/bin/jupyter-lab
+==> Summary
+🍺  /opt/homebrew/Cellar/jupyterlab/4.5.4: 8,942 files, 183.4MB
+==> Running `brew cleanup jupyterlab`...
+Removing: /opt/homebrew/Cellar/jupyterlab/4.5.3_1... (8,945 files, 183.5MB)
+Removing: /Users/dev/Library/Caches/Homebrew/jupyterlab_bottle_manifest--4.5.3_1... (44.8KB)
+Removing: /Users/dev/Library/Caches/Homebrew/jupyterlab--4.5.3_1... (46.6MB)
+==> Upgrading go
+  1.25.7_1 -> 1.26.0 
+==> Pouring go--1.26.0.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/go/1.26.0: 14,925 files, 228.4MB
+==> Running `brew cleanup go`...
+Removing: /opt/homebrew/Cellar/go/1.25.7_1... (14,442 files, 203.3MB)
+Removing: /Users/dev/Library/Caches/Homebrew/go_bottle_manifest--1.25.7_1... (7.5KB)
+Removing: /Users/dev/Library/Caches/Homebrew/go--1.25.7_1... (57.5MB)
+==> Casks with 'auto_updates true' or 'version :latest' will not be upgraded; pass `--greedy` to upgrade them.
+==> Fetching downloads for: claude-code
+✔︎ Cask claude-code (2.1.42)                                                                                                     Verified    183.4MB/183.4MB
+==> Upgrading 1 outdated package:
+claude-code 2.1.39 -> 2.1.42
+==> Upgrading claude-code
+==> Purging files for version 2.1.42 of Cask claude-code
+Error: claude-code: No such file or directory @ rb_file_s_mtime - /Users/dev/Library/Caches/Homebrew/downloads/36e962bbfa42fdcca2efdf1d2fadc46152a65b1620577d4dfdc0121c6a3f6464--claude
