@@ -836,6 +836,138 @@
         "lastUpdated": "2026-02-06T14:48:14.229Z",
         "gitCommitSha": "e4dade12847a99d277d81192c2966e9b61c0d3f1"
       }
+    ],
+    "code-simplifier@claude-plugins-official": [
+      {
+        "scope": "project",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/code-simplifier/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-02-14T10:44:20.538Z",
+        "lastUpdated": "2026-02-14T11:15:30.895Z",
+        "gitCommitSha": "2cd88e7947b7382e045666abee790c7f55f669f3",
+        "projectPath": "/Users/dev/Documents/github-projects/pai"
+      }
+    ],
+    "superpowers@claude-plugins-official": [
+      {
+        "scope": "project",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/superpowers/4.3.0",
+        "version": "4.3.0",
+        "installedAt": "2026-02-14T10:44:21.336Z",
+        "lastUpdated": "2026-02-14T11:15:30.895Z",
+        "gitCommitSha": "e16d611eee14ac4c3253b4bf4c55a98d905c2e64",
+        "projectPath": "/Users/dev/Documents/github-projects/pai"
+      }
+    ],
+    "ralph-loop@claude-plugins-official": [
+      {
+        "scope": "project",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/ralph-loop/2cd88e7947b7",
+        "version": "2cd88e7947b7",
+        "installedAt": "2026-02-14T10:44:21.344Z",
+        "lastUpdated": "2026-02-14T11:15:30.895Z",
+        "gitCommitSha": "2cd88e7947b7382e045666abee790c7f55f669f3",
+        "projectPath": "/Users/dev/Documents/github-projects/pai"
+      }
+    ],
+    "claude-md-management@claude-plugins-official": [
+      {
+        "scope": "project",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/claude-md-management/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-02-14T10:44:21.355Z",
+        "lastUpdated": "2026-02-14T11:15:30.895Z",
+        "gitCommitSha": "2cd88e7947b7382e045666abee790c7f55f669f3",
+        "projectPath": "/Users/dev/Documents/github-projects/pai"
+      }
+    ],
+    "claude-code-setup@claude-plugins-official": [
+      {
+        "scope": "project",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/claude-code-setup/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-02-14T10:44:21.373Z",
+        "lastUpdated": "2026-02-14T11:15:30.895Z",
+        "gitCommitSha": "2cd88e7947b7382e045666abee790c7f55f669f3",
+        "projectPath": "/Users/dev/Documents/github-projects/pai"
+      }
+    ],
+    "coderabbit@claude-plugins-official": [
+      {
+        "scope": "project",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/coderabbit/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-02-14T10:44:22.031Z",
+        "lastUpdated": "2026-02-14T11:15:30.895Z",
+        "gitCommitSha": "51651e86d8d71e150e13313f43298f212abb47db",
+        "projectPath": "/Users/dev/Documents/github-projects/pai"
+      }
+    ],
+    "agent-orchestration@claude-code-workflows": [
+      {
+        "scope": "project",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/agent-orchestration/1.2.0",
+        "version": "1.2.0",
+        "installedAt": "2026-02-14T10:44:22.040Z",
+        "lastUpdated": "2026-02-14T11:15:30.895Z",
+        "gitCommitSha": "5d65aa10638bcc1b390738e11f9bff213f61955a",
+        "projectPath": "/Users/dev/Documents/github-projects/pai"
+      }
+    ],
+    "agent-teams@claude-code-workflows": [
+      {
+        "scope": "project",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/agent-teams/1.0.2",
+        "version": "1.0.2",
+        "installedAt": "2026-02-14T10:44:22.061Z",
+        "lastUpdated": "2026-02-14T11:15:30.895Z",
+        "gitCommitSha": "5d65aa10638bcc1b390738e11f9bff213f61955a",
+        "projectPath": "/Users/dev/Documents/github-projects/pai"
+      }
+    ],
+    "context-management@claude-code-workflows": [
+      {
+        "scope": "project",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/context-management/1.2.0",
+        "version": "1.2.0",
+        "installedAt": "2026-02-14T10:44:22.070Z",
+        "lastUpdated": "2026-02-14T11:15:30.895Z",
+        "gitCommitSha": "5d65aa10638bcc1b390738e11f9bff213f61955a",
+        "projectPath": "/Users/dev/Documents/github-projects/pai"
+      }
+    ],
+    "superpowers@superpowers-dev": [
+      {
+        "scope": "project",
+        "installPath": "/Users/dev/.claude/plugins/cache/superpowers-dev/superpowers/4.3.0",
+        "version": "4.3.0",
+        "installedAt": "2026-02-14T10:45:21.049Z",
+        "lastUpdated": "2026-02-14T11:15:30.895Z",
+        "gitCommitSha": "e16d611eee14ac4c3253b4bf4c55a98d905c2e64",
+        "projectPath": "/Users/dev/Documents/github-projects/pai"
+      }
+    ],
+    "atomic-agents@brainblend-plugins": [
+      {
+        "scope": "project",
+        "installPath": "/Users/dev/.claude/plugins/cache/brainblend-plugins/atomic-agents/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-02-14T10:51:50.670Z",
+        "lastUpdated": "2026-02-14T11:15:30.895Z",
+        "gitCommitSha": "f17a2e221b201e4f9975d8e064c06b2178f40fa2",
+        "projectPath": "/Users/dev/Documents/github-projects/pai"
+      }
+    ],
+    "canvas@claude-canvas": [
+      {
+        "scope": "project",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-canvas/canvas/0.1.0",
+        "version": "0.1.0",
+        "installedAt": "2026-02-14T10:55:26.750Z",
+        "lastUpdated": "2026-02-14T11:15:30.895Z",
+        "gitCommitSha": "2a88ac56bc38e5ab37c5619952686f757935ab80",
+        "projectPath": "/Users/dev/Documents/github-projects/pai"
+      }
     ]
   }
 }
