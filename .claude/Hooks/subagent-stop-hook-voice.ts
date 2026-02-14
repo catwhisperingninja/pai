@@ -34,9 +34,27 @@ import { join } from 'path';
 import { homedir } from 'os';
 import { enhanceProsody, cleanForSpeech } from './lib/prosody-enhancer';
 
+// Load .env from PAI_DIR (API keys no longer in settings.json)
+const PAI_DIR = process.env.PAI_DIR || join(homedir(), '.claude');
+try {
+  const envPath = join(PAI_DIR, '.env');
+  if (existsSync(envPath)) {
+    const envContent = readFileSync(envPath, 'utf-8');
+    for (const line of envContent.split('\n')) {
+      const trimmed = line.trim();
+      if (!trimmed || trimmed.startsWith('#')) continue;
+      const eqIdx = trimmed.indexOf('=');
+      if (eqIdx > 0) {
+        const key = trimmed.substring(0, eqIdx);
+        const val = trimmed.substring(eqIdx + 1);
+        if (!process.env[key]) process.env[key] = val;
+      }
+    }
+  }
+} catch { /* silent */ }
+
 // Configuration
 const VOICE_SERVER_URL = process.env.VOICE_SERVER_URL || 'http://localhost:8888';
-const PAI_DIR = process.env.PAI_DIR || join(homedir(), '.config', 'pai');
 
 // Voice personalities configuration
 interface VoicePersonality {
@@ -285,7 +303,7 @@ async function main() {
   // Extract voice message from the last response
   let extracted: { message: string; agentName: string | null } | null = null;
 
-  if (hookInput && hookInput.transcript_path) {
+  if (hookInput && hookInput.transcript_path && hookInput.transcript_path.includes('.claude/')) {
     const lastMessage = getLastAssistantMessage(hookInput.transcript_path);
     if (lastMessage) {
       extracted = extractVoiceMessage(lastMessage);

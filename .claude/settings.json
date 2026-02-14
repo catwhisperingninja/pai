@@ -6,8 +6,7 @@
     "PAI_SOURCE_APP": "Pi",
     "TIME_ZONE": "America/Los_Angeles",
     "PAI_SIMPLE_COLORS": "0",
-    "CLAUDE_CODE_MAX_OUTPUT_TOKENS": "64000",
-    "ELEVENLABS_API_KEY": "sk_5191bbc26f31eea695db3bc9ca63dd2add15f0ada336821f"
+    "CLAUDE_CODE_MAX_OUTPUT_TOKENS": "64000"
   },
   "permissions": {
     "allow": [
@@ -64,6 +63,12 @@
   },
   "enableAllProjectMcpServers": true,
   "enabledMcpjsonServers": [],
+  "mcpServers": {
+    "agent-hub": {
+      "type": "streamable-http",
+      "url": "http://192.168.60.43:3100/mcp"
+    }
+  },
   "hooks": {
     "PreToolUse": [
       {
