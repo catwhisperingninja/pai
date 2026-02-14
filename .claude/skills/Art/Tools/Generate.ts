@@ -15,10 +15,6 @@ import OpenAI from "openai";
 import { GoogleGenAI } from "@google/genai";
 import { writeFile, readFile } from "node:fs/promises";
 import { extname, resolve } from "node:path";
-import { exec } from "node:child_process";
-import { promisify } from "node:util";
-
-const execAsync = promisify(exec);
 
 // ============================================================================
 // Environment Loading
@@ -318,9 +314,16 @@ function parseArgs(argv: string[]): CLIArgs {
 
 async function addBackgroundColor(inputPath: string, outputPath: string, hexColor: string): Promise<void> {
   console.log(`Adding background ${hexColor}...`);
-  const command = `magick "${inputPath}" -background "${hexColor}" -flatten "${outputPath}"`;
   try {
-    await execAsync(command);
+    const proc = Bun.spawn(['magick', inputPath, '-background', hexColor, '-flatten', outputPath], {
+      stdout: 'pipe',
+      stderr: 'pipe',
+    });
+    const exitCode = await proc.exited;
+    if (exitCode !== 0) {
+      const stderr = await new Response(proc.stderr).text();
+      throw new Error(stderr || `magick exited with code ${exitCode}`);
+    }
     console.log(`Thumbnail saved: ${outputPath}`);
   } catch (error) {
     throw new CLIError(`Failed to add background: ${error instanceof Error ? error.message : String(error)}`);

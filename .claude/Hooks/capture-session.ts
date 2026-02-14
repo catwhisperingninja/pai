@@ -146,6 +146,12 @@ async function main() {
     const payload: StopPayload = JSON.parse(stdinData);
     const mem = getMemoryDir();
 
+    // Validate transcript path (defense-in-depth against path traversal)
+    if (payload.transcript_path && !payload.transcript_path.includes('.claude/')) {
+      console.error('[PAI] Rejected transcript_path: not within .claude/');
+      process.exit(0);
+    }
+
     // Read active session state
     const session = readState<ActiveSession | null>('active-session.json', null);
     if (!session) {
