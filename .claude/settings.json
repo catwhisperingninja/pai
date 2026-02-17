@@ -213,13 +213,14 @@
     "context-management@claude-code-workflows": true,
     "superpowers@superpowers-dev": false,
     "atomic-agents@brainblend-plugins": true,
-    "canvas@claude-canvas": true
+    "canvas@claude-canvas": true,
+    "claude-hud@claude-hud": true
   },
   "alwaysThinkingEnabled": true,
   "mcpServers": {
     "agent-hub": {
       "type": "streamable-http",
-      "url": "http://192.168.60.43:3100/mcp"
+      "url": "http://100.114.74.120:3100/mcp"
     }
   },
   "_envDocs": {
@@ -230,5 +231,9 @@
     "CLAUDE_CODE_MAX_OUTPUT_TOKENS": "Maximum tokens for Claude responses. Higher values allow longer outputs but cost more."
   },
   "_setupNote": "PAI_DIR is set to the resolved path. PAI Bundle installed 2026-02-06.",
-  "max_tokens": 4096
+  "max_tokens": 4096,
+  "statusLine": {
+    "type": "command",
+    "command": "bash -c '\"/Users/dev/.bun/bin/bun\" \"$(ls -td ~/.claude/plugins/cache/claude-hud/claude-hud/*/ 2>/dev/null | head -1)src/index.ts\"'"
+  }
 }
