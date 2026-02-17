@@ -1,0 +1,17 @@
+{
+  "active": true,
+  "sessionId": "20bf4441-3f41-4ec4-9cdb-a98425bdd68c",
+  "taskDescription": "Algorithm run",
+  "currentPhase": "OBSERVE",
+  "phaseStartedAt": 1771347337833,
+  "algorithmStartedAt": 1771347337833,
+  "sla": "Standard",
+  "criteria": [],
+  "agents": [],
+  "capabilities": [
+    "Task Tool"
+  ],
+  "phaseHistory": [],
+  "summary": "v3.0 merged. 40 skills, 27 hooks, hub connected. Restart to activate.",
+  "effortLevel": "Standard"
+}
