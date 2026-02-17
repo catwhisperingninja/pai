@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WAR Room Dashboard</title>
+    <!-- Hack Font (local install required - not on Google Fonts) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        border: 'hsl(var(--border))',
+                        input: 'hsl(var(--input))',
+                        ring: 'hsl(var(--ring))',
+                        background: 'hsl(var(--background))',
+                        foreground: 'hsl(var(--foreground))',
+                        primary: {
+                            DEFAULT: 'hsl(var(--primary))',
+                            foreground: 'hsl(var(--primary-foreground))',
+                        },
+                        secondary: {
+                            DEFAULT: 'hsl(var(--secondary))',
+                            foreground: 'hsl(var(--secondary-foreground))',
+                        },
+                        destructive: {
+                            DEFAULT: 'hsl(var(--destructive))',
+                            foreground: 'hsl(var(--destructive-foreground))',
+                        },
+                        muted: {
+                            DEFAULT: 'hsl(var(--muted))',
+                            foreground: 'hsl(var(--muted-foreground))',
+                        },
+                        accent: {
+                            DEFAULT: 'hsl(var(--accent))',
+                            foreground: 'hsl(var(--accent-foreground))',
+                        },
+                        card: {
+                            DEFAULT: 'hsl(var(--card))',
+                            foreground: 'hsl(var(--card-foreground))',
+                        },
+                        chart: {
+                            lime: 'hsl(var(--chart-lime))',
+                            magenta: 'hsl(var(--chart-magenta))',
+                            golden: 'hsl(var(--chart-golden))',
+                            cyan: 'hsl(var(--chart-cyan))',
+                            purple: 'hsl(var(--chart-purple))',
+                            red: 'hsl(var(--chart-red))',
+                            'red-dark': 'hsl(var(--chart-red-dark))',
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        :root {
+            /* Lime Green Standard Theme (from p5.js theme system) */
+            /* Dark Mode - Near-black background, lime primary, magenta accent */
+            --background: 0 0% 8%;            /* #141414 - near black */
+            --foreground: 0 0% 72%;           /* #B8B8B8 */
+
+            --card: 0 0% 11%;                 /* #1C1C1C */
+            --card-foreground: 0 0% 72%;      /* #B8B8B8 */
+
+            --primary: 80 66% 53%;            /* #A3D739 - Lime Green */
+            --primary-foreground: 0 0% 8%;    /* #141414 */
+
+            --secondary: 0 0% 11%;            /* #1C1C1C */
+            --secondary-foreground: 0 0% 72%; /* #B8B8B8 */
+
+            --muted: 0 0% 10%;                /* #1A1A1A */
+            --muted-foreground: 0 0% 50%;     /* #808080 */
+
+            --accent: 323 78% 56%;            /* #E639A3 - Magenta */
+            --accent-foreground: 0 0% 100%;   /* White */
+
+            --destructive: 0 72% 51%;         /* Red */
+            --destructive-foreground: 0 0% 98%;
+
+            --border: 0 0% 14%;               /* #242424 */
+            --input: 0 0% 11%;                /* #1C1C1C */
+            --ring: 80 66% 53%;               /* #A3D739 */
+
+            /* Chart/Status colors */
+            --chart-lime: 80 66% 53%;         /* #A3D739 - Primary data */
+            --chart-magenta: 311 64% 53%;     /* #D439B8 - Secondary data */
+            --chart-golden: 42 64% 53%;       /* #D4A539 - Tertiary/warning */
+            --chart-cyan: 225 73% 57%;        /* #4169E1 - Royal Blue */
+            --chart-purple: 279 64% 53%;      /* #A539D4 - Accent */
+            --chart-red: 0 72% 51%;           /* #E53935 - Error/Rejected */
+            --chart-red-dark: 0 72% 35%;      /* #8B2323 - Darker red for backgrounds */
+        }
+
+        * { border-color: hsl(var(--border)); }
+        body {
+            background-color: hsl(var(--background));
+            color: hsl(var(--foreground));
+            font-family: 'Hack', ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+        }
+
+        /* Subtle glow effects */
+        .glow-lime { text-shadow: 0 0 8px hsl(80 66% 53% / 0.4); }
+        .glow-magenta { text-shadow: 0 0 8px hsl(311 64% 53% / 0.4); }
+        .glow-golden { text-shadow: 0 0 8px hsl(42 64% 53% / 0.4); }
+        .glow-red { text-shadow: 0 0 8px hsl(0 72% 51% / 0.5); }
+    </style>
+</head>
+<body class="min-h-screen">
+    <div class="flex h-screen">
+
+        <!-- Sidebar -->
+        <aside class="w-64 bg-card border-r border-border flex flex-col">
+            <!-- Logo -->
+            <div class="p-4 border-b border-border">
+                <h1 class="text-xl font-bold text-chart-lime glow-lime">WAR ROOM</h1>
+                <p class="text-xs text-muted-foreground mt-1">Whistleblower Accountability & Rights</p>
+            </div>
+
+            <!-- Case Switcher -->
+            <div class="p-4 border-b border-border">
+                <label class="text-xs text-muted-foreground uppercase tracking-wider">Active Cases</label>
+                <div class="mt-2 space-y-2">
+                    <!-- Case 1: AZBBHE -->
+                    <button class="w-full text-left px-3 py-2 rounded bg-secondary border border-chart-lime/30 cursor-pointer hover:border-chart-lime transition-colors">
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm font-medium text-chart-lime">AZBBHE</span>
+                            <span class="text-xs px-2 py-0.5 rounded bg-chart-golden/20 text-chart-golden">ACTIVE</span>
+                        </div>
+                        <p class="text-xs text-muted-foreground mt-1">Lopez v. AZBBHE + Arnold</p>
+                    </button>
+
+                    <!-- Case 2: Placeholder -->
+                    <button class="w-full text-left px-3 py-2 rounded bg-muted border border-border cursor-pointer hover:border-muted-foreground/50 transition-colors">
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm font-medium text-muted-foreground">CASE-002</span>
+                            <span class="text-xs px-2 py-0.5 rounded bg-muted text-muted-foreground">PENDING</span>
+                        </div>
+                        <p class="text-xs text-muted-foreground mt-1">Future case slot</p>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="flex-1 p-4">
+                <ul class="space-y-1">
+                    <li>
+                        <a href="#overview" class="flex items-center gap-3 px-3 py-2 rounded bg-secondary text-foreground cursor-pointer">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
+                            </svg>
+                            Overview
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#timeline" class="flex items-center gap-3 px-3 py-2 rounded text-muted-foreground hover:bg-muted hover:text-foreground cursor-pointer transition-colors">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            Timeline
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#documents" class="flex items-center gap-3 px-3 py-2 rounded text-muted-foreground hover:bg-muted hover:text-foreground cursor-pointer transition-colors">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                            Documents
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#agents" class="flex items-center gap-3 px-3 py-2 rounded text-muted-foreground hover:bg-muted hover:text-foreground cursor-pointer transition-colors">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                            Agent Queue
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#comms" class="flex items-center gap-3 px-3 py-2 rounded text-muted-foreground hover:bg-muted hover:text-foreground cursor-pointer transition-colors">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                            Communications
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Status Footer -->
+            <div class="p-4 border-t border-border">
+                <div class="flex items-center gap-2">
+                    <div class="w-2 h-2 rounded-full bg-chart-lime animate-pulse"></div>
+                    <span class="text-xs text-muted-foreground">System Online</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 flex flex-col overflow-hidden">
+            <!-- Header -->
+            <header class="h-14 border-b border-border flex items-center justify-between px-6">
+                <div>
+                    <h2 class="text-lg font-semibold">Case Overview</h2>
+                    <p class="text-xs text-muted-foreground">AZBBHE - Lopez v. Arizona Board of Behavioral Health Examiners</p>
+                </div>
+                <div class="flex items-center gap-4">
+                    <span id="hub-status" class="text-xs text-muted-foreground">Connecting...</span>
+                    <span id="inbox-count" class="text-xs px-2 py-1 rounded bg-muted text-muted-foreground">checking...</span>
+                    <span class="text-xs text-muted-foreground">Last sync: <span class="text-chart-lime">2 min ago</span></span>
+                    <button class="px-3 py-1.5 text-sm bg-primary text-primary-foreground rounded cursor-pointer hover:opacity-90 transition-opacity" onclick="refreshAll()">
+                        Refresh
+                    </button>
+                </div>
+            </header>
+
+            <!-- Content Grid -->
+            <div class="flex-1 overflow-auto p-6">
+                <div class="grid grid-cols-3 gap-6">
+
+                    <!-- Deadline Cards -->
+                    <div class="col-span-2 grid grid-cols-2 gap-4">
+                        <!-- CA Defamation - FILING ACCEPTED Jan 29, 2026 -->
+                        <div class="bg-card border-2 border-chart-lime rounded-lg p-4 relative overflow-hidden">
+                            <div class="absolute top-0 right-0 w-24 h-24 bg-chart-lime/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-xs text-muted-foreground uppercase tracking-wider">CA Superior Court</span>
+                                <span class="text-xs px-2 py-0.5 rounded bg-chart-lime/20 text-chart-lime font-bold">FILING ACCEPTED</span>
+                            </div>
+                            <h3 class="text-lg font-semibold text-chart-lime">CA Defamation</h3>
+                            <p class="text-sm text-chart-lime mt-1 font-bold">CGC-26-632845</p>
+                            <p class="text-xs text-chart-lime mt-1">✓ Complaint + Exhibits A-D, F-G ACCEPTED</p>
+                            <p class="text-xs text-chart-lime mt-1">✓ Accepted Jan 29, 2026 @ 9:00 AM</p>
+                            <p class="text-xs text-chart-golden mt-2">CRC 3.110: Serve by March 30 or OSC</p>
+                            <p class="text-xs text-muted-foreground mt-1">Hard deadline: 3 years (CCP § 583.210)</p>
+                        </div>
+
+                        <!-- AZ Judicial Review - REJECTED - RESUBMITTING -->
+                        <div class="bg-card border-2 border-chart-red rounded-lg p-4">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-xs text-muted-foreground uppercase tracking-wider">Maricopa Superior</span>
+                                <span class="text-xs px-2 py-0.5 rounded bg-chart-red/20 text-chart-red font-bold">REJECTED → RESUBMITTING</span>
+                            </div>
+                            <h3 class="text-lg font-semibold text-chart-golden">AZ Judicial Review</h3>
+                            <p class="text-sm text-chart-red mt-1">Rejected Jan 29: Missing LCA Cover Sheet</p>
+                            <p class="text-xs text-chart-golden mt-2 font-bold">v2 resubmission mailed Feb 12</p>
+                            <p class="text-xs text-muted-foreground mt-1">Filed ~8 days late (Statement of Interest included)</p>
+                            <p class="text-xs text-muted-foreground mt-1">Expect AZBBHE timeliness challenge</p>
+                            <p class="text-xs text-muted-foreground mt-1">📞 (602) 372-5375 | COCCR@Maricopa.Gov</p>
+                        </div>
+
+                        <!-- Med Mal SOL -->
+                        <div class="bg-card border border-border rounded-lg p-4">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-xs text-muted-foreground uppercase tracking-wider">SOL Deadline</span>
+                                <span class="text-xs px-2 py-0.5 rounded bg-chart-cyan/20 text-chart-cyan">11 MO</span>
+                            </div>
+                            <h3 class="text-lg font-semibold">AZ Medical Malpractice</h3>
+                            <p class="text-sm text-muted-foreground mt-1">December 1, 2026</p>
+                            <p class="text-xs text-muted-foreground mt-2">TMC/Peppi's House + Arnold joint</p>
+                        </div>
+
+                        <!-- Evidence Status -->
+                        <div class="bg-card border border-border rounded-lg p-4">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-xs text-muted-foreground uppercase tracking-wider">Evidence</span>
+                                <span class="text-xs px-2 py-0.5 rounded bg-chart-lime/20 text-chart-lime">RECEIVED</span>
+                            </div>
+                            <h3 class="text-lg font-semibold">TFD Patient Report</h3>
+                            <p class="text-sm text-muted-foreground mt-1">Run #2400096820</p>
+                            <p class="text-xs text-muted-foreground mt-2">"Good respiratory drive" - NOT OD presentation</p>
+                        </div>
+                    </div>
+
+                    <!-- Activity Feed -->
+                    <div class="bg-card border border-border rounded-lg p-4 h-fit">
+                        <h3 class="text-sm font-semibold mb-4 flex items-center gap-2">
+                            <svg class="w-4 h-4 text-chart-lime" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                            Activity Feed
+                        </h3>
+                        <div class="space-y-3">
+                            <div class="flex gap-3 text-sm">
+                                <span class="text-chart-golden font-bold">></span>
+                                <div>
+                                    <p class="text-foreground font-bold text-chart-golden">AZ JR v2 RESUBMISSION MAILING</p>
+                                    <p class="text-xs text-muted-foreground">Feb 12, 2026 - USPS Priority</p>
+                                    <p class="text-xs text-chart-lime">+ LCA Cover Sheet (box 144)</p>
+                                    <p class="text-xs text-chart-lime">+ Generic Cover Sheet</p>
+                                    <p class="text-xs text-chart-lime">+ Cover letter to clerk</p>
+                                    <p class="text-xs text-muted-foreground">Petition + exhibits unchanged from v1</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-3 text-sm">
+                                <span class="text-chart-red font-bold">></span>
+                                <div>
+                                    <p class="text-foreground font-bold text-chart-red">AZ JR REJECTED BY CLERK</p>
+                                    <p class="text-xs text-muted-foreground">Jan 29, 2026 - Deputy Clerk K. Whitson</p>
+                                    <p class="text-xs text-chart-red">Missing LCA Cover Sheet</p>
+                                    <p class="text-xs text-chart-red">"Documents must be in proper court format"</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-3 text-sm">
+                                <span class="text-chart-lime font-bold">></span>
+                                <div>
+                                    <p class="text-foreground font-bold text-chart-lime">CA FILING ACCEPTED!</p>
+                                    <p class="text-xs text-muted-foreground">Jan 29, 2026 9:00am - CGC-26-632845</p>
+                                    <p class="text-xs text-chart-lime">✓ All exhibits A-D, F-G ACCEPTED</p>
+                                    <p class="text-xs text-chart-golden">Service: 60d soft (CRC 3.110) / 3yr hard (CCP 583.210)</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-3 text-sm">
+                                <span class="text-chart-lime">></span>
+                                <div>
+                                    <p class="text-foreground font-medium text-chart-lime">Exhibits resubmitted</p>
+                                    <p class="text-xs text-muted-foreground">Jan 29, 2026 7:30am - Fixed covers</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-3 text-sm">
+                                <span class="text-chart-golden">></span>
+                                <div>
+                                    <p class="text-foreground font-medium text-chart-golden">CA PARTIAL REJECTION</p>
+                                    <p class="text-xs text-muted-foreground">Jan 28, 2026 - CGC-26-632845</p>
+                                    <p class="text-xs text-chart-lime">✓ Complaint + Coversheet accepted</p>
+                                    <p class="text-xs text-chart-red">✗ Exhibits A-D, F-G: title → cover page</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-3 text-sm">
+                                <span class="text-chart-lime">></span>
+                                <div>
+                                    <p class="text-foreground font-medium text-chart-lime">CA Defamation submitted</p>
+                                    <p class="text-xs text-muted-foreground">Jan 27, 2026 - File & Serve Express</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-3 text-sm">
+                                <span class="text-chart-lime">></span>
+                                <div>
+                                    <p class="text-foreground font-medium text-chart-lime">All exhibits merged (A-G)</p>
+                                    <p class="text-xs text-muted-foreground">Jan 26-27 - Fixed footers, added covers</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-3 text-sm">
+                                <span class="text-chart-red">></span>
+                                <div>
+                                    <p class="text-foreground font-medium text-chart-red">CA Defamation REJECTED</p>
+                                    <p class="text-xs text-muted-foreground">Jan 22 - CRC 2.100-2.111 format</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-3 text-sm">
+                                <span class="text-chart-golden">></span>
+                                <div>
+                                    <p class="text-foreground font-medium text-chart-golden">AZ Judicial Review v1 MAILED</p>
+                                    <p class="text-xs text-muted-foreground">Jan 16 - Delivered Jan 28</p>
+                                    <p class="text-xs text-chart-red">REJECTED Jan 29 (missing cover sheet)</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-3 text-sm">
+                                <span class="text-chart-red">></span>
+                                <div>
+                                    <p class="text-foreground text-chart-red">AZBBHE appeal REJECTED</p>
+                                    <p class="text-xs text-muted-foreground">Jan 11, 2026</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Next Actions Checklist -->
+                    <div class="col-span-2 bg-card border border-accent/50 rounded-lg p-4">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-sm font-semibold flex items-center gap-2">
+                                <svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
+                                </svg>
+                                URGENT Actions
+                            </h3>
+                            <span class="text-xs px-2 py-1 rounded bg-accent/20 text-accent animate-pulse">ACTION REQUIRED</span>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-4">
+                            <!-- CA Defamation - AWAITING ACCEPTANCE -->
+                            <div data-urgency="info" data-deadline="2026-02-05">
+                                <h4 class="text-xs text-chart-cyan uppercase tracking-wider mb-3">CA DEFAMATION - AWAITING ACCEPTANCE</h4>
+                                <div class="space-y-2">
+                                    <div class="flex items-center gap-3 px-3 py-2 bg-chart-lime/10 border border-chart-lime/40 rounded">
+                                        <div class="w-5 h-5 rounded bg-chart-lime flex items-center justify-center">
+                                            <svg class="w-3 h-3 text-background" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                                        </div>
+                                        <span class="text-sm text-chart-lime font-medium">Case# CGC-26-632845 assigned</span>
+                                    </div>
+                                    <div class="flex items-center gap-3 px-3 py-2 bg-chart-lime/10 rounded">
+                                        <div class="w-5 h-5 rounded bg-chart-lime flex items-center justify-center">
+                                            <svg class="w-3 h-3 text-background" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                                        </div>
+                                        <span class="text-sm text-chart-lime">Complaint + Coversheet ACCEPTED</span>
+                                    </div>
+                                    <div class="flex items-center gap-3 px-3 py-2 bg-chart-lime/10 rounded">
+                                        <div class="w-5 h-5 rounded bg-chart-lime flex items-center justify-center">
+                                            <svg class="w-3 h-3 text-background" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                                        </div>
+                                        <span class="text-sm text-chart-lime">Exhibits A-D, F-G RESUBMITTED (Jan 29)</span>
+                                    </div>
+                                    <div class="flex items-center gap-3 px-3 py-2 bg-chart-cyan/10 border border-chart-cyan/40 rounded">
+                                        <div class="w-5 h-5 rounded bg-chart-cyan flex items-center justify-center">
+                                            <span class="text-xs text-background font-bold">⏳</span>
+                                        </div>
+                                        <span class="text-sm text-chart-cyan">Awaiting clerk review</span>
+                                    </div>
+                                    <div class="flex items-center gap-3 px-3 py-2 bg-chart-golden/10 rounded">
+                                        <div class="w-5 h-5 rounded bg-chart-golden flex items-center justify-center">
+                                            <span class="text-xs text-background font-bold">$</span>
+                                        </div>
+                                        <span class="text-sm text-chart-golden">Payment pending</span>
+                                    </div>
+                                    <div class="flex items-center gap-3 px-3 py-2 bg-muted rounded">
+                                        <div class="w-5 h-5 rounded border-2 border-muted-foreground flex items-center justify-center">
+                                            <span class="text-xs text-muted-foreground">⏸</span>
+                                        </div>
+                                        <span class="text-sm text-muted-foreground">Service on hold (strategic)</span>
+                                    </div>
+                                    <p class="text-xs text-muted-foreground mt-2 px-3">Serve after: AZ JR clarity OR last possible moment</p>
+                                </div>
+                            </div>
+
+                            <!-- AZ Judicial Review - RESUBMISSION -->
+                            <div data-urgency="warning" data-deadline="UNKNOWN">
+                                <h4 class="text-xs text-chart-red uppercase tracking-wider mb-3">AZ JR - RESUBMISSION IN PROGRESS</h4>
+                                <div class="space-y-2">
+                                    <div class="flex items-center gap-3 px-3 py-2 bg-chart-lime/10 border border-chart-lime/40 rounded">
+                                        <div class="w-5 h-5 rounded bg-chart-lime flex items-center justify-center">
+                                            <svg class="w-3 h-3 text-background" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                                        </div>
+                                        <span class="text-sm text-chart-lime">LCA Cover Sheet filled (box 144)</span>
+                                    </div>
+                                    <div class="flex items-center gap-3 px-3 py-2 bg-chart-lime/10 rounded">
+                                        <div class="w-5 h-5 rounded bg-chart-lime flex items-center justify-center">
+                                            <svg class="w-3 h-3 text-background" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                                        </div>
+                                        <span class="text-sm text-chart-lime">Generic Cover Sheet filled</span>
+                                    </div>
+                                    <div class="flex items-center gap-3 px-3 py-2 bg-chart-lime/10 rounded">
+                                        <div class="w-5 h-5 rounded bg-chart-lime flex items-center justify-center">
+                                            <svg class="w-3 h-3 text-background" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                                        </div>
+                                        <span class="text-sm text-chart-lime">Cover letter to clerk drafted</span>
+                                    </div>
+                                    <div class="flex items-center gap-3 px-3 py-2 bg-chart-lime/10 rounded">
+                                        <div class="w-5 h-5 rounded bg-chart-lime flex items-center justify-center">
+                                            <svg class="w-3 h-3 text-background" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                                        </div>
+                                        <span class="text-sm text-chart-lime">All documents photocopied</span>
+                                    </div>
+                                    <div class="flex items-center gap-3 px-3 py-2 bg-chart-golden/10 border border-chart-golden/40 rounded">
+                                        <div class="w-5 h-5 rounded bg-chart-golden flex items-center justify-center">
+                                            <span class="text-xs text-background font-bold">→</span>
+                                        </div>
+                                        <span class="text-sm text-chart-golden font-bold">Mail package (FedEx/USPS)</span>
+                                    </div>
+                                    <div class="checklist-item flex items-center gap-3 px-3 py-2 bg-muted rounded cursor-pointer hover:bg-muted/80 transition-colors">
+                                        <div class="checkbox w-5 h-5 rounded border-2 border-muted-foreground flex items-center justify-center">
+                                            <svg class="checkmark w-3 h-3 text-background hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                                        </div>
+                                        <span class="text-sm">Await clerk acceptance</span>
+                                    </div>
+                                    <div class="checklist-item flex items-center gap-3 px-3 py-2 bg-muted rounded cursor-pointer hover:bg-muted/80 transition-colors">
+                                        <div class="checkbox w-5 h-5 rounded border-2 border-muted-foreground flex items-center justify-center">
+                                            <svg class="checkmark w-3 h-3 text-background hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                                        </div>
+                                        <span class="text-sm">Get case # → serve Notice of Action (10 days)</span>
+                                    </div>
+                                    <p class="text-xs text-chart-red mt-2 px-3 font-bold">AZBBHE likely to challenge timeliness</p>
+                                    <p class="text-xs text-muted-foreground px-3">Statement of Interest argues excusable neglect (Rule 6(b))</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Win Probability Card -->
+                    <div class="bg-card border border-chart-lime/30 rounded-lg p-4">
+                        <h3 class="text-xs text-muted-foreground uppercase tracking-wider mb-3">Case Strength</h3>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-chart-lime glow-lime">70-75%</div>
+                            <p class="text-xs text-muted-foreground mt-1">Overall success probability</p>
+                            <p class="text-xs text-chart-lime mt-2">+35% from TFD report</p>
+                        </div>
+                        <div class="mt-4 space-y-2 text-xs">
+                            <div class="flex justify-between">
+                                <span class="text-muted-foreground">Per Se</span>
+                                <span class="text-chart-lime">80-85%</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-muted-foreground">Fiduciary</span>
+                                <span class="text-chart-lime">85-90%</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-muted-foreground">Libel</span>
+                                <span class="text-chart-golden">75-80%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Agent Handoff Queue -->
+                    <div class="col-span-3 bg-card border border-border rounded-lg p-4">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-sm font-semibold flex items-center gap-2">
+                                <svg class="w-4 h-4 text-chart-magenta" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                </svg>
+                                Agent Handoff Queue
+                            </h3>
+                            <span class="text-xs px-2 py-1 rounded bg-muted text-muted-foreground agent-queue-count">3 pending</span>
+                        </div>
+
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-sm">
+                                <thead>
+                                    <tr class="text-left text-muted-foreground text-xs uppercase tracking-wider border-b border-border">
+                                        <th class="pb-2">Agent</th>
+                                        <th class="pb-2">Task</th>
+                                        <th class="pb-2">Status</th>
+                                        <th class="pb-2">Output</th>
+                                        <th class="pb-2">Time</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-border agent-queue-body">
+                                    <tr class="hover:bg-muted/50 cursor-pointer transition-colors">
+                                        <td class="py-3 text-chart-lime">legal-researcher</td>
+                                        <td class="py-3">Anti-SLAPP case law update</td>
+                                        <td class="py-3"><span class="text-xs px-2 py-0.5 rounded bg-chart-golden/20 text-chart-golden">AWAITING REVIEW</span></td>
+                                        <td class="py-3 text-muted-foreground">3 new cases found</td>
+                                        <td class="py-3 text-muted-foreground">2h ago</td>
+                                    </tr>
+                                    <tr class="hover:bg-muted/50 cursor-pointer transition-colors">
+                                        <td class="py-3 text-chart-cyan">email-monitor</td>
+                                        <td class="py-3">Inbox check</td>
+                                        <td class="py-3"><span class="text-xs px-2 py-0.5 rounded bg-chart-lime/20 text-chart-lime">COMPLETE</span></td>
+                                        <td class="py-3 text-muted-foreground">No new mail</td>
+                                        <td class="py-3 text-muted-foreground">15m ago</td>
+                                    </tr>
+                                    <tr class="hover:bg-muted/50 cursor-pointer transition-colors">
+                                        <td class="py-3 text-chart-lime">document-drafter</td>
+                                        <td class="py-3">CA complaint final review</td>
+                                        <td class="py-3"><span class="text-xs px-2 py-0.5 rounded bg-chart-magenta/20 text-chart-magenta">IN PROGRESS</span></td>
+                                        <td class="py-3 text-muted-foreground">—</td>
+                                        <td class="py-3 text-muted-foreground">Running</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+
+        <!-- Right Panel: Quick Stats -->
+        <aside class="w-72 bg-card border-l border-border p-4 overflow-y-auto">
+            <h3 class="text-sm font-semibold mb-4">Case Statistics</h3>
+
+            <!-- Evidence Strength -->
+            <div class="mb-6">
+                <div class="flex items-center justify-between mb-2">
+                    <span class="text-xs text-muted-foreground">Evidence Strength</span>
+                    <span class="text-xs text-chart-lime">85%</span>
+                </div>
+                <div class="h-2 bg-muted rounded-full overflow-hidden">
+                    <div class="h-full bg-chart-lime rounded-full" style="width: 85%"></div>
+                </div>
+            </div>
+
+            <!-- Procedural Violations -->
+            <div class="mb-6">
+                <div class="flex items-center justify-between mb-2">
+                    <span class="text-xs text-muted-foreground">AZBBHE Violations</span>
+                    <span class="text-xs text-chart-golden">7 documented</span>
+                </div>
+                <div class="h-2 bg-muted rounded-full overflow-hidden">
+                    <div class="h-full bg-chart-golden rounded-full" style="width: 100%"></div>
+                </div>
+            </div>
+
+            <!-- Key Defendants -->
+            <div class="mb-6">
+                <h4 class="text-xs text-muted-foreground uppercase tracking-wider mb-3">Key Defendants</h4>
+                <div class="space-y-2">
+                    <div class="px-3 py-2 bg-muted rounded text-sm">
+                        <p class="font-medium">Arnold Lopez</p>
+                        <p class="text-xs text-muted-foreground">LCSW-1307 (retiring)</p>
+                    </div>
+                    <div class="px-3 py-2 bg-muted rounded text-sm">
+                        <p class="font-medium">AZBBHE</p>
+                        <p class="text-xs text-muted-foreground">Administrative appeal filed</p>
+                    </div>
+                    <div class="px-3 py-2 bg-muted rounded text-sm">
+                        <p class="font-medium">TMC/Peppi's House</p>
+                        <p class="text-xs text-muted-foreground">Med-mal pending</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Five Smoking Guns -->
+            <div>
+                <h4 class="text-xs text-muted-foreground uppercase tracking-wider mb-3">Smoking Guns</h4>
+                <div class="space-y-2 text-xs">
+                    <div class="flex items-center gap-2">
+                        <span class="text-chart-lime">1.</span>
+                        <span>TFD Report: "unchanged" after Narcan</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-chart-lime">2.</span>
+                        <span>Email 2 admission</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-chart-lime">3.</span>
+                        <span>Bag search fabrication</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-chart-lime">4.</span>
+                        <span>VRBO mischaracterization</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-chart-lime">5.</span>
+                        <span>January timeline</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+    </div>
+
+    <script>
+        // ===== COUNTDOWN TIMER =====
+        const SOL_DEADLINE = new Date('2026-01-13T17:00:00-08:00'); // 5 PM PST
+
+        function updateCountdown() {
+            const now = new Date();
+            const diff = SOL_DEADLINE - now;
+
+            if (diff <= 0) {
+                document.getElementById('countdown').textContent = 'DEADLINE PASSED';
+                document.getElementById('countdown').classList.add('text-destructive');
+                return;
+            }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            const countdownEl = document.getElementById('countdown');
+            countdownEl.textContent = `${days}d ${hours.toString().padStart(2, '0')}h ${minutes.toString().padStart(2, '0')}m ${seconds.toString().padStart(2, '0')}s`;
+
+            // Update badge
+            const badge = document.getElementById('deadline-badge');
+            if (days === 0) {
+                badge.textContent = 'TODAY';
+                badge.classList.add('bg-destructive/20', 'text-destructive');
+            } else if (days === 1) {
+                badge.textContent = 'TOMORROW';
+            } else {
+                badge.textContent = `${days} DAYS`;
+            }
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // ===== NAVIGATION =====
+        const navLinks = document.querySelectorAll('nav a');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                // Remove active state from all
+                navLinks.forEach(l => {
+                    l.classList.remove('bg-secondary', 'text-foreground');
+                    l.classList.add('text-muted-foreground');
+                });
+                // Add active state to clicked
+                link.classList.add('bg-secondary', 'text-foreground');
+                link.classList.remove('text-muted-foreground');
+            });
+        });
+
+        // ===== FILING CHECKLIST TOGGLE =====
+        document.querySelectorAll('.checklist-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const checkbox = item.querySelector('.checkbox');
+                const checkmark = item.querySelector('.checkmark');
+                const isChecked = checkbox.classList.contains('bg-chart-lime');
+
+                if (isChecked) {
+                    checkbox.classList.remove('bg-chart-lime');
+                    checkbox.classList.add('border-border');
+                    if (checkmark) checkmark.classList.add('hidden');
+                } else {
+                    checkbox.classList.add('bg-chart-lime');
+                    checkbox.classList.remove('border-border');
+                    if (checkmark) checkmark.classList.remove('hidden');
+                }
+            });
+        });
+
+        // ===== SYNC TIME =====
+        const syncSpan = document.querySelector('header span.text-chart-lime');
+        if (syncSpan) syncSpan.textContent = 'just now';
+
+        // ===== URGENCY DETECTION =====
+        // Identifies items needing next-business-day attention and styles them red
+        function getNextBusinessDay(date) {
+            const next = new Date(date);
+            next.setDate(next.getDate() + 1);
+            // Skip weekends
+            while (next.getDay() === 0 || next.getDay() === 6) {
+                next.setDate(next.getDate() + 1);
+            }
+            // Known 2026 federal holidays (add more as needed)
+            const holidays = [
+                '2026-01-01', // New Year
+                '2026-01-19', // MLK Day
+                '2026-02-16', // Presidents Day
+                '2026-05-25', // Memorial Day
+                '2026-07-03', // Independence Day (observed)
+                '2026-09-07', // Labor Day
+                '2026-11-26', // Thanksgiving
+                '2026-12-25', // Christmas
+            ];
+            const dateStr = next.toISOString().split('T')[0];
+            if (holidays.includes(dateStr)) {
+                return getNextBusinessDay(next);
+            }
+            return next;
+        }
+
+        function checkUrgency() {
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+            const nextBizDay = getNextBusinessDay(today);
+            nextBizDay.setHours(23, 59, 59, 999);
+
+            document.querySelectorAll('[data-deadline]').forEach(el => {
+                const deadline = new Date(el.dataset.deadline);
+                const urgency = el.dataset.urgency;
+
+                // If deadline is today or next business day, mark as critical
+                if (deadline <= nextBizDay) {
+                    el.dataset.urgency = 'critical';
+                    // Apply red styling to header
+                    const header = el.querySelector('h4');
+                    if (header && !header.classList.contains('text-chart-red')) {
+                        header.classList.remove('text-accent', 'text-chart-golden');
+                        header.classList.add('text-chart-red', 'glow-red');
+                    }
+                    // Apply red to status notification
+                    const statusBox = el.querySelector('.bg-accent\\/10, .bg-chart-golden\\/10');
+                    if (statusBox) {
+                        statusBox.classList.remove('bg-accent/10', 'bg-chart-golden/10');
+                        statusBox.classList.add('bg-chart-red-dark/30', 'border', 'border-chart-red/40');
+                    }
+                }
+            });
+        }
+
+        // Run on load
+        checkUrgency();
+
+        // ===== HUB INTEGRATION =====
+        const HUB_URL = 'http://100.114.74.120:3100/mcp';
+
+        async function hubCall(toolName, args = {}) {
+            const resp = await fetch(HUB_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json, text/event-stream'
+                },
+                body: JSON.stringify({
+                    jsonrpc: '2.0',
+                    id: Date.now(),
+                    method: 'tools/call',
+                    params: { name: toolName, arguments: args }
+                })
+            });
+            const data = await resp.json();
+            if (data.result?.content?.[0]?.text) {
+                return JSON.parse(data.result.content[0].text);
+            }
+            throw new Error('Hub call failed');
+        }
+
+        function createEl(tag, classes = '', text = '') {
+            const el = document.createElement(tag);
+            if (classes) el.className = classes;
+            if (text) el.textContent = text;
+            return el;
+        }
+
+        // Fetch and render agent status in the handoff queue
+        async function refreshAgents() {
+            try {
+                const caps = await hubCall('hub_list_capabilities');
+                const tbody = document.querySelector('.agent-queue-body');
+                if (!tbody || !caps.agents) return;
+
+                while (tbody.firstChild) tbody.removeChild(tbody.firstChild);
+
+                for (const a of caps.agents) {
+                    const tr = createEl('tr', 'hover:bg-muted/50 cursor-pointer transition-colors');
+
+                    const tdName = createEl('td', 'py-3 text-chart-lime', a.agent);
+                    const tdSkills = createEl('td', 'py-3', (a.skills || []).slice(0, 3).join(', ') + (a.skills?.length > 3 ? '...' : ''));
+                    const tdStatus = createEl('td', 'py-3');
+                    const statusSpan = createEl('span',
+                        `text-xs px-2 py-0.5 rounded ${a.online ? 'bg-chart-lime/20 text-chart-lime' : 'bg-muted text-muted-foreground'}`,
+                        a.online ? 'ONLINE' : 'OFFLINE'
+                    );
+                    tdStatus.appendChild(statusSpan);
+                    const tdDesc = createEl('td', 'py-3 text-muted-foreground', (a.description || '').slice(0, 60) + '...');
+                    const tdTime = createEl('td', 'py-3 text-muted-foreground', new Date(a.last_seen_at).toLocaleString());
+
+                    tr.append(tdName, tdSkills, tdStatus, tdDesc, tdTime);
+                    tbody.appendChild(tr);
+                }
+
+                const badge = document.querySelector('.agent-queue-count');
+                if (badge) badge.textContent = caps.count + ' agents';
+            } catch (e) {
+                console.error('Agent refresh failed:', e);
+            }
+        }
+
+        // Fetch case status from hub shared context
+        async function refreshCaseStatus() {
+            try {
+                await Promise.allSettled([
+                    hubCall('hub_get_context', { namespace: 'war', key: 'az-judicial-review-status' }),
+                    hubCall('hub_get_context', { namespace: 'war', key: 'ca-defamation-status' })
+                ]);
+
+                const hubStatus = document.getElementById('hub-status');
+                if (hubStatus) {
+                    hubStatus.textContent = 'HUB LIVE';
+                    hubStatus.className = 'text-xs text-chart-lime font-bold';
+                }
+            } catch (e) {
+                console.error('Case status refresh failed:', e);
+                const hubStatus = document.getElementById('hub-status');
+                if (hubStatus) {
+                    hubStatus.textContent = 'HUB OFFLINE';
+                    hubStatus.className = 'text-xs text-chart-red font-bold';
+                }
+            }
+        }
+
+        // Fetch inbox messages
+        async function refreshInbox() {
+            try {
+                const inbox = await hubCall('hub_check_inbox', { agent_name: 'pi' });
+                const inboxBadge = document.getElementById('inbox-count');
+                if (inboxBadge) {
+                    inboxBadge.textContent = inbox.unread_count + ' unread';
+                    inboxBadge.className = inbox.unread_count > 0
+                        ? 'text-xs px-2 py-1 rounded bg-accent/20 text-accent animate-pulse'
+                        : 'text-xs px-2 py-1 rounded bg-muted text-muted-foreground';
+                }
+            } catch (e) {
+                console.error('Inbox refresh failed:', e);
+            }
+        }
+
+        // Master refresh
+        async function refreshAll() {
+            lastRefresh = Date.now();
+            await Promise.allSettled([
+                refreshAgents(),
+                refreshCaseStatus(),
+                refreshInbox()
+            ]);
+            const syncSpan = document.querySelector('header span.text-chart-lime');
+            if (syncSpan) syncSpan.textContent = 'just now';
+        }
+
+        let lastRefresh = Date.now();
+        refreshAll();
+        setInterval(refreshAll, 60000);
+
+        // Sync timer display
+        setInterval(() => {
+            const elapsed = Math.floor((Date.now() - lastRefresh) / 1000);
+            const syncSpan = document.querySelector('header span.text-chart-lime');
+            if (syncSpan && elapsed > 5) {
+                syncSpan.textContent = elapsed < 60 ? elapsed + 's ago' : Math.floor(elapsed / 60) + 'm ago';
+            }
+        }, 5000);
+    </script>
+</body>
+</html>
