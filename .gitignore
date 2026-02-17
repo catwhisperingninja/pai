@@ -31,6 +31,8 @@ Library
 .claude/stats-cache.json.tmp.tmp.tmp.tmp.tmp.tmp.tmp
 
 
+firebase-debug.log
+
 # Environment files
 .env
 .env.local
