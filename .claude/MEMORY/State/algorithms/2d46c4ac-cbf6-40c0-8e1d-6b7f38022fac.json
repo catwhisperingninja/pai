@@ -1,0 +1,74 @@
+{
+  "active": true,
+  "sessionId": "2d46c4ac-cbf6-40c0-8e1d-6b7f38022fac",
+  "taskDescription": "Massive Session",
+  "currentPhase": "OBSERVE",
+  "phaseStartedAt": 1771997273618,
+  "algorithmStartedAt": 1771997273618,
+  "sla": "Fast",
+  "criteria": [
+    {
+      "id": "C1",
+      "description": "No .claude-backup-v3-merge directory exists on disk",
+      "type": "criterion",
+      "status": "pending",
+      "createdInPhase": "OBSERVE"
+    },
+    {
+      "id": "C2",
+      "description": "Zero claude-backup files in git index cache",
+      "type": "criterion",
+      "status": "pending",
+      "createdInPhase": "OBSERVE"
+    },
+    {
+      "id": "C3",
+      "description": "No task .lock files exist in .claude/tasks",
+      "type": "criterion",
+      "status": "pending",
+      "createdInPhase": "OBSERVE"
+    },
+    {
+      "id": "C4",
+      "description": "Gitignore prevents tracking nested git repos and backups",
+      "type": "criterion",
+      "status": "pending",
+      "createdInPhase": "OBSERVE"
+    },
+    {
+      "id": "C5",
+      "description": "Plugin marketplace nested .git dirs not tracked by git",
+      "type": "criterion",
+      "status": "pending",
+      "createdInPhase": "OBSERVE"
+    },
+    {
+      "id": "C6",
+      "description": "Git status runs without errors after all fixes",
+      "type": "criterion",
+      "status": "pending",
+      "createdInPhase": "OBSERVE"
+    },
+    {
+      "id": "A1",
+      "description": "No legitimate bun.lock files accidentally deleted or ignored",
+      "type": "anti-criterion",
+      "status": "pending",
+      "createdInPhase": "OBSERVE"
+    }
+  ],
+  "agents": [],
+  "capabilities": [
+    "Task Tool"
+  ],
+  "phaseHistory": [
+    {
+      "phase": "OBSERVE",
+      "startedAt": 1771997273618,
+      "criteriaCount": 0,
+      "agentCount": 0
+    }
+  ],
+  "effortLevel": "Fast",
+  "currentAction": "Fix git lock files and cached backups"
+}

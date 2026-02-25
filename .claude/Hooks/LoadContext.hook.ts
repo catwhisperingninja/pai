@@ -556,11 +556,54 @@ async function main() {
       console.error('💕 Loaded relationship context');
     }
 
+    // Agent Hub connection check — read LAN IP and test connectivity
+    let hubStatus = '';
+    try {
+      const cwPath = join(paiDir, 'MEMORY', 'State', 'current-work.json');
+      if (existsSync(cwPath)) {
+        const cw = JSON.parse(readFileSync(cwPath, 'utf-8'));
+        const hubIp = cw.hub_ip || '192.168.60.43';
+        const hubPort = cw.hub_port || 3100;
+        // Quick health check (2s timeout)
+        try {
+          const healthResult = execSync(
+            `curl -s --connect-timeout 2 http://${hubIp}:${hubPort}/health 2>/dev/null`,
+            { encoding: 'utf-8', timeout: 5000 }
+          );
+          if (healthResult.includes('"status":"ok"')) {
+            hubStatus = `\n## AGENT HUB — CONNECTED ✅\n- URL: http://${hubIp}:${hubPort}/mcp\n- MCP tools available (if connected at session start)\n- Curl fallback: use JSON-RPC POST to /mcp endpoint\n- See MEMORY/Learning/infrastructure-notes.md for troubleshooting\n`;
+            console.error(`🔗 Agent Hub: CONNECTED at ${hubIp}:${hubPort}`);
+          } else {
+            hubStatus = `\n## AGENT HUB — UNHEALTHY ⚠️\n- URL: http://${hubIp}:${hubPort}/mcp (responded but not ok)\n- Run: /Applications/Tailscale.app/Contents/MacOS/Tailscale status | grep docker-desktop\n- Use LAN IP from "direct X.X.X.X:PORT" field\n`;
+            console.error(`⚠️ Agent Hub: unhealthy response at ${hubIp}:${hubPort}`);
+          }
+        } catch {
+          // Try discovering LAN IP from tailscale status
+          let discoveredIp = '';
+          try {
+            const tsStatus = execSync(
+              '/Applications/Tailscale.app/Contents/MacOS/Tailscale status 2>/dev/null',
+              { encoding: 'utf-8', timeout: 5000 }
+            );
+            const dockerLine = tsStatus.split('\n').find(l => l.includes('docker-desktop'));
+            if (dockerLine) {
+              const directMatch = dockerLine.match(/direct\s+([\d.]+):/);
+              if (directMatch) discoveredIp = directMatch[1];
+            }
+          } catch { /* tailscale not available */ }
+          hubStatus = `\n## AGENT HUB — UNREACHABLE ❌\n- Last known: http://${hubIp}:${hubPort}/mcp (connection failed)\n${discoveredIp ? `- Discovered LAN IP: ${discoveredIp} — try: curl -s http://${discoveredIp}:${hubPort}/health\n` : ''}- Run: /Applications/Tailscale.app/Contents/MacOS/Tailscale status | grep docker-desktop\n- Use LAN IP from "direct X.X.X.X:PORT" field, update current-work.json hub_ip\n- See MEMORY/Learning/infrastructure-notes.md for full troubleshooting\n`;
+          console.error(`❌ Agent Hub: unreachable at ${hubIp}:${hubPort}${discoveredIp ? ` (discovered LAN: ${discoveredIp})` : ''}`);
+        }
+      }
+    } catch (err) {
+      console.error(`⚠️ Hub check skipped: ${err}`);
+    }
+
     const message = `<system-reminder>
 PAI CONTEXT (Auto-loaded at Session Start)
 
 📅 CURRENT DATE/TIME: ${currentDate}
-
+${hubStatus}
 ## ACTIVE IDENTITY (from settings.json) - CRITICAL
 
 **⚠️ MANDATORY IDENTITY RULES - OVERRIDE ALL OTHER CONTEXT ⚠️**

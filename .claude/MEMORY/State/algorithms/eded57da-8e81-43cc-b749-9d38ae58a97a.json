@@ -1,0 +1,162 @@
+{
+  "active": false,
+  "sessionId": "eded57da-8e81-43cc-b749-9d38ae58a97a",
+  "taskDescription": "Pink Session",
+  "currentPhase": "COMPLETE",
+  "phaseStartedAt": 1771449505985,
+  "algorithmStartedAt": 1771449505985,
+  "sla": "Standard",
+  "criteria": [
+    {
+      "id": "C1",
+      "description": "Prior session context fully recovered and summarized for user",
+      "type": "criterion",
+      "status": "pending",
+      "createdInPhase": "OBSERVE"
+    },
+    {
+      "id": "C2",
+      "description": "Claude Code version checked against latest available release",
+      "type": "criterion",
+      "status": "pending",
+      "createdInPhase": "OBSERVE"
+    },
+    {
+      "id": "C3",
+      "description": "Prioritized session agenda created from all user workstreams",
+      "type": "criterion",
+      "status": "pending",
+      "createdInPhase": "OBSERVE"
+    },
+    {
+      "id": "C4",
+      "description": "Voice server setup path identified for agent speech",
+      "type": "criterion",
+      "status": "pending",
+      "createdInPhase": "OBSERVE"
+    },
+    {
+      "id": "A1",
+      "description": "No prior session context lost or misrepresented to user",
+      "type": "anti-criterion",
+      "status": "pending",
+      "createdInPhase": "OBSERVE"
+    },
+    {
+      "id": "C5",
+      "description": "Council provides smart contract audit cost and timeline",
+      "type": "criterion",
+      "status": "pending",
+      "createdInPhase": "OBSERVE"
+    },
+    {
+      "id": "C6",
+      "description": "Council recommendations preserve all settled decisions from prior session",
+      "type": "criterion",
+      "status": "pending",
+      "createdInPhase": "OBSERVE"
+    },
+    {
+      "id": "A2",
+      "description": "No council recommendation contradicts architect technical constraints",
+      "type": "anti-criterion",
+      "status": "pending",
+      "createdInPhase": "OBSERVE"
+    }
+  ],
+  "agents": [
+    {
+      "name": "Council R1: Engineer position",
+      "agentType": "Engineer",
+      "status": "active",
+      "task": "Council R1: Engineer position",
+      "phase": "OBSERVE"
+    },
+    {
+      "name": "Council R1: Architect position",
+      "agentType": "Architect",
+      "status": "active",
+      "task": "Council R1: Architect position",
+      "phase": "OBSERVE"
+    },
+    {
+      "name": "Council R1: Security position",
+      "agentType": "Pentester",
+      "status": "active",
+      "task": "Council R1: Security position",
+      "phase": "OBSERVE"
+    },
+    {
+      "name": "Council R1: Researcher position",
+      "agentType": "PerplexityResearcher",
+      "status": "active",
+      "task": "Council R1: Researcher position",
+      "phase": "OBSERVE"
+    },
+    {
+      "name": "Council R2: Architect response",
+      "agentType": "Architect",
+      "status": "active",
+      "task": "Council R2: Architect response",
+      "phase": "OBSERVE"
+    },
+    {
+      "name": "Council R2: Engineer response",
+      "agentType": "Engineer",
+      "status": "active",
+      "task": "Council R2: Engineer response",
+      "phase": "OBSERVE"
+    },
+    {
+      "name": "Council R2: Security response",
+      "agentType": "Pentester",
+      "status": "active",
+      "task": "Council R2: Security response",
+      "phase": "OBSERVE"
+    },
+    {
+      "name": "Council R2: Researcher response",
+      "agentType": "PerplexityResearcher",
+      "status": "active",
+      "task": "Council R2: Researcher response",
+      "phase": "OBSERVE"
+    },
+    {
+      "name": "Council R3: Architect synthesis",
+      "agentType": "Architect",
+      "status": "active",
+      "task": "Council R3: Architect synthesis",
+      "phase": "OBSERVE"
+    },
+    {
+      "name": "Council R3: Engineer synthesis",
+      "agentType": "Engineer",
+      "status": "active",
+      "task": "Council R3: Engineer synthesis",
+      "phase": "OBSERVE"
+    },
+    {
+      "name": "Council R3: Researcher synthesis",
+      "agentType": "PerplexityResearcher",
+      "status": "active",
+      "task": "Council R3: Researcher synthesis",
+      "phase": "OBSERVE"
+    }
+  ],
+  "capabilities": [
+    "Task Tool"
+  ],
+  "phaseHistory": [],
+  "effortLevel": "Standard",
+  "summary": "L1 primary, ZK-based contingency over centralized L2s, Base rejected due to Coinbase. Noted for architect message.",
+  "currentAction": "Debug architect empty inbox on hub",
+  "qualityGate": {
+    "count": false,
+    "length": false,
+    "state": false,
+    "testable": false,
+    "anti": false,
+    "open": false
+  },
+  "completedAt": 1771997388480
+}

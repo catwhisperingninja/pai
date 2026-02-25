@@ -70,7 +70,7 @@
   "mcpServers": {
     "agent-hub": {
       "type": "streamable-http",
-      "url": "http://100.114.74.120:3100/mcp"
+      "url": "http://192.168.60.43:3100/mcp"
     }
   },
   "hooks": {
@@ -846,15 +846,15 @@
     }
   },
   "counts": {
-    "skills": 0,
-    "workflows": 0,
-    "hooks": 0,
+    "skills": 46,
+    "workflows": 166,
+    "hooks": 27,
     "signals": 0,
-    "files": 0,
-    "work": 0,
-    "sessions": 0,
+    "files": 12,
+    "work": 1,
+    "sessions": 2,
     "research": 0,
     "ratings": 0,
-    "updatedAt": ""
+    "updatedAt": "2026-02-23T12:55:49.921Z"
   }
 }
