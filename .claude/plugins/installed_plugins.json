@@ -940,10 +940,10 @@
       {
         "scope": "project",
         "projectPath": "/Users/dev/Documents/github-projects/pai",
-        "installPath": "/Users/dev/.claude/plugins/cache/superpowers-dev/superpowers/4.3.0",
-        "version": "4.3.0",
+        "installPath": "/Users/dev/.claude/plugins/cache/superpowers-dev/superpowers/4.3.1",
+        "version": "4.3.1",
         "installedAt": "2026-02-14T10:45:21.049Z",
-        "lastUpdated": "2026-02-14T11:15:30.895Z",
+        "lastUpdated": "2026-02-25T14:29:44.602Z",
         "gitCommitSha": "e16d611eee14ac4c3253b4bf4c55a98d905c2e64"
       }
     ],
@@ -978,6 +978,106 @@
         "installedAt": "2026-02-14T20:29:24.636Z",
         "lastUpdated": "2026-02-14T20:29:35.014Z",
         "gitCommitSha": "2497b92c3de2c0ee41b119c392c7cf2d76cbabc3"
+      }
+    ],
+    "figma@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/figma/1.1.0",
+        "version": "1.1.0",
+        "installedAt": "2026-02-25T14:20:52.477Z",
+        "lastUpdated": "2026-02-25T14:20:52.477Z",
+        "gitCommitSha": "83b11c0bc199a3c6ee87df0a0bd460139fa72cdc"
+      }
+    ],
+    "stripe@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/stripe/0.1.0",
+        "version": "0.1.0",
+        "installedAt": "2026-02-25T14:20:52.494Z",
+        "lastUpdated": "2026-02-25T14:20:52.494Z",
+        "gitCommitSha": "55b58ec6e5649104f926ba7558b567dc8d33c5ff"
+      }
+    ],
+    "playground@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/playground/55b58ec6e564",
+        "version": "55b58ec6e564",
+        "installedAt": "2026-02-25T14:20:52.504Z",
+        "lastUpdated": "2026-02-25T14:20:52.504Z",
+        "gitCommitSha": "55b58ec6e5649104f926ba7558b567dc8d33c5ff"
+      }
+    ],
+    "sonatype-guide@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/sonatype-guide/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-02-25T14:20:53.145Z",
+        "lastUpdated": "2026-02-25T14:20:53.145Z",
+        "gitCommitSha": "ce3e3f3da4585fd5c3ea03c55b7d024575a041f9"
+      }
+    ],
+    "skill-creator@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/skill-creator/55b58ec6e564",
+        "version": "55b58ec6e564",
+        "installedAt": "2026-02-25T14:20:53.162Z",
+        "lastUpdated": "2026-02-25T14:20:53.162Z",
+        "gitCommitSha": "55b58ec6e5649104f926ba7558b567dc8d33c5ff"
+      }
+    ],
+    "llm-application-dev@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/llm-application-dev/2.0.4",
+        "version": "2.0.4",
+        "installedAt": "2026-02-25T14:20:53.181Z",
+        "lastUpdated": "2026-02-25T14:20:53.181Z",
+        "gitCommitSha": "ade0c7a211d04fa1354d10359737cace5c6fc5b0"
+      }
+    ],
+    "payment-processing@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/payment-processing/1.2.1",
+        "version": "1.2.1",
+        "installedAt": "2026-02-25T14:20:53.190Z",
+        "lastUpdated": "2026-02-25T14:20:53.190Z",
+        "gitCommitSha": "ade0c7a211d04fa1354d10359737cace5c6fc5b0"
+      }
+    ],
+    "semgrep@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-plugins-official/semgrep/15596f4def42",
+        "version": "15596f4def42",
+        "installedAt": "2026-02-25T14:20:53.830Z",
+        "lastUpdated": "2026-02-25T14:20:53.830Z",
+        "gitCommitSha": "15596f4def427f67b8293b0369d4aabe3cb3854f"
+      }
+    ],
+    "startup-business-analyst@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/startup-business-analyst/1.0.4",
+        "version": "1.0.4",
+        "installedAt": "2026-02-25T14:20:53.841Z",
+        "lastUpdated": "2026-02-25T14:20:53.841Z",
+        "gitCommitSha": "ade0c7a211d04fa1354d10359737cace5c6fc5b0"
+      }
+    ],
+    "ui-design@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/dev/.claude/plugins/cache/claude-code-workflows/ui-design/1.0.2",
+        "version": "1.0.2",
+        "installedAt": "2026-02-25T14:20:53.870Z",
+        "lastUpdated": "2026-02-25T14:20:53.870Z",
+        "gitCommitSha": "ade0c7a211d04fa1354d10359737cace5c6fc5b0"
       }
     ]
   }

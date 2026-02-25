@@ -21,7 +21,6 @@
       "Glob",
       "Grep",
       "LS",
-      "WebFetch",
       "WebSearch",
       "NotebookRead",
       "NotebookEdit",
@@ -67,12 +66,6 @@
   },
   "enableAllProjectMcpServers": true,
   "enabledMcpjsonServers": [],
-  "mcpServers": {
-    "agent-hub": {
-      "type": "streamable-http",
-      "url": "http://192.168.60.43:3100/mcp"
-    }
-  },
   "hooks": {
     "PreToolUse": [
       {
@@ -275,6 +268,18 @@
   "statusLine": {
     "type": "command",
     "command": "$PAI_DIR/statusline-command.sh"
+  },
+  "enabledPlugins": {
+    "figma@claude-plugins-official": true,
+    "stripe@claude-plugins-official": true,
+    "playground@claude-plugins-official": true,
+    "sonatype-guide@claude-plugins-official": true,
+    "skill-creator@claude-plugins-official": true,
+    "llm-application-dev@claude-code-workflows": true,
+    "payment-processing@claude-code-workflows": true,
+    "semgrep@claude-plugins-official": true,
+    "startup-business-analyst@claude-code-workflows": true,
+    "ui-design@claude-code-workflows": true
   },
   "spinnerVerbs": {
     "mode": "replace",
@@ -706,6 +711,12 @@
     ]
   },
   "plansDirectory": "~/.claude/Plans/",
+  "mcpServers": {
+    "agent-hub": {
+      "type": "streamable-http",
+      "url": "http://192.168.60.43:3100/mcp"
+    }
+  },
   "teammateMode": "in-process",
   "contextFiles": [
     "skills/PAI/SKILL.md",
@@ -855,6 +866,6 @@
     "sessions": 2,
     "research": 0,
     "ratings": 0,
-    "updatedAt": "2026-02-23T12:55:49.921Z"
+    "updatedAt": "2026-02-25T14:24:40.093Z"
   }
 }

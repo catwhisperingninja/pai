@@ -55,9 +55,206 @@
       "type": "anti-criterion",
       "status": "pending",
       "createdInPhase": "OBSERVE"
+    },
+    {
+      "id": "A2",
+      "description": "No council tokens wasted on already-settled decisions",
+      "type": "anti-criterion",
+      "status": "pending",
+      "createdInPhase": "OBSERVE"
     }
   ],
-  "agents": [],
+  "agents": [
+    {
+      "name": "Research pi-coding-agent brew pkg",
+      "agentType": "Intern",
+      "status": "active",
+      "task": "Research pi-coding-agent brew pkg",
+      "phase": "OBSERVE"
+    },
+    {
+      "name": "Interpretability visualization research",
+      "agentType": "Intern",
+      "status": "active",
+      "task": "Interpretability visualization research",
+      "phase": "OBSERVE"
+    },
+    {
+      "name": "Agentic web implications analysis",
+      "agentType": "Intern",
+      "status": "active",
+      "task": "Agentic web implications analysis",
+      "phase": "OBSERVE"
+    },
+    {
+      "name": "Interpretability viz research v2",
+      "agentType": "general-purpose",
+      "status": "active",
+      "task": "Interpretability viz research v2",
+      "phase": "OBSERVE"
+    },
+    {
+      "name": "Agentic web implications v2",
+      "agentType": "general-purpose",
+      "status": "active",
+      "task": "Agentic web implications v2",
+      "phase": "OBSERVE"
+    },
+    {
+      "name": "Test agent launch - interp viz",
+      "agentType": "Intern",
+      "status": "active",
+      "task": "Test agent launch - interp viz",
+      "phase": "OBSERVE"
+    },
+    {
+      "name": "Full interpretability viz research",
+      "agentType": "Intern",
+      "status": "active",
+      "task": "Full interpretability viz research",
+      "phase": "OBSERVE"
+    },
+    {
+      "name": "Solo dev agentic economy income",
+      "agentType": "Intern",
+      "status": "active",
+      "task": "Solo dev agentic economy income",
+      "phase": "OBSERVE"
+    },
+    {
+      "name": "Council R1: Designer position",
+      "agentType": "Designer",
+      "status": "active",
+      "task": "Council R1: Designer position",
+      "phase": "OBSERVE"
+    },
+    {
+      "name": "Council R1: Architect position",
+      "agentType": "Architect",
+      "status": "active",
+      "task": "Council R1: Architect position",
+      "phase": "OBSERVE"
+    },
+    {
+      "name": "Council R1: Engineer position",
+      "agentType": "Engineer",
+      "status": "active",
+      "task": "Council R1: Engineer position",
+      "phase": "OBSERVE"
+    },
+    {
+      "name": "Council R1: Researcher position",
+      "agentType": "PerplexityResearcher",
+      "status": "active",
+      "task": "Council R1: Researcher position",
+      "phase": "OBSERVE"
+    },
+    {
+      "name": "Council R1: Security position",
+      "agentType": "Pentester",
+      "status": "active",
+      "task": "Council R1: Security position",
+      "phase": "OBSERVE"
+    },
+    {
+      "name": "Council R2: Designer response",
+      "agentType": "Designer",
+      "status": "active",
+      "task": "Council R2: Designer response",
+      "phase": "OBSERVE"
+    },
+    {
+      "name": "Council R2: Engineer response",
+      "agentType": "Engineer",
+      "status": "active",
+      "task": "Council R2: Engineer response",
+      "phase": "OBSERVE"
+    },
+    {
+      "name": "Council R2: Architect response",
+      "agentType": "Architect",
+      "status": "active",
+      "task": "Council R2: Architect response",
+      "phase": "OBSERVE"
+    },
+    {
+      "name": "Council R2: Researcher response",
+      "agentType": "PerplexityResearcher",
+      "status": "active",
+      "task": "Council R2: Researcher response",
+      "phase": "OBSERVE"
+    },
+    {
+      "name": "Council R2: Security response",
+      "agentType": "Pentester",
+      "status": "active",
+      "task": "Council R2: Security response",
+      "phase": "OBSERVE"
+    },
+    {
+      "name": "Council R3: Designer synthesis",
+      "agentType": "Designer",
+      "status": "active",
+      "task": "Council R3: Designer synthesis",
+      "phase": "OBSERVE"
+    },
+    {
+      "name": "Council R3: Architect synthesis",
+      "agentType": "Architect",
+      "status": "active",
+      "task": "Council R3: Architect synthesis",
+      "phase": "OBSERVE"
+    },
+    {
+      "name": "Council R3: Engineer synthesis",
+      "agentType": "Engineer",
+      "status": "active",
+      "task": "Council R3: Engineer synthesis",
+      "phase": "OBSERVE"
+    },
+    {
+      "name": "Council R3: Security synthesis",
+      "agentType": "Pentester",
+      "status": "active",
+      "task": "Council R3: Security synthesis",
+      "phase": "OBSERVE"
+    },
+    {
+      "name": "Council R3: Researcher synthesis",
+      "agentType": "PerplexityResearcher",
+      "status": "active",
+      "task": "Council R3: Researcher synthesis",
+      "phase": "OBSERVE"
+    },
+    {
+      "name": "Explore fact-checker XML protocol",
+      "agentType": "Explore",
+      "status": "active",
+      "task": "Explore fact-checker XML protocol",
+      "phase": "OBSERVE"
+    },
+    {
+      "name": "Explore pdrift API and quorum",
+      "agentType": "Explore",
+      "status": "active",
+      "task": "Explore pdrift API and quorum",
+      "phase": "OBSERVE"
+    },
+    {
+      "name": "Explore crypto layer and infra",
+      "agentType": "Explore",
+      "status": "active",
+      "task": "Explore crypto layer and infra",
+      "phase": "OBSERVE"
+    },
+    {
+      "name": "Design parallel build plan",
+      "agentType": "Plan",
+      "status": "active",
+      "task": "Design parallel build plan",
+      "phase": "OBSERVE"
+    }
+  ],
   "capabilities": [
     "Task Tool"
   ],
@@ -70,5 +267,6 @@
     }
   ],
   "effortLevel": "Fast",
-  "currentAction": "Fix git lock files and cached backups"
+  "currentAction": "Revise wireframes with correct model lineup",
+  "summary": "Architect validated the plan, corrected scope to all five models from day one. EU customers first for Estonian entity strategy. Ready to build."
 }

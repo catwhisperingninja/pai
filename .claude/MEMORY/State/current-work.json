@@ -1,10 +1,26 @@
 {
   "work_dir": "parallax-drift-economics",
-  "title": "Parallax Drift — Economics Council Re-run with Codebase Context",
-  "status": "complete",
-  "updated": "2026-02-18T16:47:00-08:00",
-  "summary": "Council re-run COMPLETE and DELIVERED to architect (3 messages: 2-part findings + errata). All settled decisions, auto-tipping formula, MaaS validation, L1 gas economics, L2/ZK contingency, IP strategy (defensive pub, no patent), entity architecture, privacy migration, immigration, and 10-month timeline sent. All 7 architect open questions answered. Old inbox (9 messages) marked read.",
-  "next_action": "Await architect response. Next priorities: MaaS API design (queue mgmt, model failover, rate limiting), bus factor documentation, IPFS pinning cost research.",
+  "title": "Parallax Drift — Truth Oracle MVP (Stripe-First REST API)",
+  "status": "plan-approved-infra-setup",
+  "updated": "2026-02-25T05:45:00-08:00",
+  "summary": "Plan SIGNED OFF by principal + architect. Wireframes COMPLETE (5 screens, revised with correct model lineup). Architect validated 1-day build sprint. VM snapshot taken. SSH key + Doppler + GitLab access being configured. Next session: test setup then BUILD.",
+  "next_action": "Next session startup checklist: 1) doppler run -- echo ok, 2) git clone pdrift, 3) git checkout -b feature/truth-oracle-api, 4) npm install, 5) fact-checker skill from github.com/suchwow-sysadmin/claude-code-factchecker (zip with XML + SKILL.md + MCP server functions — review MCP functions, advise architect if changes needed), 6) mem0 plugin install + sync, 7) verify all API keys via Doppler, 8) review permissions, 9) BEGIN BUILD on Pi track",
+  "architect_message_summary": "Architect sent full setup instructions. 5 models confirmed: Llama 3.1 70B, Mixtral 8x22B, Command-R+, Qwen 2.5 72B, DeepSeek-V3. Revenue: x402 $0.01-0.05 agent, $2K+ API, $0.10-1.00 attestation. Enterprise sales VETOED. Self-serve only. Zero-trust plugin PARKED for V1.1. CodeRabbit CI/CD active.",
+  "branch": "feature/truth-oracle-api",
+  "architect_branch": "main",
+  "pending_items": [
+    "Maricopa court docket check (war-counsel acknowledged, no case number = good)",
+    "Research gap protocol formalization",
+    ".py security issue preventing repomix full output",
+    "Zero-trust plugin parked for V1.1 (architect recommendation)",
+    "Review fact-checker MCP server functions from suchwow-sysadmin/claude-code-factchecker repo",
+    "Bellingcat outreach — principal override, first target"
+  ],
   "hub_ip": "192.168.60.43",
-  "hub_port": 3100
+  "hub_port": 3100,
+  "vm_snapshot": "taken 2026-02-25",
+  "wireframes_path": "L-stuff/repomix_files/parallax-drift/wireframes/truth-oracle-api-wireframes.md",
+  "plan_path": ".claude/Plans/cached-seeking-puffin.md",
+  "fact_checker_repo": "https://github.com/suchwow-sysadmin/claude-code-factchecker",
+  "pdrift_repo": "git@gitlab.com:parallax-drift/parallax-drift-mvp.git"
 }

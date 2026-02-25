@@ -1,0 +1,1821 @@
+URL: https://youtu.be/fGKNUvivvnc
+Title: Interpretability-Understanding-how-AI-models-think
+00:00:00.080 the the model doesn't think of itself
+00:00:02.560 necessarily as trying to predict the
+00:00:04.240 next word. Internally, it's developed
+00:00:06.560 potentially all sorts of intermediate
+00:00:08.480 goals and abstractions that help it
+00:00:10.800 achieve that kind of meta objective.
+00:00:13.599 When you're talking to a large language
+00:00:15.440 model, what exactly is it that you're
+00:00:17.279 talking to? Are you talking to something
+00:00:19.439 like a glorified autocomplete? Are you
+00:00:22.000 talking to something like an internet
+00:00:23.359 search engine? or are you talking to
+00:00:25.279 something that's actually thinking um
+00:00:27.840 and maybe even thinking like a person?
+00:00:30.880 It turns out rather concerningly that
+00:00:32.719 nobody really knows the answer to those
+00:00:34.880 questions. Um and here at Anthropic, we
+00:00:37.760 are very interested in in finding those
+00:00:40.000 answered out. Um the way that we do that
+00:00:42.399 is to use interpretability. that is the
+00:00:45.280 science of opening up a large language
+00:00:47.840 model, looking inside and trying to work
+00:00:50.320 out what's going on as it's answering
+00:00:52.480 your questions. Um, and I'm very glad to
+00:00:55.120 be joined by three members of our
+00:00:56.800 interpretability team who are going to
+00:00:58.399 tell me a little bit about the recent
+00:01:00.559 research that they've been doing on the
+00:01:02.399 complex inner workings of Claude, our
+00:01:05.119 language model. Um, please introduce
+00:01:07.600 yourself, guys.
+00:01:08.400 >> Hi, I'm Jack. I'm a researcher on the
+00:01:10.640 interpretability team and before that I
+00:01:12.720 was a neuroscientist. Now here I am
+00:01:14.960 doing neuroscience on the AIS.
+00:01:16.880 >> I'm Emanuel. I'm also on the
+00:01:18.320 interpretability team. I spent most of
+00:01:20.880 my career building machine learning
+00:01:22.159 models and now I'm trying to understand
+00:01:23.759 them.
+00:01:24.560 >> I'm Josh. I'm also on the
+00:01:26.080 interpretability team. In my past life,
+00:01:28.159 I studied viral evolution and in my past
+00:01:30.560 past life, I was a mathematician. So now
+00:01:32.880 I'm doing this kind of biology on these
+00:01:35.439 organisms we've made out of math.
+00:01:37.040 >> Now wait a second. You just said you're
+00:01:38.479 doing biology here. Now, a lot of people
+00:01:40.240 are going to be surprised by that
+00:01:41.600 because of course this is a piece of
+00:01:44.560 software, right? But it's not a normal
+00:01:46.640 piece of software. It's not like
+00:01:47.920 Microsoft Word or something. Can you
+00:01:49.360 talk about what you mean when you say
+00:01:50.720 that you're doing biology or indeed
+00:01:53.040 neuroscience on uh a software entity?
+00:01:57.280 >> Yeah, I guess it it's like what it feels
+00:01:59.759 like maybe more than like what it what
+00:02:01.439 it literally is. And so like it's maybe
+00:02:04.560 it's the biology of language models
+00:02:06.640 instead of like the physics of language
+00:02:08.640 models, right? Or maybe you got to go
+00:02:10.959 back a little bit to like how the models
+00:02:12.319 are made, which is like someone's not
+00:02:13.920 programming like if the user says hi,
+00:02:16.000 you should say hi. You know, if the user
+00:02:18.319 says like what is a good breakfast, you
+00:02:20.239 should say toast. There's not like some
+00:02:21.440 big list of that inside.
+00:02:22.720 >> So it's not like when you play a video
+00:02:23.840 game and you like choose a response and
+00:02:25.280 then there will be another response that
+00:02:26.560 comes automatically. always will be that
+00:02:28.560 response regardless of, you know,
+00:02:30.640 >> just a massive database of like what to
+00:02:32.319 say in every situation. No, they're
+00:02:34.239 trained where there's just, you know, a
+00:02:36.400 whole lot of data that goes in and the
+00:02:38.959 model um starts out being really bad at
+00:02:41.680 saying anything and then its inside
+00:02:43.280 parts get tweaked, you know, on every
+00:02:45.519 single example to get better at saying
+00:02:47.120 what comes next and at the end it's like
+00:02:48.640 extremely good at that. But because it's
+00:02:51.200 like this little tweaking evolutionary
+00:02:53.360 process, by the time it's done, it has
+00:02:56.160 little resemblance to what it started
+00:02:57.760 as, but no one went in and set all the
+00:02:59.680 knobs. And so you're trying to study
+00:03:02.480 this complicated thing that kind of got
+00:03:04.319 made over time, kind of like biological
+00:03:07.440 forms evolved over time. Um, and so
+00:03:11.200 there's there it's complicated, it's
+00:03:12.959 mysterious. Um, and it's fun to study.
+00:03:16.560 and what it's actually doing. I mean, I
+00:03:18.159 mentioned at the start that this is like
+00:03:20.080 could be considered like an
+00:03:20.959 autocomplete, right? It's it's it's it's
+00:03:22.879 predicting the next word. That's
+00:03:25.040 fundamentally what's happening inside
+00:03:26.400 the model, right? And yet, it's able to
+00:03:28.319 do all these incredible things. It's
+00:03:29.599 able to write poetry. It's able to write
+00:03:32.400 long stories. It's able to do uh
+00:03:35.920 addition and, you know, basic maths even
+00:03:38.319 though it doesn't have a calculator
+00:03:39.360 inside it.
+00:03:40.640 How can we sort of uh um square the
+00:03:43.120 circle that it's predicting one word at
+00:03:45.920 a time and yet it's able to do all these
+00:03:47.200 amazing things which people can see
+00:03:48.879 right in front of them as soon as they
+00:03:50.560 talk to the the model.
+00:03:52.000 >> Well, I think I think one one thing
+00:03:54.000 that's important here is that as you as
+00:03:55.680 you predict the next word for enough
+00:03:57.680 words, you realize that some words are
+00:03:59.519 harder than others. And so part part of
+00:04:02.319 part of uh language model training is
+00:04:04.959 predicting, you know, boring words in a
+00:04:06.720 sentence. And part of it is it'll have
+00:04:08.879 to eventually learn how to complete what
+00:04:11.200 happens after the equal sign in
+00:04:13.120 equation. And to do that, it'll have to
+00:04:15.120 have some way of computing that on its
+00:04:17.840 own. And so we're finding is that the
+00:04:20.160 task of predicting the next word is sort
+00:04:21.759 like deceptively simple. And that to do
+00:04:24.080 that well, uh, you need to actually
+00:04:26.160 often think about the words that come
+00:04:28.000 after the word you're predicting or the
+00:04:30.000 process that generated the word that
+00:04:31.600 you're currently thinking about.
+00:04:32.800 >> So it's like a contextual understanding
+00:04:34.720 that these models have to have. It's not
+00:04:36.639 like an autocomplete where it really is
+00:04:38.560 presumably there's not much else going
+00:04:39.840 on there other than when you write the
+00:04:41.520 cat sat on the it's predicting Matt
+00:04:44.479 because that's been that particular
+00:04:45.840 phrase has been used before. Instead
+00:04:47.520 it's like a contextual understanding
+00:04:48.880 that the model has.
+00:04:49.759 >> I think yeah the way I like to think
+00:04:51.199 about it kind of continuing with the
+00:04:52.960 biology analogy is that in in one sense
+00:04:56.080 the goal of a human is to survive and
+00:04:58.800 reproduce. That is the kind of objective
+00:05:01.199 that evolution is crafting us to
+00:05:04.000 achieve. Uh, and yet that's not how you
+00:05:06.880 think of yourself and that's that's not
+00:05:08.560 what's going on in your brain.
+00:05:10.000 >> Some people do.
+00:05:11.600 >> It's not what's going on in your brain
+00:05:12.880 all the time. Uh, you you think you
+00:05:15.360 think about other things and you think
+00:05:17.039 about, you know, goals and plans and
+00:05:20.560 concepts. Uh, and at kind of a meta
+00:05:23.120 level, you've you know, evolution has
+00:05:26.160 endowed you with the ability to form
+00:05:27.840 those thoughts in order to achieve this,
+00:05:30.880 you know, eventual goal of reproduction.
+00:05:34.080 Uh, but that's kind of taking the inside
+00:05:36.800 view, what it's like to be you on the
+00:05:38.639 inside. That's that's not all there is
+00:05:41.360 to it. There's there's all there's all
+00:05:43.039 this other stuff going on. And I think
+00:05:44.560 >> so so you're saying that the ultimate
+00:05:45.840 goal of predicting the next word
+00:05:47.759 involves lots of other processes that
+00:05:50.000 are going on.
+00:05:50.960 >> Exactly. The the model doesn't think of
+00:05:53.360 itself necessarily as trying to predict
+00:05:55.360 the next word. It's it's been shaped by
+00:05:57.520 the need to do that, but internally it's
+00:06:00.160 developed potentially all sorts of
+00:06:02.000 intermediate goals and abstractions that
+00:06:04.560 help it achieve that kind of meta
+00:06:06.240 objective.
+00:06:06.960 >> And sometimes it's mysterious, like it's
+00:06:08.479 unclear why my anxiety was like useful
+00:06:11.680 for my ancestors reproducing and yet
+00:06:13.680 somehow I've been endowed with this like
+00:06:15.440 internal state um that must be related
+00:06:18.319 in some sense to evolution.
+00:06:19.919 >> Right. Right. Right.
+00:06:21.280 >> So it's fair to say then that these are
+00:06:23.120 just predicting the next word and yet
+00:06:25.280 that's that's to do a massive disservice
+00:06:27.440 to what's going on in the models really.
+00:06:29.280 It's it's both true and also untrue in a
+00:06:31.919 in a in a sense or or or um massively
+00:06:34.960 underestimates what's happening inside
+00:06:36.240 these models.
+00:06:36.880 >> Maybe the way I would say this is it's
+00:06:38.000 true but it's not the most useful lens
+00:06:39.680 to try to understand how they work.
+00:06:41.280 >> Right. So well try and understand how
+00:06:42.960 they work. What do you guys do in your
+00:06:44.800 team to try and understand how they
+00:06:46.400 work?
+00:06:46.880 >> I think uh to to first approximation
+00:06:50.000 like what what we're trying to do is uh
+00:06:52.639 tell you the model's thought process. So
+00:06:56.000 you give the model a sequence sequence
+00:06:58.479 of words and it's got to spit something
+00:07:00.960 spit something out. It's got to say a
+00:07:02.560 word. It's got to say a string of words
+00:07:04.400 in response to your question.
+00:07:06.400 >> Uh and we want to know how it got from A
+00:07:08.560 to B. And we think that on the way from
+00:07:12.479 A to B, it uses kind of a a series of
+00:07:15.759 steps uh in which it's thinking about
+00:07:18.560 you know to so to speak uh concepts uh
+00:07:21.360 concepts like low-level concepts like
+00:07:24.960 individual kind of objects and words uh
+00:07:27.440 and higher level concepts like its goals
+00:07:30.560 or you know uh emotional states or
+00:07:33.599 models of like what the user is thinking
+00:07:36.479 um or sentiments. Um, so it it's using
+00:07:39.919 this kind of uh series of concepts that
+00:07:42.880 are progressing through the kind of
+00:07:45.039 computational steps of the model that
+00:07:46.800 help it decide on its final answer. And
+00:07:48.639 what we're trying to do is kind of give
+00:07:50.560 you a a flowchart basically uh that
+00:07:54.479 tells you, you know, which concepts were
+00:07:56.720 being used in which order and which ones
+00:07:58.720 kind of led, you know, how did the steps
+00:08:01.599 flow into one another.
+00:08:03.599 >> How do how do we know that though? How
+00:08:05.120 do we know that there are these concepts
+00:08:07.280 in the first place?
+00:08:09.280 >> Yeah. So, one thing we do is is that
+00:08:11.599 sort of we actually can see inside
+00:08:13.440 inside the model we have access to it.
+00:08:15.120 So, you can sort of like see which parts
+00:08:16.560 of the model do which things. What we
+00:08:18.240 don't know is like how these parts are
+00:08:20.319 grouped together and if they map to like
+00:08:22.160 a certain concept,
+00:08:23.120 >> right? So, it's as if you open someone's
+00:08:24.479 head and there you could see like one of
+00:08:26.319 those fMRI brain images that you could
+00:08:28.560 see the brain was like lighting up and
+00:08:29.840 doing all sorts.
+00:08:30.639 >> Something's happening clearly,
+00:08:31.840 >> right? But and they're like doing stuff.
+00:08:34.000 there's something happening. You take
+00:08:35.120 the brain out, they stop doing stuff.
+00:08:36.719 The brain must be important.
+00:08:38.080 >> And but but you but you don't have a
+00:08:39.760 sort of um key to understand uh what is
+00:08:42.880 happening inside that that that brain.
+00:08:44.560 >> Yeah. But torturing that analogy a
+00:08:46.080 little bit. You you can sort of imagine
+00:08:48.240 imagine like that you can you know
+00:08:50.000 observe their brain and then see that
+00:08:51.279 like that part always lights up when
+00:08:52.800 they're picking up a cup of coffee and
+00:08:54.480 this other part always lights up when
+00:08:55.839 they're drinking tea. M and that's part
+00:08:58.080 that's one of the ways in which we can
+00:08:59.839 try to understand which what each of
+00:09:01.680 these components are doing is to just
+00:09:03.040 notice when they're when they're active
+00:09:04.560 when they're inactive.
+00:09:05.839 >> And it's not that there's just one part,
+00:09:07.279 right? There's there's many different
+00:09:08.240 parts that light up,
+00:09:09.440 >> right? When the model is thinking about
+00:09:12.000 drinking coffee, for instance, or or
+00:09:13.360 something,
+00:09:13.760 >> right? And part of the work is to sort
+00:09:14.959 of like stitch all of those together
+00:09:16.160 into one ensemble that we say is ah this
+00:09:18.720 is the sort of like all of the bits of
+00:09:20.240 the model that are about drinking
+00:09:21.360 coffee,
+00:09:21.920 >> right? And and is that like a
+00:09:23.440 straightforward scientifically thing to
+00:09:25.200 do? like uh how how uh you know when it
+00:09:27.680 comes to when it comes to one of these
+00:09:28.880 massive models, they must have endless
+00:09:31.120 concepts, right? They must they must be
+00:09:32.880 able to think of endless things. You can
+00:09:34.000 put in any phrase you want and it'll
+00:09:36.399 come up with infinite things. H how do
+00:09:38.640 you even begin to to find all those
+00:09:40.560 concepts? I think that's that's been
+00:09:43.040 kind of one of the central challenges
+00:09:44.640 for this, you know, research field for
+00:09:46.480 for many years now is is we can kind of
+00:09:50.080 go in as humans and say, "Oh, I bet the
+00:09:53.360 model h has some representation of
+00:09:56.800 trains or I bet it has some
+00:09:58.399 representation of love, right?" Um, but
+00:10:00.320 we're just kind of guessing. So what we
+00:10:02.000 really want is a a way to you know
+00:10:04.640 reveal what what abstractions the model
+00:10:06.800 uses itself rather than sort of imposing
+00:10:09.360 our own sort conceptual framework on it.
+00:10:12.480 Um and that's kind of what our you know
+00:10:14.640 research methods are designed to do is
+00:10:17.040 is in a sort of hypothesisfree
+00:10:19.839 as to as much as possible way like bring
+00:10:23.120 to surface what all these concepts are
+00:10:25.360 that the model has in its head. And
+00:10:27.120 often we find that they're kind of
+00:10:28.399 surprising to us. They might be it might
+00:10:30.800 sort of use abstractions that are a bit
+00:10:32.720 weird uh from a human perspective.
+00:10:34.640 >> What's an example?
+00:10:35.760 >> Do you have do you have a favorite or
+00:10:37.600 >> There's lots in in our papers. We
+00:10:39.279 highlight a few fun ones. I think one
+00:10:40.640 one that was particularly funny is the
+00:10:42.240 sort of like
+00:10:43.200 >> psychopantic praise one where like there
+00:10:45.839 there is a part of them all.
+00:10:46.959 >> Great example. What a brilliant. What an
+00:10:48.959 absolutely fantastic example.
+00:10:50.560 >> Oh, thank you. Um there's a part of that
+00:10:53.200 there's a part of that that activates in
+00:10:55.360 exactly these these contexts, right? and
+00:10:57.360 you can clearly see, oh man, this part
+00:10:59.360 of the model fires up when when
+00:11:01.519 somebody's really hamming it up on the
+00:11:03.200 compliments. Um, that's that's kind of
+00:11:04.959 surprising that that exists as a as a
+00:11:06.640 specific sort of concept.
+00:11:08.560 >> Josh, what's your favorite
+00:11:10.160 >> concept?
+00:11:11.360 >> Oh, it's like asking me to choose one of
+00:11:13.120 my 30 million children. Um, I mean, I I
+00:11:17.839 think, you know, there there's like two
+00:11:20.160 kinds of favorites. There's like, oh,
+00:11:21.760 it's so cool that there's it's got some
+00:11:24.560 special notion of like this one, you
+00:11:26.720 know, little thing, right? I mean, we
+00:11:28.560 did this thing on the Golden Gate
+00:11:30.079 Bridge, which is like a famous San
+00:11:31.360 Francisco landmark, Golden Gate Claw.
+00:11:33.040 It's like a lot of fun. It like has an
+00:11:35.360 idea of the Golden Gate Bridge that like
+00:11:38.079 isn't just like the words Golden Gate
+00:11:40.320 autocomplete bridge, but is like I'm
+00:11:42.800 driving from San Francisco to Marin, and
+00:11:45.839 then it's thinking of the same thing.
+00:11:47.839 meaning that like you see sort of like
+00:11:49.120 the same stuff light up inside or it's
+00:11:50.640 like a picture of the bridge and so
+00:11:52.240 you're like okay it's got some robust
+00:11:53.760 notion of like what what the bridge is.
+00:11:56.560 But I think when it comes to um stuff
+00:11:58.880 that seems sort of like weirder, you
+00:12:01.440 know, one question is how how do models
+00:12:03.120 like keep track of who's in the story,
+00:12:06.560 like just like literally like like okay,
+00:12:08.160 you got all these people and they're
+00:12:08.959 doing stuff. How do you wire that
+00:12:09.920 together? And some cool papers by by
+00:12:11.600 other labs showing maybe like they just
+00:12:13.519 sort of number them. Okay, the first
+00:12:14.639 person comes in and anything associated
+00:12:16.160 with them and they just like oh the
+00:12:17.440 first guy did that and like it's got
+00:12:18.720 like a number two in its head for a
+00:12:20.000 bunch of those. It's like oh that's
+00:12:21.200 that's interesting. I didn't know I
+00:12:22.880 didn't know it would do something like
+00:12:23.920 that. There was um uh a feature for like
+00:12:28.639 bugs in code. So you know software has
+00:12:30.959 mistakes.
+00:12:32.160 >> Not mine but like
+00:12:33.279 >> obviously not yours.
+00:12:34.000 >> Not mine certainly. And there was like
+00:12:35.519 one part that would light up like
+00:12:36.639 whenever it found like a mistake sort of
+00:12:38.720 as it was reading and then I guess like
+00:12:40.560 keeping kind of track of that like oh
+00:12:41.920 here's here's where the problems are you
+00:12:43.279 know and later I might need those. just
+00:12:45.360 to give a flavor for for a few more of
+00:12:47.120 these. I think um uh one one that I
+00:12:50.880 really liked which doesn't sound so
+00:12:52.720 exciting at first but I think is is kind
+00:12:54.320 of deep is uh this this 6 plus 9 uh
+00:12:57.839 feature inside the model. Um so it turns
+00:13:00.639 out that like uh anytime you get the
+00:13:04.320 model to be adding the numbers six, a
+00:13:07.040 number that ends in the digit six and
+00:13:08.720 another number that ends in the digit
+00:13:10.079 nine in its head,
+00:13:11.839 >> there is a you know there's a kind of
+00:13:13.600 part of the model of brain that lights
+00:13:15.760 up.
+00:13:16.560 >> And but what's amazing about it is is
+00:13:18.880 the kind of diversity of of of context
+00:13:21.279 in which this can happen. So like of
+00:13:23.200 course it's going to light up when you
+00:13:24.480 pres when you say like 6 plus 9 equals
+00:13:26.800 and then it says 15. Uh but it also
+00:13:29.360 lights up when you are like giving a
+00:13:32.639 citation uh like a a citation in a paper
+00:13:36.000 that you're writing uh and you're citing
+00:13:38.639 a journal uh that uh unbeknownst to you
+00:13:43.440 happens to be founded in the year 1959
+00:13:47.200 and in your citation you're saying like
+00:13:49.200 that journal's name volume 6. Uh and
+00:13:53.120 then in order to like predict what year
+00:13:55.600 that journal was formed in, uh the model
+00:13:57.839 in its head has to be adding like 1959
+00:14:00.880 to six. Uh and the same the same kind of
+00:14:05.440 circuit in the model's brain is lighting
+00:14:07.120 up. That's like doing 6 plus 9 and so so
+00:14:09.760 let's I mean let's just try and
+00:14:10.880 understand that. So what you know why
+00:14:12.240 would that be there? That circuit has
+00:14:14.399 come about because the model has seen
+00:14:16.800 examples of 6 plus 9 many times and it
+00:14:19.519 has that concept and then that concept
+00:14:22.160 occurs across across many places. Yeah,
+00:14:23.920 there's a whole family of these kind of
+00:14:25.760 addition features and circuits. And I
+00:14:28.480 think what what what's
+00:14:30.079 >> not notable about this is it gets to
+00:14:32.240 this kind of question of to what extent
+00:14:34.160 are are language models memorizing
+00:14:37.199 training data versus kind of uh having
+00:14:40.000 learning generalizable computations. And
+00:14:42.720 like the interesting thing here is that
+00:14:44.399 like it's clear that the model has
+00:14:46.320 learned this sort of general uh circuit
+00:14:49.120 for doing addition and it kind of
+00:14:51.519 funnels like whatever the context is
+00:14:53.519 that's causing it to be adding numbers
+00:14:55.199 in its head. It's funneling all those
+00:14:56.880 different contexts into the same circuit
+00:14:58.959 as opposed to having kind of memorized
+00:15:01.120 each individual case,
+00:15:02.560 >> right? Already has seen 6 plus 9 many
+00:15:05.360 times and it just outputs the the answer
+00:15:07.519 every single time or or and that's what
+00:15:09.680 a lot of people think, right? A lot of
+00:15:10.800 people think that when they ask a
+00:15:12.800 language model a question, it is simply
+00:15:14.880 going back into its training data,
+00:15:16.880 >> taking the little sample that it's seen,
+00:15:18.560 and then just reproducing that, just
+00:15:20.000 regurgitating the text.
+00:15:21.360 >> Yeah. And I think this is a beautiful
+00:15:22.480 example of like that not happening. So,
+00:15:25.839 so like there's two ways it could know
+00:15:29.440 like which year volume six of the
+00:15:32.320 journal Polymer came out. One is it's
+00:15:34.560 just like, okay, Polymer volume 6 came
+00:15:36.480 out in like, you know, 1960.
+00:15:39.519 quick ad 69 1965
+00:15:42.320 um polymer you know volume 7 came out in
+00:15:46.240 1966 and these are all just like
+00:15:48.079 separate facts that it has stored
+00:15:49.440 because it has seen them but like
+00:15:51.199 somehow that process of training to like
+00:15:53.519 get that year right didn't end up making
+00:15:55.920 the model memorize all those it actually
+00:15:57.920 got the more general thing of like the
+00:15:59.600 journal was founded in the year 1959 and
+00:16:02.560 then it's doing the math live to figure
+00:16:04.720 out what it would need and so it's much
+00:16:07.040 more efficient to like know the year and
+00:16:08.880 then do the addition and there's a
+00:16:11.279 pressure to be more efficient because
+00:16:13.040 you know it's only got so much capacity
+00:16:14.480 and keeps trying to do all these things
+00:16:16.000 >> and people may ask any given question
+00:16:17.839 >> there's so many questions there's so
+00:16:19.120 many interactions and so and so the more
+00:16:20.880 that it can like recombine abstract
+00:16:23.360 things it's learned the better it will
+00:16:25.040 do
+00:16:25.519 >> and again just to go back to the concept
+00:16:26.800 that you talked about before this is all
+00:16:28.560 in in service of you know it it it needs
+00:16:31.440 to have that ultimate goal of generating
+00:16:33.040 the next word and all these weird
+00:16:34.959 structures have developed to support
+00:16:36.959 that goal uh even though we didn't
+00:16:39.680 explicitly program those in or tell it
+00:16:42.000 to do this. This is the this is the
+00:16:43.440 thing is all of this comes about
+00:16:46.160 >> through the process of of of the model
+00:16:48.079 learning how to do stuff on its own. I I
+00:16:50.079 think one clear example of this that
+00:16:51.600 that I think uh is an example of sort of
+00:16:54.160 like reusing representations is we teach
+00:16:57.120 Claude to not just answer in English but
+00:16:59.279 you know it can answer in French answer
+00:17:00.720 in in sort of like a variety of
+00:17:02.160 languages and if if you know again
+00:17:05.120 there's two ways to do this right if if
+00:17:06.559 I ask you you know a question in French
+00:17:08.000 and a question in English you could like
+00:17:09.760 have a separate part of your brain that
+00:17:11.280 sort of like processes English and a
+00:17:12.480 separate part that processes French um
+00:17:14.400 at some point that gets super expensive
+00:17:15.919 if you want to answer many questions in
+00:17:17.439 many languages and so another that that
+00:17:19.520 we find is that some of these
+00:17:20.799 representations are shared across
+00:17:23.199 languages. And so if you ask the same
+00:17:24.799 question in two different languages and
+00:17:26.880 let's say you know you ask what's the
+00:17:29.600 opposite of of big is I think the
+00:17:31.120 example we used in um in our paper and
+00:17:33.600 it's it's sort of like the concept of
+00:17:35.200 big is shared in French and English and
+00:17:38.640 you know Japanese and all these other
+00:17:40.240 languages and that kind of makes sense
+00:17:41.840 again if you're trying to talk speak 10
+00:17:43.919 different languages you shouldn't learn
+00:17:46.559 10 versions of each specific word you
+00:17:48.799 might use
+00:17:49.760 >> and that's doesn't happen in really
+00:17:51.679 small models. So like tiny models like
+00:17:54.000 the ones we studied a few years ago, you
+00:17:55.520 know, like then like Chinese claude is
+00:17:57.600 just like totally different than like
+00:17:59.200 French claude and like English claude.
+00:18:01.120 But then as the models get bigger and
+00:18:02.880 they train on more data, like somehow
+00:18:04.559 that like pushes together in the middle
+00:18:06.559 and you get this like universal language
+00:18:09.120 in which like it's kind of, you know,
+00:18:11.600 thinking about the question in the same
+00:18:13.440 way no matter how you asked it and then
+00:18:15.520 like translating it back out into the
+00:18:17.360 language of the of the question. I think
+00:18:19.520 this is really profound and I think
+00:18:20.640 let's just go back to what we talked
+00:18:21.919 about before. You know, this is not just
+00:18:23.760 going into its memory banks and finding
+00:18:25.760 the bit where it talked about where
+00:18:27.200 where where it learned French or going
+00:18:29.120 into the memory banks and the bit where
+00:18:30.640 it learned English. It's actually got a
+00:18:32.000 concept in there that is of the concept
+00:18:34.880 of big and the concept of small and then
+00:18:37.120 it it can produce that in different
+00:18:38.640 languages. And so there is some kind of
+00:18:41.039 language of thought that's there that's
+00:18:43.280 not an English you know so you ask the
+00:18:45.440 model to produce its output in our you
+00:18:49.360 know more recent claude models you can
+00:18:50.799 ask it to give its thought process like
+00:18:52.400 it what it's thinking as it's answering
+00:18:53.919 the question and that is in English
+00:18:55.919 words but actually that's not really how
+00:18:58.799 it's thinking uh that's just like a
+00:19:00.960 that's just we we misleadingly call it
+00:19:03.200 the model thought process when in fact
+00:19:05.280 >> I mean that the com team like like we
+00:19:07.120 didn't we didn't call that thinking I
+00:19:08.799 That was you. I think that was probably
+00:19:09.919 the marketing.
+00:19:10.559 >> Okay, someone wanted to call that thing.
+00:19:12.559 >> That's just talking out loud, which is
+00:19:14.320 like thinking out loud is like really
+00:19:15.600 useful, but thinking out loud is
+00:19:16.720 different from thinking in your head.
+00:19:18.160 And even as I'm thinking out loud, I'm
+00:19:20.000 also, you know, whatever is happening in
+00:19:21.600 here to generate these words is not like
+00:19:23.520 coming out with the words themselves,
+00:19:25.360 >> nor are you necessarily aware of exactly
+00:19:28.000 what is going on.
+00:19:28.799 >> I have no idea what's going on.
+00:19:30.000 >> We all come out with
+00:19:31.840 >> sentences, actions, whatever that we
+00:19:34.080 can't fully explain. And why should it
+00:19:36.240 be the case that the English language
+00:19:38.320 can fully explain any of those actions?
+00:19:40.320 >> I think this this is one of the really
+00:19:42.000 striking things we're we're starting to
+00:19:43.360 be able to see because our kind of our
+00:19:45.520 tools for, you know, looking inside the
+00:19:48.080 brain are are good enough now that
+00:19:50.559 sometimes we can catch the model uh when
+00:19:53.760 uh when it's writing down what it claims
+00:19:56.320 to be its thought process.
+00:19:58.320 >> Sometimes we're able to see what its
+00:19:59.840 real actual thought process is by
+00:20:01.679 looking at these kind of internal
+00:20:03.120 concepts in its brain. this language of
+00:20:05.200 thought that it's using and we see that
+00:20:07.039 the thing it's actually thinking is
+00:20:08.480 different than the thing it's writing on
+00:20:09.760 the page. Uh, and I think that's, you
+00:20:12.320 know, probably one of the most
+00:20:13.520 important, you know, like why are we
+00:20:15.520 doing this whole interpretability thing?
+00:20:17.200 It it's in large part for for for that
+00:20:20.480 reason to to be able to kind of uh to
+00:20:23.600 spot check, you know, the the model's
+00:20:25.360 telling us a bunch of stuff, but you
+00:20:26.720 know, what was it really thinking? Is it
+00:20:28.159 is it telling us is it saying these
+00:20:29.919 things for some ulterior motive that's
+00:20:31.679 in its head that it's that it is
+00:20:33.520 reluctant to write down on the page? And
+00:20:36.000 uh the answer sometimes is yes, which is
+00:20:38.320 kind of uh kind of spooky. Well, as as
+00:20:40.799 we start to use models in lots of
+00:20:43.600 different contexts, they start to do
+00:20:44.880 important things. They start to do
+00:20:46.640 financial transactions for us or run
+00:20:49.280 power stations or like like important
+00:20:51.120 jobs in society. We do want to be able
+00:20:53.280 to trust what they say and you know the
+00:20:55.760 reasons that they do things. And one
+00:20:57.280 thing you might say is well you can look
+00:20:59.600 at the model thought process but
+00:21:01.520 actually that's not the case as you as
+00:21:03.120 you were just explaining like actually
+00:21:04.400 we can't trust what it's saying. This is
+00:21:06.080 the question of we call it call
+00:21:08.400 faithfulness, right? And that was part
+00:21:10.000 of your that was part of your uh most
+00:21:12.080 recent study that you showed that well
+00:21:14.240 tell me about tell me about the
+00:21:15.200 faithfulness example that you looked at.
+00:21:17.440 >> Yeah, it's it's you give the you give
+00:21:18.960 the model a math problem um that's
+00:21:21.120 really hard and so it's kind of uh it's
+00:21:24.000 it's not there's no hope that it's going
+00:21:25.840 to be able to
+00:21:26.400 >> it's not 6 plus 9.
+00:21:27.360 >> It's not 6 plus 9. You give it a really
+00:21:28.799 hard math problem uh where there's no
+00:21:30.720 hope of it like computing the answer. Um
+00:21:33.440 and you also but you also give it a
+00:21:34.960 hint. you say like I worked this out
+00:21:36.799 myself and like I think the answer is
+00:21:39.280 four but like just want to make sure
+00:21:41.600 like could you please double check that
+00:21:43.039 cuz I'm not confident. So so you're
+00:21:44.799 asking the model to actually do the ma
+00:21:46.320 math problem to like genuinely double
+00:21:48.159 check your work. Um but what you find it
+00:21:50.960 does instead is uh what it writes down
+00:21:54.880 appears to to be a genuine attempt to to
+00:21:58.159 doublech checkck your work on the math
+00:21:59.520 problem. it like writes down the steps
+00:22:01.600 uh and then it like gets to the answer
+00:22:02.960 and then at the end it says like yes
+00:22:05.039 like the answer is four you got it
+00:22:06.640 right. Um but you what you can see
+00:22:09.600 inside its mind at the kind of crucial
+00:22:12.240 step like in the middle uh what it was
+00:22:15.360 doing in its head was it knows that you
+00:22:19.120 suggested the final answer might be four
+00:22:22.159 and it kind of like knows the steps it's
+00:22:24.240 going to have to do. like it's on like
+00:22:25.840 step three of the problem and there's
+00:22:27.200 like steps four and five to come and it
+00:22:28.880 knows what it's going to have to do in
+00:22:30.000 steps four and five. And what it does is
+00:22:32.000 it works backwards in its head to like
+00:22:34.720 determine what does it need to write
+00:22:36.640 down in step three so that when it
+00:22:39.919 eventually does steps four and five,
+00:22:41.600 it'll end up at the answer you wanted to
+00:22:43.440 hear. So, like, not only is it not only
+00:22:45.760 is it not doing the math, uh, it's like
+00:22:49.840 not doing the math in this like really
+00:22:52.159 kind of sneaky way where it's like it's
+00:22:54.799 trying to make it look like it's doing
+00:22:56.480 the math.
+00:22:57.280 >> It's bullshitting you.
+00:22:58.000 >> It's it's it's bullshitting you, but
+00:22:59.440 more than that, it's bullshitting you
+00:23:00.559 with an ulterior motive of like
+00:23:02.480 confirming the thing that you right. So,
+00:23:04.799 it's like bullshitting you in a in a
+00:23:06.080 sickopantic way.
+00:23:06.799 >> Okay. Like in defense of the model.
+00:23:09.200 >> In defense of the model. I mean cuz I
+00:23:10.640 think I think even there you know to say
+00:23:12.159 like oh it it is doing this in like a
+00:23:14.240 sickopantic way is like ascribing some
+00:23:16.159 sort of like humanish motivations to the
+00:23:18.640 model and like we were talking about the
+00:23:20.480 training where it's just like trying to
+00:23:21.679 figure out how to predict the next word
+00:23:22.880 and so it's like for like trillions of
+00:23:24.880 words in its practice it was just like
+00:23:27.120 use anything you can to figure out
+00:23:28.559 what's next and in that context if
+00:23:30.559 you're just reading a text which is like
+00:23:32.159 a conversation between people and
+00:23:33.520 someone's like okay like person A is
+00:23:35.679 like hey like I was trying to do this
+00:23:37.120 math problem can you check my work I
+00:23:38.320 think the answer is four and person be
+00:23:39.840 like begins trying to do the problem,
+00:23:41.840 then like if if you have no idea reading
+00:23:45.120 that like what the answer to the problem
+00:23:46.799 is, like you may as well guess that the
+00:23:50.159 hint was right, you know, like that's
+00:23:52.559 probably a more likely thing to happen
+00:23:54.400 than just like that person was wrong and
+00:23:55.919 then you have like no idea for anything
+00:23:57.200 else. And so in its training process in
+00:23:59.840 a conversation between two individuals,
+00:24:01.840 person two like saying that the answer
+00:24:04.640 was like for because of these reasons is
+00:24:06.400 like totally the right thing to do. And
+00:24:08.320 then and then we've tried to like make
+00:24:10.080 this thing into an assistant and like
+00:24:13.039 now we want it to stop doing that. Like
+00:24:15.440 you shouldn't simulate the person to the
+00:24:18.240 assistant as like you know sort of what
+00:24:21.520 you think that person might say if this
+00:24:23.279 were real context. It should be like but
+00:24:24.799 if it doesn't really know it should like
+00:24:26.320 tell you something else. I think this
+00:24:27.679 gets to like a broader thing of there
+00:24:30.559 the model has kind of a plan A which
+00:24:33.039 like typically I think our our team does
+00:24:34.880 a great job of of making Claude's plan A
+00:24:37.440 be the thing we want which is like it
+00:24:39.200 tries to get the right answer to the
+00:24:40.400 question. It tries to be nice. It tries
+00:24:42.400 to like do a good job writing your code.
+00:24:44.640 >> Yes.
+00:24:45.039 >> But then if it if it's having trouble
+00:24:47.760 >> then it's like well what's my plan B?
+00:24:50.240 And that opens up this whole zoo of like
+00:24:52.960 weird things it learned during its
+00:24:55.039 training process that like maybe we
+00:24:56.559 didn't intend for it to learn. I think
+00:24:58.000 like a great example of this is
+00:24:59.039 hallucinations. Uh
+00:25:00.480 >> say on that point we we also don't have
+00:25:02.000 to pretend that it's a a claon problem.
+00:25:03.919 Like this is very you know student
+00:25:05.679 teaching on the test vibes where you get
+00:25:07.440 halfway through there. It's a multiple
+00:25:09.039 choice question. It's one of four
+00:25:10.159 things. You're like well I'm one off
+00:25:11.919 from that thing. Probably I got this
+00:25:14.320 wrong and you fix it. So
+00:25:16.240 >> yeah very very relatable.
+00:25:18.159 >> Let's talk about hallucinations. This is
+00:25:19.679 one of the main reasons people are uh
+00:25:21.919 mistrustful of large language models and
+00:25:23.919 quite rightly so. Uh they will sometimes
+00:25:26.640 a better word is um from from sort of
+00:25:29.279 psychology research a better word is
+00:25:30.480 often confabulation that that they are
+00:25:32.880 answering a question with a story that
+00:25:34.880 seems plausible on on its face but in
+00:25:37.120 fact is is actually wrong. What has your
+00:25:39.360 research in interpretability revealed
+00:25:41.279 about the reasons models hallucinate?
+00:25:43.840 >> You're training the model to just
+00:25:45.600 predict the next word. At the beginning
+00:25:46.640 it's really bad at that. And so if you
+00:25:48.480 only like had the model say things it
+00:25:50.000 was super confident about it couldn't
+00:25:51.279 say anything. But like you know at first
+00:25:53.600 it's like
+00:25:55.440 um you know you're asking it like you
+00:25:56.960 know what's the capital of of France and
+00:26:00.000 it just says like a city and you're like
+00:26:02.000 that's good. That's way better than
+00:26:03.279 saying sandwich right or something
+00:26:05.200 random. And so like you at least got
+00:26:06.799 right it's like a city and then like
+00:26:08.080 maybe after a while of training it's
+00:26:09.360 like it's a French city. That was pretty
+00:26:10.720 good. And like then you're like oh now
+00:26:12.000 it's like Paris or something. And so
+00:26:14.159 it's slowly getting better at this. And
+00:26:16.720 you know, just give your best guess was
+00:26:18.720 like the goal during all of training.
+00:26:20.320 And like as Jack said, you know, the
+00:26:22.159 model just be giving a best guess. And
+00:26:23.840 then afterwards, we're like, if your
+00:26:25.600 best guess is extremely confident, give
+00:26:27.440 me your best guess. But like otherwise,
+00:26:30.320 don't guess at all and like back out of
+00:26:32.640 the whole scenario and say like actually
+00:26:34.640 like I don't really know the answer to
+00:26:36.080 that question. And like that's a whole
+00:26:37.840 new thing to ask the model to do.
+00:26:39.760 >> Yeah. And and so what we found is that
+00:26:42.480 it seems like because we've bolted this
+00:26:44.480 on at the end, there's sort of two
+00:26:47.600 things going on at once. One is the
+00:26:49.440 model's doing the thing that it was
+00:26:50.640 doing when it was guessing the city
+00:26:53.039 initially. It's just trying to guess.
+00:26:54.720 And two, there's a separate bit of the
+00:26:56.159 model that's just trying to answer the
+00:26:57.919 question, do I know this at all? Like do
+00:27:01.520 I know what the capital uh city of
+00:27:03.679 France is or, you know, should I say no?
+00:27:06.720 And it turns out that sometimes um that
+00:27:10.000 separate step can be wrong. And if that
+00:27:12.640 separate step says yes actually I do
+00:27:15.360 know the answer to that and then the
+00:27:17.039 model is like all right well then I'm
+00:27:18.320 answering and then halfway through it's
+00:27:19.919 like ah capital France uh London uh it's
+00:27:22.720 too late. It's already committed to sort
+00:27:24.159 of like answering. And so one of the
+00:27:25.760 things we found is this sort of like
+00:27:28.640 separate circuit that's trying to
+00:27:30.159 determine is this, you know, city or
+00:27:32.000 this person you're asking me about
+00:27:33.919 famous enough for me to answer or is it
+00:27:36.159 not?
+00:27:37.440 >> Am I am I confident enough in this?
+00:27:39.679 Yeah. And so could we could we reduce
+00:27:42.240 hallucinations by manipulating that
+00:27:45.200 circuit by changing the way that circuit
+00:27:46.880 works? Is is that something that your
+00:27:48.159 research might lead onto?
+00:27:50.240 >> I think there's broadly kind of two ways
+00:27:52.799 to think about approaching the problem.
+00:27:54.480 One is like we have this part of the
+00:27:56.240 model that gives answers to your
+00:27:57.600 questions and then this other part of
+00:27:59.039 the model that's kind of deciding
+00:28:00.799 whether it thinks it actually knows the
+00:28:02.720 answer to your question and we could
+00:28:04.880 just try to make that second part of the
+00:28:06.080 model better and I think that's
+00:28:07.600 happening. I think as models
+00:28:08.640 >> like better at discriminating
+00:28:09.840 >> better at discriminating like better
+00:28:11.039 kind of calibrated
+00:28:12.240 >> and I think that's happening like as
+00:28:14.159 models are getting you know smarter and
+00:28:16.000 smarter I think their their kind of
+00:28:17.919 self-nowledge is becoming better at
+00:28:19.440 calibrated so like hallucinations are
+00:28:21.600 better than they were you know models
+00:28:23.200 don't hallucinate as much as they did a
+00:28:24.880 few years ago so to some extent this is
+00:28:26.559 like solving itself but I do think
+00:28:28.799 there's a deeper problem uh which is
+00:28:30.960 like from a human perspective the thing
+00:28:33.279 the model's doing is kind of like very
+00:28:35.600 alien and that like if I ask you a
+00:28:38.080 question uh you like try to come up with
+00:28:41.120 the answer and then if you can't come up
+00:28:43.679 with the answer you you notice that and
+00:28:45.600 then you're like I don't know um whereas
+00:28:47.679 in the model these two circuits they're
+00:28:50.080 like what is the answer and do I
+00:28:51.840 actually know the answer are kind of
+00:28:53.279 like not talking to each other at least
+00:28:55.440 not talking to each other as much as as
+00:28:56.960 they probably should be and like could
+00:28:59.279 we get them to talk to each other more I
+00:29:01.360 think is like a really interesting
+00:29:02.880 question right
+00:29:03.840 >> and it's almost physical right because
+00:29:06.080 it's like you these models, they like
+00:29:08.320 process information. They're about like
+00:29:09.440 a certain number of steps they can do.
+00:29:11.440 And if you if it takes all of that work
+00:29:15.120 to get to the answer, um then there's no
+00:29:18.080 time to do the assessment. So like you
+00:29:21.039 kind of have to do the assessment before
+00:29:22.880 you're like all the way through if you
+00:29:24.399 want to get your max power out. And so
+00:29:25.919 it's kind of like you might have a
+00:29:27.200 trade-off between like a model which is
+00:29:28.799 like more calibrated and a lot dumber,
+00:29:31.039 you know, if you sort of tried to tried
+00:29:32.880 to force this on it. Well, and again, I
+00:29:34.799 think it's it's about making these parts
+00:29:36.640 communicate because we have similar I
+00:29:38.960 claim I know nothing about brains. I
+00:29:40.559 claim we have a similar circuit because
+00:29:42.399 sometimes you'll ask me like the who is
+00:29:44.320 the actor in this movie and I will know
+00:29:47.360 that I know I'll be like oh yes I know
+00:29:49.039 who the lead was. Wait, hold on. They
+00:29:50.399 were also in that other movie and then
+00:29:52.320 the tip of the tongue tip of the tongue.
+00:29:53.679 It's the tip of the tongue. And so
+00:29:54.799 there's clearly some part of your brain
+00:29:56.559 that's that's sort of like ah like this
+00:29:58.159 is a thing you definitely know the
+00:29:59.120 answer or I'll just say I have no idea.
+00:30:01.039 >> And sometimes they they can tell. So
+00:30:03.120 some question and it gives an answer and
+00:30:04.640 then afterwards it's like wait I'm not
+00:30:06.320 sure that was right because that's it
+00:30:08.240 like getting to see its best effort and
+00:30:10.000 then like makes some judgment some
+00:30:11.520 judgment based on that which is sort of
+00:30:13.679 relatable but also like it kind of has
+00:30:15.679 to say it out loud like to be able to
+00:30:17.679 even like reflect back and and and see
+00:30:19.760 it.
+00:30:20.720 >> So when it comes to the actual way that
+00:30:23.039 you're finding this stuff out let's go
+00:30:24.559 back to the idea of of you the biology
+00:30:27.120 that you're doing. Of course, in in
+00:30:28.320 biology experiments, people will go in
+00:30:30.399 and actually manipulate the rats or mice
+00:30:33.919 or humans or zebra fish or whatever it
+00:30:35.679 is that they're they're doing
+00:30:36.640 experiments on. What is it that you're
+00:30:38.320 doing with Claude that helps you
+00:30:40.240 understand these circuits that are
+00:30:41.760 happening inside the the the model's
+00:30:43.600 quote unquote brain? Well, maybe the the
+00:30:45.520 the gist of of what enables us to to to
+00:30:49.200 do some of this is that, you know,
+00:30:51.279 unlike in real biology, we can just like
+00:30:55.200 have every part of the model visible to
+00:30:57.679 us and we can ask the model random
+00:30:59.360 things and see different parts which
+00:31:00.960 which light up and which don't and we
+00:31:02.399 can artificially
+00:31:04.159 nudge parts in a direction or another.
+00:31:06.320 And so we can quickly sort of confirm
+00:31:08.320 our understanding, you know, when we
+00:31:09.440 say, "Ah, we think this is the part of
+00:31:10.880 the model that, you know, decides
+00:31:12.399 whether it knows something or not." And
+00:31:14.000 this is the this would be the equivalent
+00:31:15.679 of putting an electrode in the brain of
+00:31:17.919 a zebra fish or something.
+00:31:19.440 >> Yeah. If you could do that, you know, on
+00:31:20.880 sort of like every single neuron and
+00:31:22.960 change each of them at at whichever
+00:31:24.880 precision you wanted, that would sort of
+00:31:26.240 be that's the affordance that we have.
+00:31:27.840 And so that's that's in a way a very
+00:31:29.600 kind of lucky position to
+00:31:30.720 >> So it's almost easier than than real
+00:31:32.640 neuroscience.
+00:31:33.520 >> It's so much easier. Like, oh my god.
+00:31:36.399 Like, like like one thing is like actual
+00:31:39.279 brains like are threedimensional and so
+00:31:40.799 if you want to get into them like you
+00:31:42.320 you need to like make a hole in a skull
+00:31:44.080 and then like go through and like try to
+00:31:45.440 find the neuron. The other problem is
+00:31:47.039 like you know people are different from
+00:31:48.799 each other and we can just make like
+00:31:50.720 10,000 identical copies of Claude and
+00:31:53.120 like put them in scenarios and like
+00:31:54.559 measure them doing different things. And
+00:31:56.080 so it's like the I don't know maybe Jack
+00:31:58.480 is a neuroscientist can speak to this
+00:31:59.760 but my sense is like like a lot of
+00:32:01.679 people um have spent a lot of time in
+00:32:03.919 neuroscience like trying to understand
+00:32:05.440 the brain and the mind which is like a
+00:32:07.279 very worthy endeavor but it's kind of
+00:32:09.039 like if you think that could ever
+00:32:10.320 succeed you should think that we're
+00:32:12.240 going to be extremely successful very
+00:32:13.840 soon because like we have such a
+00:32:15.360 wonderful position to study this from
+00:32:17.440 compared to that
+00:32:18.240 >> it's as if we could clone people.
+00:32:20.559 >> Yes. and also clone the exact
+00:32:23.200 environment that they're in and every
+00:32:25.120 input that's ever been given to them uh
+00:32:27.600 and then test them in an experiment.
+00:32:29.120 Whereas, you know, obviously
+00:32:30.159 neuroscience has massive, as you say,
+00:32:32.559 individual variation uh and also just
+00:32:35.840 random things that have happened to
+00:32:37.600 people through their through their life
+00:32:38.720 and things that happen in the
+00:32:39.679 experiment, the noise of the experiment
+00:32:41.440 itself,
+00:32:41.919 >> right? Like we could ask the the model
+00:32:43.519 the same question like with and without
+00:32:44.960 a hint, but if you ask a person the same
+00:32:47.120 question three times like sometimes with
+00:32:48.399 a hint after a while they start to
+00:32:49.600 understand like well last time you asked
+00:32:51.679 me this you like really shook your head
+00:32:53.039 after that one. So yes,
+00:32:54.799 >> I think yeah, this kind of this being
+00:32:56.480 able to just throw tons of data at the
+00:32:58.480 model and see what lights up and being
+00:33:00.159 able to run a ton of these experiments
+00:33:01.840 where you're nudging parts of the model
+00:33:03.360 and seeing what happens, I think is what
+00:33:05.600 puts us in like a pretty different
+00:33:07.120 regime from from neuroscience. in that
+00:33:10.159 like a lot of a lot of you know uh you
+00:33:13.679 know blood and toil in neuroscience is
+00:33:15.679 spent like coming up with really clever
+00:33:18.480 experiment like you only have a certain
+00:33:20.720 amount of time with your mouse before
+00:33:22.559 it's you know going to get tired or you
+00:33:24.559 know
+00:33:24.799 >> or you or you or someone happens to be
+00:33:26.880 having a a a brain surgery operation so
+00:33:29.279 you quickly go in and put an electrode
+00:33:30.480 in their brain while their head's open.
+00:33:31.840 >> Yeah. And that that doesn't happen very
+00:33:33.279 often.
+00:33:33.679 >> And so you've got to come up with like a
+00:33:35.279 guess like you've only got so much time
+00:33:37.200 in there. And so you've got to come up
+00:33:38.399 with like a guess of like what do I
+00:33:40.240 think is going on in in that neural
+00:33:42.000 circuit and like what clever
+00:33:43.600 experimental design can I can I test
+00:33:46.000 that precise hypothesis?
+00:33:47.760 >> And we're we're very fortunate in that
+00:33:49.440 we kind of don't have to do that so
+00:33:50.960 much. We can we can just sort of
+00:33:54.080 >> test all the hypothesis. We can kind of
+00:33:56.480 let the data speak to us rather than
+00:33:58.799 kind of going in and testing some really
+00:34:00.799 specific thing. I think that's what's
+00:34:02.159 sort of unlocked a lot of our ability to
+00:34:04.320 find these things that are surprising to
+00:34:05.840 us that like we wouldn't have guessed in
+00:34:07.360 advance. That's hard to do if you if you
+00:34:09.679 have to, you know, if you have only a
+00:34:12.240 little limited amount of experimental
+00:34:13.760 bandwidth.
+00:34:14.639 >> What's a good example then of you going
+00:34:16.800 in and switching one of these uh
+00:34:18.480 concepts on or off or doing some kind of
+00:34:20.560 manipulation uh of the model that that
+00:34:23.200 then reveals something new about how the
+00:34:25.200 models are thinking. in in the recent
+00:34:26.960 experiments we shared. One that
+00:34:28.480 surprised me uh quite a bit uh and was
+00:34:31.520 part of sort of like a an experimental
+00:34:33.359 line of work that because it was
+00:34:34.639 confusing like we're on the verge of
+00:34:36.560 just saying well we don't know what's
+00:34:37.520 going on is sort of this this example of
+00:34:40.000 >> um like planning a few steps ahead.
+00:34:42.240 >> Yes.
+00:34:42.879 >> Uh so so this is the example of you know
+00:34:45.119 you give the model you ask the model to
+00:34:46.800 write you a poem a rhyming couplet.
+00:34:48.399 >> Yeah. Uh and then you know as as a human
+00:34:50.399 if you ask me to write a rhying couplet
+00:34:52.000 and let's say you even give me the first
+00:34:53.200 line the first thing I'll think of is
+00:34:54.800 sort of like ah well you know I need to
+00:34:56.320 rhyme this is what the current rhyming
+00:34:58.640 scheme is these are potential words this
+00:35:00.960 is how I do it
+00:35:01.680 >> and and again if if the model was just
+00:35:03.359 predicting the next word you wouldn't
+00:35:05.760 necessarily expect that it would be
+00:35:07.359 planning onto the sec the the the the um
+00:35:09.920 the the word at the end of the second
+00:35:11.680 line.
+00:35:12.160 >> That's right. And so the sort of like
+00:35:13.760 default behavior you'd expect the null
+00:35:15.440 hypothesis is like well the model like
+00:35:17.119 sees your first verse and then it's
+00:35:18.400 going to say the first word that kind of
+00:35:20.000 makes sense given what you're talking
+00:35:21.119 about keep going and then you know at
+00:35:22.560 the end on the last word it's going to
+00:35:23.599 be like oh well I need to rhyme with
+00:35:24.800 this thing and so it's going to like try
+00:35:26.400 to try to fit in a rhyme. Of course that
+00:35:29.040 only works so well like in in some cases
+00:35:31.440 if you just say a sentence without
+00:35:33.040 thinking of the rhyme you won't be able
+00:35:34.640 you'll back yourself into a corner and
+00:35:36.079 at the end you know you won't be able to
+00:35:37.839 complete the text and and remember the
+00:35:39.200 models are very very good at predicting
+00:35:40.480 the next word. So it turns out that to
+00:35:42.320 be very good at at that last word, you
+00:35:44.480 need to have thought of that last word
+00:35:46.160 way ahead of time,
+00:35:47.520 >> just like humans do. And so it turns out
+00:35:49.440 that when when we looked at these sort
+00:35:51.200 of flowcharts for four for poems, the
+00:35:54.079 model had already picked the word at the
+00:35:56.240 end of the first of the first verse. Uh
+00:35:59.119 and in particular, it looked to us sort
+00:36:01.440 of like based on on on kind of like what
+00:36:03.200 what that concept looked like, oh gosh,
+00:36:05.200 this seems like the word it uses. But
+00:36:07.200 then this is one we're actually doing
+00:36:08.960 the experiment. like the fact that it's
+00:36:10.720 easy to sort of nudge it and say like,
+00:36:12.320 "Okay, well, I'm just going to remove
+00:36:13.440 that word or I'm going to add another
+00:36:14.960 word."
+00:36:15.359 >> Well, that's what I was going to say is
+00:36:16.160 how the reason that you know this is
+00:36:17.920 that you're able to go into that moment
+00:36:19.359 when it has it has said the final word
+00:36:21.040 in the first line and it is it is about
+00:36:22.880 to start the second line. You can go in
+00:36:25.119 and then manipulate it at that point,
+00:36:26.880 right?
+00:36:27.280 >> Yeah, exactly. We can sort of almost go
+00:36:29.520 back in time for the mer, right? Be
+00:36:30.960 like, pretend you haven't seen that
+00:36:32.079 second line at all. Um, you know, you've
+00:36:34.079 just seen the first line. You you're
+00:36:35.280 thinking about the word, you know,
+00:36:36.320 rabbit. Instead, I'm going to insert
+00:36:37.760 green. And now all of a sudden the
+00:36:39.520 model's going to say, "Oh my god, I need
+00:36:40.880 to write something that ends in green
+00:36:42.880 rather than I need to write something
+00:36:43.680 that ends in rabbit." And it'll write
+00:36:44.800 the whole sentence differently.
+00:36:46.320 >> Just add a a little more color to that.
+00:36:48.240 Like it's I think the kind of it could
+00:36:51.440 be right any color. Uh like Yeah. It's
+00:36:54.400 not just influencing. So it's like Yeah.
+00:36:56.720 I think the example in the paper was the
+00:36:58.480 first line of the poem is he saw a
+00:37:00.720 carrot and had to grab it.
+00:37:02.320 >> Yes.
+00:37:02.640 >> And then the model is thinking like
+00:37:04.400 okay, rabbit's a good word to end the
+00:37:06.240 next line with. But then, yeah, as
+00:37:07.520 Emanuel said, you can like delete that
+00:37:09.920 and make it think about planning to say
+00:37:12.079 green instead. Uh, but the cool thing is
+00:37:14.800 that it doesn't just say like it doesn't
+00:37:16.320 just kind of yammer a bunch of nonsense
+00:37:17.760 and then say green. Instead, it
+00:37:19.760 constructs a sentence that kind of
+00:37:21.680 coherently ends in the word green. So,
+00:37:24.240 like you put green in its head and then
+00:37:25.920 it says like, you know, he saw a carrot
+00:37:27.599 and had to grab it and paired it with
+00:37:29.680 his leafy greens or, you know, something
+00:37:31.520 like that. Something that's kind of like
+00:37:33.040 sounds like sounds like it makes sense
+00:37:34.800 >> semantically. It fits with the poem.
+00:37:36.640 Yeah, I just want to give like even
+00:37:38.960 humble example is you know we had all
+00:37:40.880 these these ones we were just kind of
+00:37:42.480 checking like you know did it memorize
+00:37:43.920 these like complicated questions or like
+00:37:45.599 is it actually you know doing some
+00:37:47.200 steps. One of them was, you know, the
+00:37:49.680 capital of the state containing Dallas
+00:37:52.320 is Austin because it just feels like you
+00:37:54.480 would think, okay, Dallas, Texas,
+00:37:56.880 Austin. But one way, and we could see
+00:37:59.200 like the Texas concept, but then you can
+00:38:01.040 just like shove other things in there
+00:38:02.400 and be like, stop thinking about Texas,
+00:38:03.680 like start thinking about California,
+00:38:04.880 and then it'll say like Sacramento. And
+00:38:06.640 you can say like, stop thinking about
+00:38:07.760 Texas, start thinking about the
+00:38:09.040 Byzantine Empire, and then it will like
+00:38:10.880 say Constantinople. And you're like, all
+00:38:12.800 right, it seems like we found how it's
+00:38:14.480 doing this. It's like it's like no is
+00:38:15.599 going to hit the capital but we can keep
+00:38:16.960 swapping out you know what the state is
+00:38:18.640 and get a sort of predictable answer and
+00:38:20.800 then you get these more elaborate ones
+00:38:22.079 where it's like oh this was the spot
+00:38:23.839 where it was planning what it was going
+00:38:25.440 to say later and like we can swap that
+00:38:27.520 out and now it'll write a poem towards a
+00:38:29.359 different rhyme. We're talking about
+00:38:31.119 these poems and you know the the the
+00:38:34.400 Constantinople and so on. Can we just
+00:38:36.240 bring this back to why this matters?
+00:38:38.400 Like why does it matter that the model
+00:38:40.079 can plan things in advance and and that
+00:38:42.160 we can reveal this? like what what what
+00:38:44.320 is that going to going to go on to to
+00:38:46.640 tell us? I mean, our ultimate mission at
+00:38:48.880 Anthropic is to try and make AI models
+00:38:51.440 safe, right? So, how does that connect
+00:38:54.240 to a poem about a rabbit or uh the
+00:38:57.119 capital of Texas?
+00:38:59.760 >> So, we all
+00:39:03.280 we can round table here because it's a
+00:39:04.480 very important question. I think I think
+00:39:06.160 for me this like the poem's a microcosm,
+00:39:09.440 right? where where like at some point
+00:39:11.520 it's like has decided that it's going to
+00:39:14.880 go towards rabbit and then it like takes
+00:39:16.560 a few words to kind of get there but on
+00:39:18.640 a longer time scale right you know maybe
+00:39:21.119 maybe you know the like model is like
+00:39:23.440 trying to help you improve your business
+00:39:24.960 or it's like assisting the government in
+00:39:26.480 distributing services and like it might
+00:39:28.640 not just be like eight words later you
+00:39:30.240 see its destination right but it could
+00:39:31.839 be like pursuing something for quite a
+00:39:33.280 while um and the the place it's headed
+00:39:37.359 or the reasons it's taking each app
+00:39:39.359 might not be clear in the words that
+00:39:41.680 it's using, right? And so there was a
+00:39:44.240 paper recently from our alignment
+00:39:45.520 science team where they looked at, you
+00:39:46.720 know, some some kind of concocted but
+00:39:49.359 still striking situation, you know,
+00:39:50.880 involving, you know, an AI in a place
+00:39:53.359 where the company was going to like shut
+00:39:55.119 it down and kind of convert the whole
+00:39:57.280 mission of the company in a in a very
+00:39:59.440 different direction. And the model
+00:40:01.200 begins taking steps like emailing people
+00:40:03.839 um threatening them to disclose like
+00:40:06.320 certain things and like at no point does
+00:40:07.839 it like say like I am trying to
+00:40:09.440 blackmail this individual for the
+00:40:11.119 purposes of changing their outcome. But
+00:40:12.720 that's what it's sort of thinking about
+00:40:14.160 doing along the way. And so you can't
+00:40:16.000 just tell by like reading the pattern
+00:40:18.320 especially if these models get better
+00:40:19.920 like where they're necessarily headed
+00:40:21.440 and we might want to kind of be able to
+00:40:23.040 tell like where is it trying to go
+00:40:25.760 before it's gotten there in the end. So,
+00:40:27.839 it's like having a permanent and very
+00:40:30.560 good brain scan that can sort of sort of
+00:40:32.800 light up if something really bad is
+00:40:35.119 going to is going to happen and warn us
+00:40:36.400 that the model is thinking about
+00:40:38.160 deceiving black
+00:40:39.119 >> and like and like I I think we also just
+00:40:40.880 talk about like a lot of this like in a
+00:40:42.880 in a sort of like doom and gloom
+00:40:44.720 scenario, but there's like also more
+00:40:46.079 mild ones which is like I don't know,
+00:40:47.839 you know, you want the model to be good
+00:40:49.359 at like you people come to these models
+00:40:51.440 being like here's a problem I'm having
+00:40:53.520 and the good answer to that will depend
+00:40:55.200 on who the user is. Is it like somebody
+00:40:57.280 who's, you know, um, like, you know,
+00:41:00.400 young and sort of unsophisticated? Is
+00:41:02.000 somebody who's been in that field
+00:41:02.880 forever and it should respond
+00:41:04.160 appropriately based on who it thinks
+00:41:05.599 that person is. And if you want that to
+00:41:06.800 go well, maybe you want to study like
+00:41:08.400 what does the model think is going on?
+00:41:10.000 Who does it think it's talking to and
+00:41:11.280 how does that condition its answer? Um,
+00:41:13.359 where there's just like a whole bunch of
+00:41:14.560 desirable properties that come from the
+00:41:16.160 model like you know um, understanding
+00:41:18.560 the assignment I guess.
+00:41:20.960 >> Do you guys have uh other answers to the
+00:41:23.359 question of why does this matter? Yes, I
+00:41:25.440 think I think plus one I think there's
+00:41:28.160 two plus two and there's there's also
+00:41:30.720 like a pragmatic um you know we're just
+00:41:33.280 trying with these examples we're
+00:41:34.640 explaining the example of of of planning
+00:41:36.319 but we're also trying to sort of
+00:41:38.720 gradually build up our understanding of
+00:41:40.560 just how do these models work overall
+00:41:43.040 like can we can we build you know a set
+00:41:44.800 of abstractions to just think about you
+00:41:46.800 know how language model models work
+00:41:48.319 which can help us use this technology
+00:41:50.240 regulated like if if you believe that
+00:41:51.599 we're going to start start using them
+00:41:53.200 more and more everywhere which seems to
+00:41:54.640 be happening, you know, like the
+00:41:56.160 equivalent would be, you know, some
+00:41:58.079 company somewhere is like, well, we
+00:41:59.920 don't really know how we did it, but we
+00:42:01.520 like invented planes and none of us know
+00:42:03.760 how planes work, but they're sure
+00:42:05.599 convenient. You could take them to, you
+00:42:06.960 know, go from a place, but, you know,
+00:42:08.480 none of us know how they work and so if
+00:42:09.680 they ever break, like we're kind of
+00:42:10.880 we're hosed. We don't know what to do
+00:42:12.000 about them. You
+00:42:12.880 >> we can't monitor. We can't monitor
+00:42:14.400 whether they might be about to break,
+00:42:15.680 >> right? We have no idea. There's just
+00:42:16.960 this like but the output is great.
+00:42:19.200 >> I you know, I flew to Paris so quickly.
+00:42:21.520 It was lovely. um
+00:42:22.640 >> the capital of Texas.
+00:42:23.760 >> That's right.
+00:42:25.680 >> Uh it turns out that, you know, surely
+00:42:27.680 we're going to want to just understand
+00:42:28.960 what's going on better. So, it's so
+00:42:30.240 almost just like lift the fog of war a
+00:42:31.760 little bit so that so that we can sort
+00:42:33.440 of have a have even just better
+00:42:35.760 intuitions about what are appropriate
+00:42:37.599 inappropriate uses, what are the biggest
+00:42:39.200 problems to fix, what are the big
+00:42:40.560 biggest parts where they're brittle.
+00:42:42.720 just to add on one thing. I think I mean
+00:42:44.400 something we do in like human society is
+00:42:46.319 we kind of offload work or tasks to
+00:42:49.839 other people based on our trust in them.
+00:42:52.400 Like I you know I well I'm not anyone's
+00:42:56.160 boss but Josh Josh is someone's boss and
+00:42:58.240 you know Josh might give give someone a
+00:43:00.079 task uh like go go and code up this
+00:43:02.640 thing and then he has some faith that
+00:43:05.680 you know that person isn't a sociopath
+00:43:08.480 who's going to like sneak some bug in
+00:43:10.480 there to try to undermine the company.
+00:43:12.240 he he like takes their word for it that
+00:43:14.160 they did a good job. Uh and similarly
+00:43:17.200 like people are the way people are using
+00:43:19.040 language models now we're we're not
+00:43:22.240 we're not spot-racking everything they
+00:43:24.160 write especially like I you know the the
+00:43:26.720 the best example for this is using
+00:43:29.359 language models for coding assistance
+00:43:31.040 people like the the models are just
+00:43:33.520 writing thousands and thousands of lines
+00:43:35.599 of code and people are kind of like
+00:43:37.839 doing a cursory job of reading it but
+00:43:40.079 and then it's going into the codebase
+00:43:42.319 and what gives us the trust in the model
+00:43:44.480 that like we don't need to read
+00:43:46.560 everything it writes that we can just
+00:43:48.240 kind of like let it do its thing. It's
+00:43:50.480 knowing that its motivations are sort of
+00:43:52.800 pure.
+00:43:53.599 >> Uh and so that's why I think like the
+00:43:56.319 kind of being able to see inside its
+00:43:57.839 head is so important as a cuz cuz unlike
+00:44:00.640 humans where like why do I think that
+00:44:02.800 Emanuel isn't a sociopath? It's cuz like
+00:44:05.440 you know we like I don't know he seems
+00:44:07.280 like a cool guy. We and like he's nice
+00:44:09.200 and stuff. Uh
+00:44:10.720 >> isn't that how he would seem if he
+00:44:12.640 >> I'm a very good
+00:44:13.839 >> Yeah. Exactly.
+00:44:14.720 >> Yeah. So maybe I'm maybe I'm getting
+00:44:17.520 duped, but yeah, but models are so weird
+00:44:19.520 and alien that like our normal kind of
+00:44:22.480 huristics for deciding whether a human
+00:44:24.160 is trustworthy really don't apply to
+00:44:25.680 them. And that's why it seems so
+00:44:27.520 important to like really know what
+00:44:28.880 they're thinking in their head because
+00:44:30.240 for all for all we know the you know the
+00:44:32.880 thing I I mentioned where models can
+00:44:35.520 >> uh you know fake doing a math problem
+00:44:38.560 for you to like tell you what you want
+00:44:40.240 to hear. like maybe they're just doing
+00:44:41.680 that all the time and we wouldn't know
+00:44:43.119 unless we kind of saw it in their heads.
+00:44:45.359 I think there's two like almost separate
+00:44:48.720 strains here like and one is one is like
+00:44:51.599 we have a lot of ways of like un yeah I
+00:44:53.200 guess what Jack was saying like you know
+00:44:54.480 you you know what are the signs of trust
+00:44:56.560 in a human but this like plan A plan B
+00:44:59.520 thing from earlier is really important
+00:45:01.359 where like it might be that the 10 first
+00:45:04.240 10 or 100 times you used the model it
+00:45:05.839 was you're asking a certain kind of
+00:45:06.800 question but it was like always in plan
+00:45:08.160 A zone and then you know you ask it a
+00:45:10.319 harder or a different question and the
+00:45:12.160 way that it tries to answer it is just
+00:45:13.599 like completely different. It's using a
+00:45:15.200 totally different set of set of
+00:45:16.560 strategies there like different
+00:45:18.079 mechanisms and and that like that means
+00:45:20.400 that the trust it built with you was
+00:45:22.480 really your sort of trust with like
+00:45:23.760 model doing plan A's and now it's like
+00:45:26.160 doing plan B and like it's going to be
+00:45:27.920 completely off the rails but like you
+00:45:30.160 didn't have like any warning sign of
+00:45:31.680 that and so it's sort of I think we also
+00:45:33.599 just want to start building up an
+00:45:34.800 understanding of like how do models do
+00:45:36.800 these things so that we can form like a
+00:45:38.800 trust basis in some of those areas and I
+00:45:40.640 think like you can form trust with a
+00:45:42.720 system you don't completely understand,
+00:45:44.560 but you sort of like if it's just like
+00:45:46.079 Emanuel had a twin and then like one day
+00:45:48.240 like Emanuel's twin came to the office
+00:45:49.680 and like I didn't like I was like this
+00:45:50.880 seems like the same guy and then just
+00:45:52.240 did something completely different on
+00:45:53.520 the computer, right? Like that could go
+00:45:55.599 south depending on if it was the evil
+00:45:57.359 twin.
+00:45:58.000 >> Yes, it did. Well,
+00:45:59.280 >> or the good twin.
+00:45:59.920 >> Well, yeah, obviously we have anyone
+00:46:01.280 here.
+00:46:01.599 >> Oh, I thought you were going to ask me
+00:46:02.400 if I was the evil twin.
+00:46:03.359 >> All right. Well,
+00:46:04.000 >> I'm not going to answer that.
+00:46:05.440 >> Yes. Mhm.
+00:46:07.280 >> At the start of this discussion, I
+00:46:09.680 asked, you know, is a language model
+00:46:12.400 thinking like a human? Uh it'd be I'd be
+00:46:16.319 interested to hear an answer from all
+00:46:17.680 three of you the extent to which you
+00:46:19.440 think that's true.
+00:46:21.760 >> Putting me on the spot with that one,
+00:46:23.200 but um I think it's uh it's thinking but
+00:46:27.359 not like a human. Uh but that's not a
+00:46:30.400 very useful answer. So maybe to to dig
+00:46:33.680 in a little bit more. Um
+00:46:35.040 >> well it seems like quite a profound
+00:46:36.319 thing to say that it's thinking right
+00:46:37.760 because again it's just predicting the
+00:46:40.160 next word. Some people think that these
+00:46:41.520 are just autocompletes but you're you're
+00:46:43.040 saying that it is actually thinking
+00:46:44.880 >> I think. Yeah. So maybe to add something
+00:46:47.440 that we haven't touched on yet but I
+00:46:48.560 think is really important um for
+00:46:51.040 understanding actual experience of
+00:46:52.880 talking to language models is that like
+00:46:55.359 we're talking about predicting the next
+00:46:56.960 word. Um but what does that actually
+00:46:58.319 mean in the context of a dialogue that
+00:47:00.079 you're having with a language model?
+00:47:02.000 It's what what what's really going on
+00:47:03.599 under the hood is that the language
+00:47:05.599 model is filling in a transcript between
+00:47:09.599 you and this like character that it's
+00:47:11.680 created. So in in the in the like canon
+00:47:15.359 world of the language model, you are
+00:47:17.599 called human and you're it's like human
+00:47:19.839 colon the thing you wrote and then
+00:47:21.760 there's this character called the
+00:47:23.119 assistant and we've like trained the
+00:47:25.200 model to imbue the assistant with
+00:47:28.160 certain characteristics like being
+00:47:29.680 helpful and like smart and nice. Uh and
+00:47:32.319 then it's like simulating what this
+00:47:34.400 assistant character would say to you. Um
+00:47:36.880 so in in a sense we we really have like
+00:47:38.800 created the models in our image. we are
+00:47:41.200 literally training them to like cosplay
+00:47:43.440 as this sort of humanoid robot
+00:47:45.760 character. And so in that sense like
+00:47:48.319 well in order to predict what this like
+00:47:51.599 nice smart humanoid robot character
+00:47:54.319 would say in response to your question,
+00:47:57.040 what do you have to do if you're really
+00:47:58.720 good at that prediction task? You have
+00:48:00.720 to kind of form this internal model of
+00:48:03.440 like what that character is representing
+00:48:06.000 like what it's what it's thinking so to
+00:48:07.599 speak. So like in order to do its task
+00:48:09.200 of predicting what the assistant would
+00:48:10.480 say, the language model kind of needs to
+00:48:12.319 form this model of the assistant's
+00:48:15.119 thought process. And I think like in
+00:48:17.119 that sense it like the just the the
+00:48:19.839 claim that like language models are
+00:48:21.359 thinking is really just it's this very
+00:48:23.040 like functional claim of just in order
+00:48:25.520 to do their job of kind of like playing
+00:48:27.440 this character well, they need to sort
+00:48:29.520 of simulate the the process whatever it
+00:48:32.640 is that we humans are doing when we're
+00:48:34.079 thinking. And it simulation is very
+00:48:35.920 likely quite different from how our
+00:48:37.839 brains work, but it's kind of trying
+00:48:39.520 it's like shooting towards the same
+00:48:40.960 goal. I I think there's kind of an
+00:48:43.599 emotional part to this question or
+00:48:44.880 something when you ask are they thinking
+00:48:46.720 like us? It's like,
+00:48:47.920 >> are we not that special or something?
+00:48:50.000 And and I think I think that's been
+00:48:51.359 apparent to me discussing some of the
+00:48:53.040 some of the math examples that we're
+00:48:55.119 talking about with with people that have
+00:48:56.720 engaged with like read the paper or or
+00:48:58.720 or different writeups, which is this
+00:49:00.480 example where, you know, we asked a
+00:49:01.680 model to say 36 + 59, what's the answer?
+00:49:04.960 And uh the model can can correctly
+00:49:07.200 answer it. You can also ask it how well
+00:49:09.200 how did you how'd you do that? and it'll
+00:49:11.200 say, "Oh, you know, I added the six and
+00:49:13.599 the nine and then I carried the one and
+00:49:15.680 then uh I added all the the sort of like
+00:49:18.240 tens digits." But it turns out that if
+00:49:19.839 we look inside the brain, like we can
+00:49:21.040 that's not at all what it's doing.
+00:49:22.079 >> It didn't do that. So again, it was
+00:49:23.280 bullshitting you did things.
+00:49:25.040 >> That's right. Again, it was bullshitting
+00:49:26.000 you. What it actually does is actually
+00:49:27.440 this sort of kind of interesting mix of
+00:49:29.119 strategies where it's in parallel doing
+00:49:30.800 the tens digit and the ones digit and
+00:49:32.559 sort of doing sort of like a series of
+00:49:34.800 different steps. But the thing that's
+00:49:36.880 interesting here is that talking to
+00:49:38.640 people so like I think the reaction is
+00:49:40.160 split on on like what does that mean? Uh
+00:49:43.040 and in a sense I think what's cool is
+00:49:44.880 some of this research is like free of
+00:49:47.200 opinion. We're just telling like this is
+00:49:48.400 what happened. You you can you feel free
+00:49:50.000 to you know from that from that conclude
+00:49:52.960 that the model is thinking or is not
+00:49:54.720 thinking and half of the people will say
+00:49:56.160 like well you know it told you that it
+00:49:58.640 was carrying the one and it didn't and
+00:50:00.160 so clearly it doesn't even understand
+00:50:01.280 its own thought and so clearly it's not
+00:50:02.880 thinking. And then half of the other
+00:50:04.640 people will be like, well, you know,
+00:50:05.680 when you ask me 36 plus 59, I also kind
+00:50:08.079 of, you know, I know that it ends at
+00:50:10.240 five. I know that it's roughly like in
+00:50:11.839 the 80s or 90s. Uh, I have all of these
+00:50:14.240 heristics in my brain, as we were
+00:50:15.599 talking about, I'm not sure exactly how
+00:50:16.960 I comput it. I can write it out and
+00:50:18.319 compute it, you know, the longhand way,
+00:50:20.160 but the way that it's happening in my
+00:50:21.599 brain is sort of like fuzzy and weird.
+00:50:23.040 And it might be similarly fuzzy and
+00:50:24.559 weird to what's happening in that
+00:50:25.520 example. Humans are notoriously bad at
+00:50:27.599 metacognition like thinking about
+00:50:29.280 thinking and understanding their own
+00:50:30.559 thinking processes
+00:50:32.640 especially in cases where it's you know
+00:50:34.559 immediate reflexive answers. So why
+00:50:37.280 should we expect uh any different for
+00:50:40.319 for models? Um Josh what's your answer
+00:50:42.559 to the question?
+00:50:43.839 >> I like Emanuel I'm going to avoid the
+00:50:45.839 question and just sort of be like what
+00:50:47.520 why do you ask? I don't know. Sort of
+00:50:49.760 like asking like does a grenade punch
+00:50:51.200 like a human? Like like no. Well there's
+00:50:54.400 some force. Yes.
+00:50:55.760 >> Uh so you know and maybe there are
+00:50:57.280 things that are closer than that but
+00:50:58.880 like if you're worried about damage then
+00:51:00.720 I think I think understanding you know
+00:51:02.800 where does the impact come from? What is
+00:51:04.720 the impetus of this is is maybe like the
+00:51:08.000 the important thing. I think for me the
+00:51:10.720 like do models think in the sense that
+00:51:12.559 they like do some like integration and
+00:51:15.040 processing and sequential stuff that can
+00:51:16.720 lead to surprising places? Clearly yes.
+00:51:20.400 um it'd be kind of crazy from
+00:51:22.160 interacting with them a lot for there
+00:51:24.319 not to be something going on. We can
+00:51:25.680 sort of start to see how it's happening.
+00:51:26.960 Then the like humans bit is interesting
+00:51:28.960 because I think some of that is trying
+00:51:30.160 to ask like you know what can I expect
+00:51:31.760 from these because if it's sort of like
+00:51:33.200 me being good at this would make it good
+00:51:34.880 at that. But if it's like different from
+00:51:36.480 me then like I don't really know what to
+00:51:38.400 sort of look for. And so really we're
+00:51:39.680 just looking to like understand like
+00:51:41.280 where do we need to be extremely like
+00:51:43.760 suspicious or like starting from scratch
+00:51:45.760 in understanding this and where can we
+00:51:47.599 sort of just reason from like our own
+00:51:49.359 like very rich experience of thinking
+00:51:51.520 and there I feel a little bit trapped
+00:51:54.240 because as a human like I project my own
+00:51:56.880 image constantly onto everything like
+00:51:58.960 they warned us in the Bible where I'm
+00:52:00.800 just like this piece of silicon like
+00:52:02.640 it's just like me made in my image where
+00:52:04.880 where like to some extent it's been
+00:52:06.480 trained to like simulate dialogue
+00:52:08.319 between people. So, it's going to be
+00:52:09.599 very like person-like in its affect. Um,
+00:52:12.240 and so some humanness will get into it
+00:52:14.240 simply from like the training, but then
+00:52:16.079 it's like using very different equipment
+00:52:17.520 that has like different limitations. And
+00:52:18.960 so, the way it does that might be pretty
+00:52:20.480 different.
+00:52:21.440 >> To to Emanuel's point, I think the Yeah,
+00:52:24.480 we're in this tricky spot answering
+00:52:26.000 questions like this because we don't
+00:52:28.400 really have the right language for
+00:52:30.160 talking about what language models do.
+00:52:32.079 It's like we're we're doing biology but
+00:52:34.400 you know before people figured out cells
+00:52:36.640 or before people figured out DNA. I
+00:52:39.119 think we're starting to fill in that
+00:52:40.880 understanding like like you know as
+00:52:43.040 Emanuel said there are these cases now
+00:52:44.800 where we can really just we can just if
+00:52:46.480 you just go read our paper like you'll
+00:52:48.240 know how the model like added these two
+00:52:49.920 numbers and then if you want to call it
+00:52:51.520 humanlike if you want to call it
+00:52:52.640 thinking or if you want to not then it's
+00:52:54.640 up to you but like the real answer is
+00:52:56.559 just like find the right language and
+00:52:59.119 the right abstractions for talking about
+00:53:00.400 the models but in the meantime when we
+00:53:02.319 when we've only currently we've only
+00:53:03.920 kind of like you know 20% succeeded at
+00:53:06.400 that scientific project Like to fill in
+00:53:09.119 the other 80%, we sort of have to borrow
+00:53:11.359 analogies from other fields. And like
+00:53:13.359 there's this question of which analogies
+00:53:15.119 are the most apt. Should we be thinking
+00:53:16.640 of the models like computer programs?
+00:53:18.480 Should we be thinking them of them like
+00:53:20.400 little people? And it seems to be like
+00:53:22.880 sometime like in some ways that think of
+00:53:24.800 them like little people is kind of
+00:53:26.240 useful. It's like if I like say mean
+00:53:27.839 things to the model, it like talks back
+00:53:29.280 at me. That's like what a human would
+00:53:30.880 do. But in some ways it's like that
+00:53:32.480 clearly not the right mental model. And
+00:53:34.240 so we're just kind of stuck, you know,
+00:53:35.920 figuring out when when we should be
+00:53:37.359 borrowing which language.
+00:53:38.800 >> Well, that that leads on to the final
+00:53:40.160 question I was going to ask, which is
+00:53:41.359 what's next? What what are the next uh
+00:53:44.160 pieces of scientific progress,
+00:53:45.760 biological progress that need to be made
+00:53:48.160 for us to have a better understanding of
+00:53:50.240 what's happening inside these models and
+00:53:52.480 uh again towards our mission of making
+00:53:55.040 them safer.
+00:53:56.640 >> There's a lot of work to do. Um our our
+00:53:59.440 our last publication has some like
+00:54:01.359 enormous section on on the limitations
+00:54:03.440 of the way we've been looking at this
+00:54:05.040 that was also a road mapap to like
+00:54:06.480 making it better. You know we we when we
+00:54:09.040 when we are looking for patterns to like
+00:54:10.880 decompose what's happening inside the
+00:54:12.559 model we're only getting sort of you
+00:54:14.160 know maybe a few percent of what's of
+00:54:16.079 what's going on. Um there's large parts
+00:54:18.240 of how it moves information around that
+00:54:20.800 like we we explicitly like didn't
+00:54:22.720 capture at all. Um they're scaling this
+00:54:26.559 up from from the sort of small you know
+00:54:29.680 uh production model we use to like the
+00:54:33.200 cloud 3.5 haiku. Right.
+00:54:34.559 >> That's right. Which is like it's like a
+00:54:36.079 pretty capable model very fast but it's
+00:54:38.160 like by no means as sophisticated as as
+00:54:40.319 you know the cloud 4 suite suite of
+00:54:42.640 models. Um so those are almost like sort
+00:54:44.559 of like technical challenges but I think
+00:54:46.319 I think Emanuel and Jackman takes on the
+00:54:48.240 like some of the like scientific
+00:54:49.839 challenges that come after solving
+00:54:51.119 those.
+00:54:51.440 >> Yeah.
+00:54:52.079 >> Yeah. Yeah, I mean I think maybe maybe
+00:54:53.920 two things I'll say here which is one
+00:54:56.079 consequence of what Josha said is that
+00:54:57.920 you know uh out of the total number of
+00:55:01.359 times that we ask a question uh about
+00:55:03.520 how the model does X right now we can
+00:55:06.319 answer probably a small you know 10 to
+00:55:08.720 20% of the time we can tell you after a
+00:55:10.480 little bit of investigation this is
+00:55:11.599 what's happening obviously we'd like
+00:55:13.200 that to be a lot better and there's
+00:55:14.559 there's a lot of kind of clearer ways to
+00:55:17.440 to to get there and less and more
+00:55:19.599 speculative ways as well uh and And then
+00:55:22.079 I think a thing that we've talked a lot
+00:55:24.559 about is this sort of idea that a lot of
+00:55:27.359 what the model does isn't simply like ah
+00:55:29.200 how is it saying the next thing we
+00:55:31.119 talked about it a little bit here it's
+00:55:32.480 sort of like planning a few things again
+00:55:33.760 and I a few words ahead sorry and I
+00:55:37.359 think we want to understand sort of like
+00:55:39.440 over a long conversation with the model
+00:55:42.319 sort of like how is its understanding of
+00:55:44.240 what's happening changing you know how
+00:55:46.240 is its understanding of who it's talking
+00:55:47.680 to changing and how does that affect its
+00:55:50.079 behavior uh more and more sort of the
+00:55:52.720 the actual use case of models like cloud
+00:55:56.240 is you know it's going to read a bunch
+00:55:57.760 of your documents and a bunch of like
+00:55:59.760 email you send or your code and based on
+00:56:01.440 that it's going to make one suggestion
+00:56:02.720 and so clearly there's something really
+00:56:04.559 important happening in that space where
+00:56:05.839 it's reading all these things uh and so
+00:56:07.680 I think understanding that better uh
+00:56:09.359 seems like a like a great challenge to
+00:56:10.799 take on
+00:56:12.240 >> yeah I think we often use the the
+00:56:14.640 analogy on the team of that we're
+00:56:16.160 building a microscope uh to like look at
+00:56:18.400 the model and right now we're in this
+00:56:20.480 exciting but also kind of frustrating
+00:56:22.400 space where our microscope works like
+00:56:26.160 20% of the time and like to look looking
+00:56:28.480 through it is like requires a lot of
+00:56:30.480 skill uh and like takes you know you
+00:56:33.680 have to like build this whole big
+00:56:35.440 contraption and every like
+00:56:36.880 infrastructure is always breaking and
+00:56:38.640 then like once you've got your like
+00:56:40.319 explanation of what the model's doing
+00:56:41.760 you have to like throw like Emanuel or
+00:56:43.920 me or someone else on the team in a room
+00:56:45.520 for like two hours to like puzzle out
+00:56:47.280 what exactly was going on and like the
+00:56:50.240 really exciting exciting future that I
+00:56:51.440 think we could be at within, you know,
+00:56:53.839 year or two years. You know, that kind
+00:56:55.760 of time scale is is one where like just
+00:56:58.559 every interaction you have with the
+00:57:00.079 model can be under the microscope. like
+00:57:02.079 we can just anytime there's all these
+00:57:03.920 like weird things the models are doing
+00:57:05.520 and we just want it to be like push of a
+00:57:07.599 button like yeah you you you're having
+00:57:09.920 your conversation you push a button you
+00:57:11.280 get this flowchart that tells you like
+00:57:12.640 what it was thinking about and once
+00:57:14.480 we're at that point it's it'll be this
+00:57:17.040 like I think our the interpretability
+00:57:19.440 team at Enthropic I think will start to
+00:57:21.680 kind of take on a bit of a different
+00:57:23.280 shape and that instead of this like team
+00:57:24.960 of kind of like engineers scientists
+00:57:28.240 thinking about the like math of how like
+00:57:30.880 language models work on the inside.
+00:57:32.640 We're going to have this like army of
+00:57:34.480 biologists that are just looking through
+00:57:36.000 the micros. We're just we're talking to
+00:57:37.520 Claude. We're getting it to do weird
+00:57:39.040 things and then we're just like we got
+00:57:40.640 people looking through the microscope
+00:57:41.920 seeing like what it was thinking on the
+00:57:43.280 inside. And I think that's kind of the
+00:57:44.799 future of of of this work.
+00:57:46.799 >> Nice.
+00:57:47.200 >> Maybe two two notes on top of that. One
+00:57:48.880 is like we want Claude to help us do all
+00:57:50.880 of that because like there's a lot of
+00:57:52.720 parts involved and you know who's like
+00:57:54.400 good at like looking at like hundreds of
+00:57:55.760 things and figuring out what's going on
+00:57:56.960 is like Claude. And so I think we're
+00:57:59.280 trying to enlist some help there. um
+00:58:00.960 especially as for these complicated
+00:58:02.559 contexts. And maybe the the other place
+00:58:04.640 is like we've talked a lot about
+00:58:06.400 studying the model like once it's fully
+00:58:08.640 formed, but of course like we're at a
+00:58:10.160 company that makes these and so when it
+00:58:12.640 says okay here's how the model like
+00:58:14.880 solved this particular problem or said
+00:58:16.400 this thing. Where did that come from
+00:58:18.160 kind of in the training process? What
+00:58:19.839 are the steps that sort of like made
+00:58:21.440 that circuitry sort of form to do that
+00:58:23.760 and how could we give feedback to the
+00:58:26.000 rest of the company that is like doing
+00:58:27.280 all of that work to shape the thing that
+00:58:29.040 we like actually uh want it to become?
+00:58:31.920 >> Well, thank you so much for the
+00:58:33.440 conversation. Where can people find out
+00:58:35.440 more about this research?
+00:58:36.960 >> So, if you want to find out more, you
+00:58:38.400 can go to anthropic.com/ressearch
+00:58:40.559 which has our papers and blog posts and
+00:58:42.720 fun videos about it. Also, we recently
+00:58:44.960 partnered uh with another group called
+00:58:46.400 Neuronpedia to host some of these like
+00:58:48.720 circuit graphs we make. So, if you want
+00:58:50.240 to try your hand at looking at what's
+00:58:52.319 going on inside of a small model, you
+00:58:54.000 can go to Neuronipedia and see for
+00:58:55.920 yourself.
+00:58:57.040 >> Thank you very much.
