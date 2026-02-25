@@ -1,8 +1,0 @@
-# PAI Environment Configuration
-# Created by PAI Bundle installer - 2026-02-06
-
-DA=Pi
-TIME_ZONE=America/Los_Angeles
-PAI_SOURCE_APP=Pi
-ELEVENLABS_API_KEY=sk_13484de38f70ff0a9abc5842c7af7b1de3e9538a29e96ffe
-# ELEVENLABS_VOICE_ID=

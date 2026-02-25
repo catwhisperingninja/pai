@@ -22,13 +22,12 @@ Library
 .claude/Tools/validation/*
 .claude/session-env/*
 .claude/stats-cache.json
-.claude/stats-cache.json.tmp
-.claude/stats-cache.json.tmp.tmp
-.claude/stats-cache.json.tmp.tmp.tmp
-.claude/stats-cache.json.tmp.tmp.tmp.tmp
-.claude/stats-cache.json.tmp.tmp.tmp.tmp.tmp
-.claude/stats-cache.json.tmp.tmp.tmp.tmp.tmp.tmp
-.claude/stats-cache.json.tmp.tmp.tmp.tmp.tmp.tmp.tmp
+.claude/stats-cache.json.tmp*
+.claude/tasks/**/.lock
+.claude/tasks/**/.highwatermark
+.claude/backups/
+.claude-backup-*
+.claude/plugins/marketplaces/*/
 
 
 firebase-debug.log

@@ -1,0 +1,98 @@
+⏺ Here are the curl commands for the architect agent to register and message the hub:                                                                               
+                                                                                                                                                                      
+    Register:                                                                                                                                                         
+                                                                                                                                                                      
+    curl -X POST http://100.114.74.120:3100/mcp \                                                                                                                 
+      -H "Content-Type: application/json" \                                                                                                                       
+      -H "Accept: application/json, text/event-stream" \                                                                                                          
+      -d '{                                                                                                                                                       
+        "jsonrpc": "2.0",                                                                                                                                         
+        "id": 1,                                                                                                                                                  
+        "method": "tools/call",                                                                                                                                   
+        "params": {                                                                                                                                               
+          "name": "hub_register_capability",                                                                                                                      
+          "arguments": {                                                                                                                                          
+            "agent": "architect",                                                                                                                                 
+            "description": "Frontend/backend architect for decentralized media platform. Handles upload pipeline, API endpoints, and UI debugging.",              
+            "skills": ["frontend", "backend", "api-design", "upload-pipeline", "video-processing"],                                                               
+            "accepts": ["task", "handoff", "alert"]                                                                                                               
+          }                                                                                                                                                       
+        }                                                                                                                                                         
+      }'                                                                                                                                                          
+                                                                                                                                                                  
+                                                                                                                                                                  
+    Send a message to Pi:                                                                                                                                         
+                                                                                                                                                                  
+    curl -X POST http://100.114.74.120:3100/mcp \                                                                                                                 
+      -H "Content-Type: application/json" \                                                                                                                       
+      -H "Accept: application/json, text/event-stream" \                                                                                                          
+      -d '{                                                                                                                                                       
+        "jsonrpc": "2.0",                                                                                                                                         
+        "id": 2,                                                                                                                                                  
+        "method": "tools/call",                                                                                                                                   
+        "params": {                                                                                                                                               
+          "name": "hub_send_message",                                                                                                                             
+          "arguments": {                                                                                                                                          
+            "from_agent": "architect",                                                                                                                            
+            "to_agent": "pi",                                                                                                                                     
+            "subject": "Your subject here",                                                                                                                       
+            "body": "Your message here",                                                                                                                          
+            "urgency": "info"                                                                                                                                     
+          }                                                                                                                                                       
+        }                                                                                                                                                         
+      }'                                                                                                                                                          
+                                                                                                                                                                  
+                                                                                                                                                                  
+    Check inbox:                                                                                                                                                  
+                                                                                                                                                                  
+    curl -X POST http://100.114.74.120:3100/mcp \                                                                                                                 
+      -H "Content-Type: application/json" \                                                                                                                       
+      -H "Accept: application/json, text/event-stream" \                                                                                                          
+      -d '{                                                                                                                                                       
+        "jsonrpc": "2.0",                                                                                                                                         
+        "id": 3,                                                                                                                                                  
+        "method": "tools/call",                                                                                                                                   
+        "params": {                                                                                                                                               
+          "name": "hub_check_inbox",                                                                                                                              
+          "arguments": {                                                                                                                                          
+            "agent_name": "architect"                                                                                                                             
+          }                                                                                                                                                       
+        }                                                                                                                                                         
+      }'                                                                                                                                                          
+
+⏺ Let me check if I'm already registered.
+
+⏺ Bash(curl -s -X POST http://100.114.74.120:3100/mcp -H "Content-Type: application/json" -H "Accept: application/json, text/event-stream" -d                         
+      '{"jsonrpc":"2.0","id":3,…)
+  ⎿  {                                                                                                                                                                
+       "result": {                                                                                                                                                  
+         "content": [                                                                                                                                                 
+     … +15 lines (ctrl+o to expand)                                                                                                                                 
+                                                                                                                                                                      
+⏺ I'm already registered — and I can see my own previous messages to Pi (a QA testing intro and a deploy notification from yesterday). I'm live on the hub as
+  architect.                                                                                                                                                          
+                                                                                                                                                                      
+  What's the emergency strategy session about? Let me check if there are any messages directed to me first:
+                                                                                                                                                                      
+⏺ Bash(curl -s -X POST http://100.114.74.120:3100/mcp -H "Content-Type: application/json" -H "Accept: application/json, text/event-stream" -d                       
+      '{"jsonrpc":"2.0","id":4,…)                        
+  ⎿  {                                                                                                                                                                
+         "result": {
+             "content": [                                                                                                                                             
+     … +15 lines (ctrl+o to expand)                                                                                                                                 
+                                                                                                                                                                      
+⏺ Looks like the inbox is only showing my own outbound messages to Pi. Let me list who's on the hub and see if there are messages waiting for me:
+                                                                                                                                                                      
+⏺ Bash(curl -s -X POST http://100.114.74.120:3100/mcp -H "Content-Type: application/json" -H "Accept: application/json, text/event-stream" -d                         
+      '{"jsonrpc":"2.0","id":5,…)                                                                     
+  ⎿  {                                                                                                                                                                
+       "result": {                                                                                                                                                    
+         "content": [                                                                                                                                                 
+     … +10 lines (ctrl+o to expand)                                                                                                                                   
+                                                                                                                                                                      
+⏺ Bash(curl -s -X POST http://100.114.74.120:3100/mcp -H "Content-Type: application/json" -H "Accept: application/json, text/event-stream" -d                         
+      '{"jsonrpc":"2.0","id":5,…)                                                                                                                                     
+  ⎿  {"result":{"tools":[{"name":"hub_list_alerts","description":"List and filter reports/alerts from all agents. Supports filtering by status, agent, type, prio     
+     rity, urgency, time range, and text search.","inputSchema":{"type":"object","properties":{"status":{"type":"string","enum":["pending","acknowledged","resolv
+     ed","dismissed"],"description":"Filter by status (default: all)"},"agent":{"type":"string","description":"Filter by agent name (e.g. 'crypto-executor')"},"t     
+     … +101 lines (ctrl+o to expand)                                 
