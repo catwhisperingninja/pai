@@ -1,0 +1,9 @@
+{
+  "id": "9",
+  "subject": "ISC-C1: Architecture uses Firewalla Gold WireGuard server as tunnel endpoint",
+  "description": "The design leverages existing Firewalla WG server — VPS connects as client to Firewalla. | Verify: Read: check architecture diagram uses Firewalla as WG server",
+  "activeForm": "Designing Firewalla WG server architecture",
+  "status": "pending",
+  "blocks": [],
+  "blockedBy": []
+}

@@ -1,0 +1,9 @@
+{
+  "id": "12",
+  "subject": "ISC-C4: On-demand operation model designed — start and stop cleanly",
+  "description": "Mail server can be spun up, used for verification, spun down. No always-on requirement. | Verify: Read: check for startup/shutdown procedure",
+  "activeForm": "Designing on-demand operation model",
+  "status": "pending",
+  "blocks": [],
+  "blockedBy": []
+}

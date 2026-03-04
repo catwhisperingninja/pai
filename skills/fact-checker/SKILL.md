@@ -17,7 +17,7 @@ journalism, and analytical writing.
 **BEFORE doing anything else**, you MUST read the full system prompt XML file:
 
 ```
-/Users/lauralopez/Documents/gitlab-projects/content-ai/04_distribution/public_service/fact-checker-release/fact_checker_system_prompt_1.1.xml
+/Users/dev/Documents/github-projects/pai/skills/fact-checker/fact_checker_system_prompt_1.1.xml
 ```
 
 This 600+ line XML contains the complete fact-checking protocol including:
@@ -47,7 +47,7 @@ When this skill is invoked, follow the comprehensive fact-checking system prompt
 located at:
 
 ````
-/Users/lauralopez/Documents/gitlab-projects/content-ai/04_distribution/public_service/fact-checker-release/fact_checker_system_prompt_1.1.xml
+/Users/dev/Documents/github-projects/pai/skills/fact-checker/fact_checker_system_prompt_1.1.xml
 ### Primary Tools: MCP Docker (REQUIRED)
 
 **ALWAYS use Browser Base MCP tools** for web scraping and search (Browser Base preferred over HyperBrowser for better Claude Code compatibility):
