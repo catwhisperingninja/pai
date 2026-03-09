@@ -1,0 +1,8 @@
+{
+  "id": "23",
+  "subject": "ISC-C7: Alternative reconstruction methods assessed per data gap",
+  "description": "For each missing/degraded data point, feasibility of reconstruction from private, international, or proxy sources. | Verify: Read: each gap has at least one reconstruction path or \"infeasible\" note",
+  "status": "pending",
+  "blocks": [],
+  "blockedBy": []
+}

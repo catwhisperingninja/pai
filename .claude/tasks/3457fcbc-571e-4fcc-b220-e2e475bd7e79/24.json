@@ -1,0 +1,8 @@
+{
+  "id": "24",
+  "subject": "ISC-C9: Data manipulation and obfuscation risk assessment included",
+  "description": "Per EX-7, analysis of where regime could manipulate still-published data. | Verify: Read: manipulation risks identified per data category",
+  "status": "pending",
+  "blocks": [],
+  "blockedBy": []
+}

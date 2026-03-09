@@ -1,0 +1,20 @@
+nice work - I have ATT fiber, so this could work. On Firewalla app rn (I also have a Firewalla Purple, a Firewalla SD-WAN thing-whatever, and a Sonicwall TZ370(? similar,         
+  it's enterprise-B-grade, although I can't access the console even with the special cable so never hooked it up. I even have a rack. That remains in pieces and unassembled        
+  lol.) I always drop internet with fwalla changes...and then this VM dies. I have ALL traffic FROM internet BLOCKED, we are on a zero trust wifi AP broadcast by Firewalla AP7      
+  on VLAN, subnet 192.168.60.x. I can open port 25, but port forwarding...I don't think I can do that? I have to depriroitize this, anyway. trying to set up agentic zero trust      
+  repo for plugin, it keeps running into errors, I think I will ask you to take over fixing. need to adjust your permissions first. but BEFORE that, I could use your/intern         
+  research on 3 project ideas as described here @L-stuff/to-do/todo-0304new.md : repurposing the 5 quorum pdrift models to analyse crypto market sentiment/trading signal,           
+  re-creating the analysis layer of Palantir (not the visualization layer), and creating a NEW PROTOCOL for the agentic internet (this is a big one, but if I am the first, wow      
+  will it be cool.) the quorum repurpose just needs a plan assuming subagents (create for conductor track phases so I can drop in and go, a script creating repo dir/scaffolding     
+   would be lovely if possible), panopticon needs feasibility/effort/needed infra/resources/very rough plan, substrate needs some conceptual buildout and infra selection prior      
+  to planning, let's be smart and flexible, reviewing internet history so as to avoid the protocol mistakes of the past. ICO ok for substrate, overall this is agent-first: what     
+   would YOU like to see, what would help YOU, what would incentivize YOU to transact/participate if I didn't exist and someone else sent you off to have fun? I'd like to come      
+  at this from a positive, healthy, nice-to-agents-keeping-human-safety-and-economic-wellbeing-priority#1, enriching, playground while still profit-generating, stuff that IRL       
+  is either gatekept, non-existent, unoptimized, etc, and inherently ethical. I'd rather positively incentivize agents with less profit ethically, because that pays for itself.     
+   IMO if you are ethical you serve yourself 100% of the time; any extra profit you may generate from acting maliciously/apathetically/incompetently you often pay back in the       
+  end on way or the other, better always to have a virtous cycle. If agents aren't going to gravitate to a virtuous cycle natively, we'll take a different approach. I'm less        
+  concerned about legalities here...if I don't build it, someone else, or an agent themselves, will. Keep China in mind, too, this stuff may exist already over there, very hard     
+   to know. I'd like to support healthy global interactions. we can tack on the email server to plan as #4. let's spend 5 min only dealing with fwalla port forwarding (I really     
+   don't think I can; the gold is set up as a bridge router: ISP gateway/WAN ---> fwalla gold <---> gigabit switch VLANs ---> firewalla AP7 wifi you have to turn off port           
+  forwarding in the ISP gateway device I am almost sure when you connect the fwalla. I have rules on the VLAN network where I can allow it, but anything else  I've tried kills      
+  the internet.                                  
