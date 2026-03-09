@@ -1,9 +1,0 @@
-{
-  "id": "17",
-  "subject": "ISC-C9: WireGuard tunnel config specified for both VPS and Firewalla",
-  "description": "If VPS path needed: WG client config for VPS to connect to Firewalla server. Port forwarding rules on both ends. | Verify: Read: check WG configs for both sides",
-  "activeForm": "Specifying WireGuard tunnel configs",
-  "status": "pending",
-  "blocks": [],
-  "blockedBy": []
-}

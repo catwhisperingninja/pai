@@ -1,9 +1,0 @@
-{
-  "id": "10",
-  "subject": "ISC-C2: Port 25 inbound path fully mapped from internet to local",
-  "description": "Complete network path documented: internet → ??? → port 25 → local Docker. Every hop identified. | Verify: Read: trace path has no gaps",
-  "activeForm": "Mapping port 25 inbound path",
-  "status": "pending",
-  "blocks": [],
-  "blockedBy": []
-}

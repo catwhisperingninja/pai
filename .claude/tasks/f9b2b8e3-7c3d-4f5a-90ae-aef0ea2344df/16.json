@@ -1,9 +1,0 @@
-{
-  "id": "16",
-  "subject": "ISC-C8: Mailcow Docker Compose config ready for local deployment",
-  "description": "docker-compose.yml and mailcow.conf ready to deploy on Mac Docker Desktop. | Verify: Read: check for config files",
-  "activeForm": "Preparing Mailcow Docker config",
-  "status": "pending",
-  "blocks": [],
-  "blockedBy": []
-}

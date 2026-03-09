@@ -1,9 +1,0 @@
-{
-  "id": "11",
-  "subject": "ISC-C3: Local-only path explored with honest feasibility assessment",
-  "description": "Genuinely explore whether ISP port 25 can work, or if there's a creative workaround beyond standard VPS relay. | Verify: Read: check for genuine exploration not dismissal",
-  "activeForm": "Exploring local-only feasibility",
-  "status": "pending",
-  "blocks": [],
-  "blockedBy": []
-}

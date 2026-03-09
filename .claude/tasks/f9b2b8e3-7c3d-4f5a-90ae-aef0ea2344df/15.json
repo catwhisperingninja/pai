@@ -1,9 +1,0 @@
-{
-  "id": "15",
-  "subject": "ISC-C7: DNS records fully specified — MX, SPF, DKIM, DMARC for Cloudflare",
-  "description": "All DNS records listed with exact values for Cloudflare dashboard. | Verify: Read: check all 4 record types present",
-  "activeForm": "Specifying DNS records",
-  "status": "pending",
-  "blocks": [],
-  "blockedBy": []
-}

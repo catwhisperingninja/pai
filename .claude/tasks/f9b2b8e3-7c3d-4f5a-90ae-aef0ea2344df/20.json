@@ -1,9 +1,0 @@
-{
-  "id": "20",
-  "subject": "ISC-A2: No architecture that requires always-on local server",
-  "description": "Must not design for 24/7 uptime on local hardware. On-demand is the requirement. | Verify: Read: check no always-on assumption",
-  "activeForm": "Checking no always-on assumption",
-  "status": "pending",
-  "blocks": [],
-  "blockedBy": []
-}

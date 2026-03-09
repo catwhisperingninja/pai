@@ -1,9 +1,0 @@
-{
-  "id": "13",
-  "subject": "ISC-C5: Domain registration path uses Unstoppable Domains with Cloudflare DNS",
-  "description": "User has done this before for Parallax Drift. Plan uses same workflow. | Verify: Read: check domain path specifies Unstoppable + Cloudflare",
-  "activeForm": "Specifying domain registration path",
-  "status": "pending",
-  "blocks": [],
-  "blockedBy": []
-}

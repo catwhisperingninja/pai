@@ -1,9 +1,0 @@
-{
-  "id": "18",
-  "subject": "ISC-C10: Plan includes port 25 ISP test procedure as gate",
-  "description": "First step is testing ISP port 25 — result determines which architecture path. | Verify: Read: check test is step 1",
-  "activeForm": "Including ISP port 25 test as gate",
-  "status": "pending",
-  "blocks": [],
-  "blockedBy": []
-}
