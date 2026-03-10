@@ -1,0 +1,8 @@
+{
+  "id": "40",
+  "subject": "ISC-C9: Config data-sources.yaml includes five new source entries with tiers",
+  "description": "data-sources.yaml updated with poll intervals, reliability tiers, and source metadata for all 5 new sources. | Verify: Read: check yaml",
+  "status": "pending",
+  "blocks": [],
+  "blockedBy": []
+}

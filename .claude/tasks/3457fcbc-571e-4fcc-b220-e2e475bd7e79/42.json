@@ -1,0 +1,8 @@
+{
+  "id": "42",
+  "subject": "ISC-A1: No trading signal generation or model invocation in adapter code",
+  "description": "Per EX-4, adapters are data-only — no imports from models or quorum packages. | Verify: Grep: no import from @sovereign-signal/models or quorum in new files",
+  "status": "pending",
+  "blocks": [],
+  "blockedBy": []
+}

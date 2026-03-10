@@ -1,0 +1,8 @@
+{
+  "id": "36",
+  "subject": "ISC-C5: UI claims adapter fetches weekly DOL unemployment insurance data",
+  "description": "ui-claims.ts adapter fetches initial and continued claims from DOL public data. | Verify: Read: adapter follows DataAdapter interface",
+  "status": "pending",
+  "blocks": [],
+  "blockedBy": []
+}

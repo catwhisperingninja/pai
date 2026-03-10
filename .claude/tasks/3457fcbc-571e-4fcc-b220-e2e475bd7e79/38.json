@@ -1,0 +1,8 @@
+{
+  "id": "38",
+  "subject": "ISC-C7: New adapters registered in data-ingest pipeline index barrel export",
+  "description": "All 5 adapters exported from data-ingest/src/index.ts and available to conductor. | Verify: Grep: check index.ts exports",
+  "status": "pending",
+  "blocks": [],
+  "blockedBy": []
+}

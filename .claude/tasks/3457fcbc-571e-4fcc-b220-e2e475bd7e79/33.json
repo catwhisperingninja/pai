@@ -1,0 +1,8 @@
+{
+  "id": "33",
+  "subject": "ISC-C2: ADP employment adapter ingests payroll report data via API",
+  "description": "adp-employment.ts adapter fetches ADP National Employment Report data, normalizes to NormalizedEvent. | Verify: Read: adapter follows DataAdapter interface",
+  "status": "pending",
+  "blocks": [],
+  "blockedBy": []
+}

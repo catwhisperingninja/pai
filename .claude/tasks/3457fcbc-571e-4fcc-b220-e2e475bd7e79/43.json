@@ -1,0 +1,8 @@
+{
+  "id": "43",
+  "subject": "ISC-A2: No mock data or hardcoded responses in any adapter",
+  "description": "Per EX-6, all adapters make real HTTP/RPC calls. No stub returns. | Verify: Read: verify each adapter has real fetch/API calls",
+  "status": "pending",
+  "blocks": [],
+  "blockedBy": []
+}

@@ -1,0 +1,8 @@
+{
+  "id": "32",
+  "subject": "ISC-C1: Truflation adapter fetches real-time on-chain inflation data via Chainlink",
+  "description": "truflation.ts adapter connects to Truflation's Chainlink oracle or API, normalizes to NormalizedEvent. | Verify: Read: adapter follows DataAdapter interface, calls real API",
+  "status": "pending",
+  "blocks": [],
+  "blockedBy": []
+}

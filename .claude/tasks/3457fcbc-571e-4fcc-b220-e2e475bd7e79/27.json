@@ -1,8 +1,0 @@
-{
-  "id": "27",
-  "subject": "ISC-A1: Federal Reserve explicitly excluded from gutted agency analysis",
-  "description": "Per EX-1, Fed must not appear in the \"affected agencies\" list. | Verify: Grep: no Fed/Federal Reserve in affected agencies section",
-  "status": "pending",
-  "blocks": [],
-  "blockedBy": []
-}

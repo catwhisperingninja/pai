@@ -1,0 +1,8 @@
+{
+  "id": "35",
+  "subject": "ISC-C4: Redfin adapter fetches housing market metrics via data center",
+  "description": "redfin.ts adapter fetches median price, days on market, inventory from Redfin Data Center. | Verify: Read: adapter follows DataAdapter interface",
+  "status": "pending",
+  "blocks": [],
+  "blockedBy": []
+}

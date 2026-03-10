@@ -1,0 +1,8 @@
+{
+  "id": "37",
+  "subject": "ISC-C6: All five adapters produce valid NormalizedEvent with correct EventCategory",
+  "description": "Each adapter outputs events matching NormalizedEventSchema with appropriate category (ECONOMIC, MARKET, etc). | Verify: Read: check schema compliance in each adapter",
+  "status": "pending",
+  "blocks": [],
+  "blockedBy": []
+}

@@ -1,0 +1,8 @@
+{
+  "id": "34",
+  "subject": "ISC-C3: Zillow adapter fetches ZHVI and ZORI housing data",
+  "description": "zillow.ts adapter fetches Zillow Home Value Index and Observed Rent Index, normalizes to NormalizedEvent. | Verify: Read: adapter follows DataAdapter interface",
+  "status": "pending",
+  "blocks": [],
+  "blockedBy": []
+}

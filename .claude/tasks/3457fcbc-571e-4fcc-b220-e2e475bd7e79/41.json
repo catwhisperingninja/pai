@@ -1,0 +1,8 @@
+{
+  "id": "41",
+  "subject": "ISC-C10: All packages build successfully with new adapters included",
+  "description": "npx turbo run build passes 8/8 packages including new adapter code. | Verify: CLI: npx turbo run build",
+  "status": "pending",
+  "blocks": [],
+  "blockedBy": []
+}

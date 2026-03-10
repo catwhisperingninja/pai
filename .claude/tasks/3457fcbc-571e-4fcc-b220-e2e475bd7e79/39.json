@@ -1,0 +1,8 @@
+{
+  "id": "39",
+  "subject": "ISC-C8: DataSource enum and SOURCE_RELIABILITY map updated for five sources",
+  "description": "types.ts updated with TRUFLATION, ADP, ZILLOW, REDFIN, UI_CLAIMS in DataSource enum and reliability tiers. | Verify: Read: check types.ts",
+  "status": "pending",
+  "blocks": [],
+  "blockedBy": []
+}
