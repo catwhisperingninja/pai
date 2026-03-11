@@ -85,8 +85,21 @@ out/
 private/
 secrets/
 credentials/
-L-stuff/*
-dashboard/*
+L-stuff/
+dashboard/
+
+# Sensitive .claude files (credentials, history, personal state)
+.claude/.credentials.json
+.claude/.current-session
+.claude/history.jsonl
+.claude/settings.json
+.claude/MEMORY/
+.claude/telemetry/
+.claude/mcp-needs-auth-cache.json
+.claude/plugins/blocklist.json
+.claude/plugins/installed_plugins.json
+.claude/plugins/known_marketplaces.json
+.claude/projects/
 
 # PAI Update System (sideloading)
 .claude/pai_updates/
