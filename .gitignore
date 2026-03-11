@@ -85,6 +85,8 @@ out/
 private/
 secrets/
 credentials/
+L-stuff/*
+dashboard/*
 
 # PAI Update System (sideloading)
 .claude/pai_updates/
