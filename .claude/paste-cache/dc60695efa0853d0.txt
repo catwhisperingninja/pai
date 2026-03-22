@@ -1,0 +1,117 @@
+npx turbo run build --force && doppler run -p sov-signal -c prd -- node apps/conductor/dist/index.js
+╭───────────────────────────────────────────────────────────────────────────╮
+│                                                                           │
+│                    Update available v2.8.14 ≫ v2.8.20                     │
+│    Changelog: https://github.com/vercel/turborepo/releases/tag/v2.8.20    │
+│             Run "npx @turbo/codemod@latest update" to update              │
+│                                                                           │
+│          Follow @turborepo for updates: https://x.com/turborepo           │
+╰───────────────────────────────────────────────────────────────────────────╯
+• turbo 2.8.14
+• Packages in scope: @sovereign-signal/conductor, @sovereign-signal/contracts, @sovereign-signal/dashboard, @sovereign-signal/data-ingest, @sovereign-signal/execution, @sovereign-signal/models, @sovereign-signal/quorum, @sovereign-signal/signal-api
+• Running build in 8 packages
+• Remote caching disabled
+@sovereign-signal/contracts:build: cache bypass, force executing 78d8312d9c6dbbdc
+@sovereign-signal/data-ingest:build: cache bypass, force executing 01a2d231e6c5e1d9
+@sovereign-signal/dashboard:build: cache bypass, force executing 7bb611ae51915fdf
+@sovereign-signal/contracts:build: 
+@sovereign-signal/data-ingest:build: 
+@sovereign-signal/dashboard:build: 
+@sovereign-signal/data-ingest:build: 
+@sovereign-signal/data-ingest:build: > @sovereign-signal/data-ingest@0.1.0 build
+@sovereign-signal/data-ingest:build: > tsc
+@sovereign-signal/data-ingest:build: 
+@sovereign-signal/dashboard:build: 
+@sovereign-signal/dashboard:build: > @sovereign-signal/dashboard@0.1.0 build
+@sovereign-signal/dashboard:build: > vite build
+@sovereign-signal/dashboard:build: 
+@sovereign-signal/contracts:build: 
+@sovereign-signal/contracts:build: > @sovereign-signal/contracts@0.1.0 build
+@sovereign-signal/contracts:build: > echo "use forge build" && exit 0
+@sovereign-signal/contracts:build: 
+@sovereign-signal/contracts:build: use forge build
+
+@sovereign-signal/dashboard:build: vite v5.4.21 building for production...
+✓ 88 modules transformed.
+dist/index.html                  0.54 kB │ gzip:   0.40 kB
+@sovereign-signal/dashboard:build: dist/assets/index-CfoSGl8P.js  361.64 kB │ gzip: 114.07 kB │ map: 954.01 kB
+@sovereign-signal/dashboard:build: ✓ built in 1.02s
+
+
+@sovereign-signal/models:build: cache bypass, force executing 91331cb3a8bace19
+@sovereign-signal/models:build: 
+@sovereign-signal/models:build: 
+@sovereign-signal/models:build: > @sovereign-signal/models@0.1.0 build
+@sovereign-signal/models:build: > tsc && cp -r src/prompts dist/prompts
+@sovereign-signal/models:build: 
+
+@sovereign-signal/quorum:build: cache bypass, force executing cc9c727cba41e573
+@sovereign-signal/quorum:build: 
+@sovereign-signal/quorum:build: 
+@sovereign-signal/quorum:build: > @sovereign-signal/quorum@0.1.0 build
+@sovereign-signal/quorum:build: > tsc
+@sovereign-signal/quorum:build: 
+
+@sovereign-signal/execution:build: cache bypass, force executing 09bad2466cbfe628
+@sovereign-signal/signal-api:build: cache bypass, force executing 30cdca06dd2478b9
+@sovereign-signal/execution:build: 
+@sovereign-signal/signal-api:build: 
+@sovereign-signal/signal-api:build: 
+@sovereign-signal/signal-api:build: > @sovereign-signal/signal-api@0.1.0 build
+@sovereign-signal/signal-api:build: > tsc
+@sovereign-signal/signal-api:build: 
+@sovereign-signal/execution:build: 
+@sovereign-signal/execution:build: > @sovereign-signal/execution@0.1.0 build
+@sovereign-signal/execution:build: > tsc
+@sovereign-signal/execution:build: 
+
+
+@sovereign-signal/conductor:build: cache bypass, force executing 06ec3328e4708a0c
+@sovereign-signal/conductor:build: 
+@sovereign-signal/conductor:build: 
+@sovereign-signal/conductor:build: > @sovereign-signal/conductor@0.1.0 build
+@sovereign-signal/conductor:build: > tsc
+@sovereign-signal/conductor:build: 
+
+
+ Tasks:    8 successful, 8 total
+Cached:    0 cached, 8 total
+  Time:    8.064s 
+
+>   ...Finishing writing to cache...                                                                                                                                                  WARNING  no output files found for task @sovereign-signal/contracts#build. Please check your `outputs` key in `turbo.json`
+{"level":30,"time":1774039184192,"pid":58018,"hostname":"dev","name":"sovereign-signal-conductor","msg":"Starting Sovereign Signal Conductor"}
+{"level":30,"time":1774039184192,"pid":58018,"hostname":"dev","name":"sovereign-signal-conductor","component":"adapters","adapter":"Truflation","missingEnvVars":["TRUFLATION_API_KEY"],"msg":"Adapter skipped — missing env var(s)"}
+{"level":30,"time":1774039184192,"pid":58018,"hostname":"dev","name":"sovereign-signal-conductor","component":"adapters","adapter":"ADP Employment","missingEnvVars":["FRED_API_KEY"],"msg":"Adapter skipped — missing env var(s)"}
+{"level":30,"time":1774039184192,"pid":58018,"hostname":"dev","name":"sovereign-signal-conductor","component":"adapters","adapter":"UI Claims","missingEnvVars":["FRED_API_KEY"],"msg":"Adapter skipped — missing env var(s)"}
+{"level":30,"time":1774039184192,"pid":58018,"hostname":"dev","name":"sovereign-signal-conductor","component":"adapters","adapter":"NewsAPI","missingEnvVars":["NEWSAPI_KEY"],"msg":"Adapter skipped — missing env var(s)"}
+{"level":30,"time":1774039184192,"pid":58018,"hostname":"dev","name":"sovereign-signal-conductor","component":"adapters","adapter":"LunarCrush","missingEnvVars":["LUNARCRUSH_API_KEY"],"msg":"Adapter skipped — missing env var(s)"}
+{"level":30,"time":1774039184192,"pid":58018,"hostname":"dev","name":"sovereign-signal-conductor","component":"adapters","adapter":"Santiment","missingEnvVars":["SANTIMENT_API_KEY"],"msg":"Adapter skipped — missing env var(s)"}
+{"level":30,"time":1774039184192,"pid":58018,"hostname":"dev","name":"sovereign-signal-conductor","component":"adapters","adapter":"OpenSky","missingEnvVars":["OPENSKY_USERNAME","OPENSKY_PASSWORD"],"msg":"Adapter skipped — missing env var(s)"}
+{"level":30,"time":1774039184192,"pid":58018,"hostname":"dev","name":"sovereign-signal-conductor","component":"adapters","adapter":"ADS-B Exchange","missingEnvVars":["ADSB_RAPIDAPI_KEY"],"msg":"Adapter skipped — missing env var(s)"}
+{"level":30,"time":1774039184192,"pid":58018,"hostname":"dev","name":"sovereign-signal-conductor","component":"adapters","msg":"MCP adapters skipped — MCP_GATEWAY_URL not configured"}
+{"level":30,"time":1774039184192,"pid":58018,"hostname":"dev","name":"sovereign-signal-conductor","component":"adapters","count":4,"names":["GDELT","Polymarket","Zillow","Redfin"],"msg":"Adapters initialized"}
+{"level":30,"time":1774039184193,"pid":58018,"hostname":"dev","name":"sovereign-signal-conductor","component":"analysts","count":5,"roles":["economic-impact","conflict-analysis","regulatory-risk","sentiment-narrative","historical-precedent"],"msg":"Analysts initialized"}
+{"level":30,"time":1774039184193,"pid":58018,"hostname":"dev","name":"sovereign-signal-conductor","msg":"On-chain attestation not configured — signals will be unattested"}
+{"level":30,"time":1774039184194,"pid":58018,"hostname":"dev","name":"sovereign-signal-conductor","component":"orchestrator","msg":"Orchestrator started"}
+{"level":30,"time":1774039184194,"pid":58018,"hostname":"dev","name":"sovereign-signal-conductor","component":"scheduler","msg":"Scheduler starting"}
+{"level":30,"time":1774039184194,"pid":58018,"hostname":"dev","name":"sovereign-signal-conductor","component":"scheduler","msg":"No explicit schedules configured — pipeline manages its own polling"}
+{"level":30,"time":1774039184217,"pid":58018,"hostname":"dev","name":"sovereign-signal-conductor","component":"scheduler","jobCount":0,"batchWindowMs":30000,"msg":"Scheduler started"}
+{"level":30,"time":1774039184218,"pid":58018,"hostname":"dev","name":"sovereign-signal-conductor","msg":"Sovereign Signal Conductor is running"}
+[GDELT] Poll failed: Error: GDELT returned non-JSON response: Queries containing OR'd terms must be surrounded by ().
+
+    at GdeltAdapter.fetchConflictArticles (file:///Users/dev/Documents/gitlab-projects/sovereign-signal/packages/data-ingest/dist/adapters/gdelt.js:123:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async GdeltAdapter.poll (file:///Users/dev/Documents/gitlab-projects/sovereign-signal/packages/data-ingest/dist/adapters/gdelt.js:65:30)
+    at async DataIngestPipeline.pollAdapter (file:///Users/dev/Documents/gitlab-projects/sovereign-signal/packages/data-ingest/dist/index.js:73:31)
+{"level":30,"time":1774039214201,"pid":58018,"hostname":"dev","name":"sovereign-signal-conductor","component":"orchestrator","batchSize":4,"msg":"Processing buffered event batch"}
+{"level":30,"time":1774039214204,"pid":58018,"hostname":"dev","name":"sovereign-signal-conductor","component":"orchestrator","eventCount":4,"sources":["zillow"],"msg":"Processing event batch through analyst pipeline"}
+{"level":30,"time":1774039214229,"pid":58018,"hostname":"dev","name":"sovereign-signal-conductor","component":"scheduler","batchSize":4,"batchNumber":1,"msg":"Flushing event batch to orchestrator"}
+{"level":30,"time":1774039214229,"pid":58018,"hostname":"dev","name":"sovereign-signal-conductor","component":"orchestrator","eventCount":4,"sources":["zillow"],"msg":"Processing event batch through analyst pipeline"}
+{"level":50,"time":1774039220501,"pid":58018,"hostname":"dev","name":"sovereign-signal-conductor","component":"orchestrator","role":"economic-impact","err":{"type":"Error","message":"[economic-impact] Analysis failed after 3 attempts: 400 {\"error\":{\"message\":\"The model `llama-3.1-70b-versatile` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.\",\"type\":\"invalid_request_error\",\"code\":\"model_decommissioned\"}}","stack":"Error: [economic-impact] Analysis failed after 3 attempts: 400 {\"error\":{\"message\":\"The model `llama-3.1-70b-versatile` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.\",\"type\":\"invalid_request_error\",\"code\":\"model_decommissioned\"}}\n    at EconomicImpactAnalyst.analyze (file:///Users/dev/Documents/gitlab-projects/sovereign-signal/packages/models/dist/base-analyst.js:48:15)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)"},"latencyMs":6272,"msg":"Analyst failed"}
+{"level":50,"time":1774039220562,"pid":58018,"hostname":"dev","name":"sovereign-signal-conductor","component":"orchestrator","role":"economic-impact","err":{"type":"Error","message":"[economic-impact] Analysis failed after 3 attempts: 400 {\"error\":{\"message\":\"The model `llama-3.1-70b-versatile` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.\",\"type\":\"invalid_request_error\",\"code\":\"model_decommissioned\"}}","stack":"Error: [economic-impact] Analysis failed after 3 attempts: 400 {\"error\":{\"message\":\"The model `llama-3.1-70b-versatile` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.\",\"type\":\"invalid_request_error\",\"code\":\"model_decommissioned\"}}\n    at EconomicImpactAnalyst.analyze (file:///Users/dev/Documents/gitlab-projects/sovereign-signal/packages/models/dist/base-analyst.js:48:15)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)"},"latencyMs":6358,"msg":"Analyst failed"}
+{"level":50,"time":1774039220843,"pid":58018,"hostname":"dev","name":"sovereign-signal-conductor","component":"orchestrator","role":"conflict-analysis","err":{"type":"Error","message":"[conflict-analysis] Analysis failed after 3 attempts: 401 Invalid API key provided. You can find your API key at https://api.together.ai/settings/api-keys.","stack":"Error: [conflict-analysis] Analysis failed after 3 attempts: 401 Invalid API key provided. You can find your API key at https://api.together.ai/settings/api-keys.\n    at ConflictAnalysisAnalyst.analyze (file:///Users/dev/Documents/gitlab-projects/sovereign-signal/packages/models/dist/base-analyst.js:48:15)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)"},"latencyMs":6412,"msg":"Analyst failed"}
+{"level":50,"time":1774039220885,"pid":58018,"hostname":"dev","name":"sovereign-signal-conductor","component":"orchestrator","role":"conflict-analysis","err":{"type":"Error","message":"[conflict-analysis] Analysis failed after 3 attempts: 401 Invalid API key provided. You can find your API key at https://api.together.ai/settings/api-keys.","stack":"Error: [conflict-analysis] Analysis failed after 3 attempts: 401 Invalid API key provided. You can find your API key at https://api.together.ai/settings/api-keys.\n    at ConflictAnalysisAnalyst.analyze (file:///Users/dev/Documents/gitlab-projects/sovereign-signal/packages/models/dist/base-analyst.js:48:15)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)"},"latencyMs":6472,"msg":"Analyst failed"}
+{"level":50,"time":1774039221093,"pid":58018,"hostname":"dev","name":"sovereign-signal-conductor","component":"orchestrator","role":"regulatory-risk","err":{"type":"Error","message":"[regulatory-risk] Analysis failed after 3 attempts: NotFoundError\nStatus code: 404\nBody: {\n  \"id\": \"75b2b122-e1de-438a-99a9-2a85a4817459\",\n  \"message\": \"model 'command-r-plus' was removed on September 15, 2025. See https://docs.cohere.com/docs/models#command for a list of models you can use instead.\"\n}","stack":"Error: [regulatory-risk] Analysis failed after 3 attempts: NotFoundError\nStatus code: 404\nBody: {\n  \"id\": \"75b2b122-e1de-438a-99a9-2a85a4817459\",\n  \"message\": \"model 'command-r-plus' was removed on September 15, 2025. See https://docs.cohere.com/docs/models#command for a list of models you can use instead.\"\n}\n    at RegulatoryRiskAnalyst.analyze (file:///Users/dev/Documents/gitlab-projects/sovereign-signal/packages/models/dist/base-analyst.js:48:15)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)"},"latencyMs":6480,"msg":"Analyst failed"}
+{"level":50,"time":1774039221160,"pid":58018,"hostname":"dev","name":"sovereign-signal-conductor","component":"orchestrator","role":"sentiment-narrative","err":{"type":"Error","message":"[sentiment-narrative] Analysis failed after 3 attempts: 401 Invalid API key provided. You can find your API key at https://api.together.ai/settings/api-keys.","stack":"Error: [sentiment-narrative] Analysis failed after 3 attempts: 401 Invalid API key provided. You can find your API key at https://api.together.ai/settings/api-keys.\n    at SentimentNarrativeAnalyst.analyze (file:///Users/dev/Documents/gitlab-projects/sovereign-signal/packages/models/dist/base-analyst.js:48:15)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)"},"latencyMs":6328,"msg":"Analyst failed"}
+{"level":50,"time":1774039221166,"pid":58018,"hostname":"dev","name":"sovereign-signal-conductor","component":"orchestrator","role":"regulatory-risk","err":{"type":"Error","message":"[regulatory-risk] Analysis failed after 3 attempts: NotFoundError\nStatus code: 404\nBody: {\n  \"id\": \"6faa0550-30e4-428a-9289-c8f7b7c19ca9\",\n  \"message\": \"model 'command-r-plus' was removed on September 15, 2025. See https://docs.cohere.com/docs/models#command for a list of models you can use instead.\"\n}","stack":"Error: [regulatory-risk] Analysis failed after 3 attempts: NotFoundError\nStatus code: 404\nBody: {\n  \"id\": \"6faa0550-30e4-428a-9289-c8f7b7c19ca9\",\n  \"message\": \"model 'command-r-plus' was removed on September 15, 2025. See https://docs.cohere.com/docs/models#command for a list of models you can use instead.\"\n}\n    at RegulatoryRiskAnalyst.analyze (file:///Users/dev/Documents/gitlab-projects/sovereign-signal/packages/models/dist/base-analyst.js:48:15)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)"},"latencyMs":6537,"msg":"Analyst failed"}
+{"level":50,"time":1774039221334,"pid":58018,"hostname":"dev","name":"sovereign-signal-conductor","component":"orchestrator","role":"sentiment-narrative","err":{"type":"Error","message":"[sentiment-narrative] Analysis failed after 3 attempts: 401 Invalid API key provided. You can find your API key at https://api.together.ai/settings/api-keys.","stack":"Error: [sentiment-narrative] Analysis failed after 3 attempts: 401 Invalid API key provided. You can find your API key at https://api.together.ai/settings/api-keys.\n    at SentimentNarrativeAnalyst.analyze (file:///Users/dev/Documents/gitlab-projects/sovereign-signal/packages/models/dist/base-analyst.js:48:15)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)"},"latencyMs":6522,"msg":"Analyst failed"}

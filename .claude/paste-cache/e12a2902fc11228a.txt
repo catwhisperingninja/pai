@@ -1,0 +1,164 @@
+doppler run -p sov-signal -c prd -- node apps/conductor/dist/index.js
+{"level":30,"time":1773683913862,"pid":39688,"hostname":"dev","name":"sovereign-signal-conductor","msg":"Starting Sovereign Signal Conductor"}
+{"level":30,"time":1773683913863,"pid":39688,"hostname":"dev","name":"sovereign-signal-conductor","component":"adapters","adapter":"Truflation","missingEnvVars":["TRUFLATION_API_KEY"],"msg":"Adapter skipped — missing env var(s)"}
+{"level":30,"time":1773683913863,"pid":39688,"hostname":"dev","name":"sovereign-signal-conductor","component":"adapters","adapter":"ADP Employment","missingEnvVars":["FRED_API_KEY"],"msg":"Adapter skipped — missing env var(s)"}
+{"level":30,"time":1773683913863,"pid":39688,"hostname":"dev","name":"sovereign-signal-conductor","component":"adapters","adapter":"UI Claims","missingEnvVars":["FRED_API_KEY"],"msg":"Adapter skipped — missing env var(s)"}
+{"level":30,"time":1773683913863,"pid":39688,"hostname":"dev","name":"sovereign-signal-conductor","component":"adapters","adapter":"NewsAPI","missingEnvVars":["NEWSAPI_KEY"],"msg":"Adapter skipped — missing env var(s)"}
+{"level":30,"time":1773683913863,"pid":39688,"hostname":"dev","name":"sovereign-signal-conductor","component":"adapters","adapter":"LunarCrush","missingEnvVars":["LUNARCRUSH_API_KEY"],"msg":"Adapter skipped — missing env var(s)"}
+{"level":30,"time":1773683913863,"pid":39688,"hostname":"dev","name":"sovereign-signal-conductor","component":"adapters","adapter":"Santiment","missingEnvVars":["SANTIMENT_API_KEY"],"msg":"Adapter skipped — missing env var(s)"}
+{"level":30,"time":1773683913863,"pid":39688,"hostname":"dev","name":"sovereign-signal-conductor","component":"adapters","adapter":"OpenSky","missingEnvVars":["OPENSKY_USERNAME","OPENSKY_PASSWORD"],"msg":"Adapter skipped — missing env var(s)"}
+{"level":30,"time":1773683913863,"pid":39688,"hostname":"dev","name":"sovereign-signal-conductor","component":"adapters","adapter":"ADS-B Exchange","missingEnvVars":["ADSB_RAPIDAPI_KEY"],"msg":"Adapter skipped — missing env var(s)"}
+{"level":30,"time":1773683913863,"pid":39688,"hostname":"dev","name":"sovereign-signal-conductor","component":"adapters","count":8,"names":["GDELT","Polymarket","Zillow","Redfin","DuneAnalyticsMCP","CryptoIndicatorsMCP","ChainlinkFeedsMCP","OnchainMCP"],"msg":"Adapters initialized"}
+{"level":30,"time":1773683913867,"pid":39688,"hostname":"dev","name":"sovereign-signal-conductor","component":"analysts","count":5,"roles":["economic-impact","conflict-analysis","regulatory-risk","sentiment-narrative","historical-precedent"],"msg":"Analysts initialized"}
+{"level":30,"time":1773683913867,"pid":39688,"hostname":"dev","name":"sovereign-signal-conductor","msg":"On-chain attestation not configured — signals will be unattested"}
+{"level":30,"time":1773683913867,"pid":39688,"hostname":"dev","name":"sovereign-signal-conductor","component":"orchestrator","msg":"Orchestrator started"}
+{"level":30,"time":1773683913867,"pid":39688,"hostname":"dev","name":"sovereign-signal-conductor","component":"scheduler","msg":"Scheduler starting"}
+{"level":30,"time":1773683913867,"pid":39688,"hostname":"dev","name":"sovereign-signal-conductor","component":"scheduler","msg":"No explicit schedules configured — pipeline manages its own polling"}
+{"level":30,"time":1773683913926,"pid":39688,"hostname":"dev","name":"sovereign-signal-conductor","component":"scheduler","jobCount":0,"batchWindowMs":30000,"msg":"Scheduler started"}
+{"level":30,"time":1773683913927,"pid":39688,"hostname":"dev","name":"sovereign-signal-conductor","msg":"Sovereign Signal Conductor is running"}
+[DuneMCP] Whale movements query failed: TypeError: fetch failed
+    at node:internal/deps/undici/undici:13510:13
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async McpClient.callTool (file:///Users/dev/Documents/gitlab-projects/sovereign-signal/packages/data-ingest/dist/mcp-client.js:17:26)
+    at async DuneMcpAdapter.fetchQuery (file:///Users/dev/Documents/gitlab-projects/sovereign-signal/packages/data-ingest/dist/adapters/dune.js:116:24)
+    at async Promise.allSettled (index 0)
+    at async DuneMcpAdapter.poll (file:///Users/dev/Documents/gitlab-projects/sovereign-signal/packages/data-ingest/dist/adapters/dune.js:37:45)
+    at async DataIngestPipeline.pollAdapter (file:///Users/dev/Documents/gitlab-projects/sovereign-signal/packages/data-ingest/dist/index.js:73:31) {
+  [cause]: Error: connect ECONNREFUSED *********:8888
+      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+    errno: -61,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '*********',
+    port: 8888
+  }
+}
+[DuneMCP] Stablecoin flows query failed: TypeError: fetch failed
+    at node:internal/deps/undici/undici:13510:13
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async McpClient.callTool (file:///Users/dev/Documents/gitlab-projects/sovereign-signal/packages/data-ingest/dist/mcp-client.js:17:26)
+    at async DuneMcpAdapter.fetchQuery (file:///Users/dev/Documents/gitlab-projects/sovereign-signal/packages/data-ingest/dist/adapters/dune.js:116:24)
+    at async Promise.allSettled (index 1)
+    at async DuneMcpAdapter.poll (file:///Users/dev/Documents/gitlab-projects/sovereign-signal/packages/data-ingest/dist/adapters/dune.js:37:45)
+    at async DataIngestPipeline.pollAdapter (file:///Users/dev/Documents/gitlab-projects/sovereign-signal/packages/data-ingest/dist/index.js:73:31) {
+  [cause]: Error: connect ECONNREFUSED *********:8888
+      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+    errno: -61,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '*********',
+    port: 8888
+  }
+}
+[DuneMCP] Liquidations query failed: TypeError: fetch failed
+    at node:internal/deps/undici/undici:13510:13
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async McpClient.callTool (file:///Users/dev/Documents/gitlab-projects/sovereign-signal/packages/data-ingest/dist/mcp-client.js:17:26)
+    at async DuneMcpAdapter.fetchQuery (file:///Users/dev/Documents/gitlab-projects/sovereign-signal/packages/data-ingest/dist/adapters/dune.js:116:24)
+    at async Promise.allSettled (index 2)
+    at async DuneMcpAdapter.poll (file:///Users/dev/Documents/gitlab-projects/sovereign-signal/packages/data-ingest/dist/adapters/dune.js:37:45)
+    at async DataIngestPipeline.pollAdapter (file:///Users/dev/Documents/gitlab-projects/sovereign-signal/packages/data-ingest/dist/index.js:73:31) {
+  [cause]: Error: connect ECONNREFUSED *********:8888
+      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+    errno: -61,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '*********',
+    port: 8888
+  }
+}
+[ChainlinkMCP] Error fetching BTC/USD: TypeError: fetch failed
+    at node:internal/deps/undici/undici:13510:13
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async McpClient.callTool (file:///Users/dev/Documents/gitlab-projects/sovereign-signal/packages/data-ingest/dist/mcp-client.js:17:26)
+    at async ChainlinkMcpAdapter.fetchFeed (file:///Users/dev/Documents/gitlab-projects/sovereign-signal/packages/data-ingest/dist/adapters/chainlink.js:91:24)
+    at async Promise.allSettled (index 0)
+    at async ChainlinkMcpAdapter.poll (file:///Users/dev/Documents/gitlab-projects/sovereign-signal/packages/data-ingest/dist/adapters/chainlink.js:36:25)
+    at async DataIngestPipeline.pollAdapter (file:///Users/dev/Documents/gitlab-projects/sovereign-signal/packages/data-ingest/dist/index.js:73:31) {
+  [cause]: Error: connect ECONNREFUSED *********:8888
+      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+    errno: -61,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '*********',
+    port: 8888
+  }
+}
+[ChainlinkMCP] Error fetching ETH/USD: TypeError: fetch failed
+    at node:internal/deps/undici/undici:13510:13
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async McpClient.callTool (file:///Users/dev/Documents/gitlab-projects/sovereign-signal/packages/data-ingest/dist/mcp-client.js:17:26)
+    at async ChainlinkMcpAdapter.fetchFeed (file:///Users/dev/Documents/gitlab-projects/sovereign-signal/packages/data-ingest/dist/adapters/chainlink.js:91:24)
+    at async Promise.allSettled (index 1)
+    at async ChainlinkMcpAdapter.poll (file:///Users/dev/Documents/gitlab-projects/sovereign-signal/packages/data-ingest/dist/adapters/chainlink.js:36:25)
+    at async DataIngestPipeline.pollAdapter (file:///Users/dev/Documents/gitlab-projects/sovereign-signal/packages/data-ingest/dist/index.js:73:31) {
+  [cause]: Error: connect ECONNREFUSED *********:8888
+      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+    errno: -61,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '*********',
+    port: 8888
+  }
+}
+[ChainlinkMCP] Error fetching SOL/USD: TypeError: fetch failed
+    at node:internal/deps/undici/undici:13510:13
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async McpClient.callTool (file:///Users/dev/Documents/gitlab-projects/sovereign-signal/packages/data-ingest/dist/mcp-client.js:17:26)
+    at async ChainlinkMcpAdapter.fetchFeed (file:///Users/dev/Documents/gitlab-projects/sovereign-signal/packages/data-ingest/dist/adapters/chainlink.js:91:24)
+    at async Promise.allSettled (index 2)
+    at async ChainlinkMcpAdapter.poll (file:///Users/dev/Documents/gitlab-projects/sovereign-signal/packages/data-ingest/dist/adapters/chainlink.js:36:25)
+    at async DataIngestPipeline.pollAdapter (file:///Users/dev/Documents/gitlab-projects/sovereign-signal/packages/data-ingest/dist/index.js:73:31) {
+  [cause]: Error: connect ECONNREFUSED *********:8888
+      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+    errno: -61,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '*********',
+    port: 8888
+  }
+}
+[OnchainMCP] Error fetching block number: TypeError: fetch failed
+    at node:internal/deps/undici/undici:13510:13
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async McpClient.callTool (file:///Users/dev/Documents/gitlab-projects/sovereign-signal/packages/data-ingest/dist/mcp-client.js:17:26)
+    at async OnchainMcpAdapter.fetchSignificantContractEvents (file:///Users/dev/Documents/gitlab-projects/sovereign-signal/packages/data-ingest/dist/adapters/onchain.js:147:33)
+    at async Promise.allSettled (index 2)
+    at async OnchainMcpAdapter.poll (file:///Users/dev/Documents/gitlab-projects/sovereign-signal/packages/data-ingest/dist/adapters/onchain.js:44:63)
+    at async DataIngestPipeline.pollAdapter (file:///Users/dev/Documents/gitlab-projects/sovereign-signal/packages/data-ingest/dist/index.js:73:31) {
+  [cause]: Error: connect ECONNREFUSED *********:8888
+      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+    errno: -61,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '*********',
+    port: 8888
+  }
+}
+[OnchainMCP] Large transfers fetch failed: TypeError: fetch failed
+    at node:internal/deps/undici/undici:13510:13
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async McpClient.callTool (file:///Users/dev/Documents/gitlab-projects/sovereign-signal/packages/data-ingest/dist/mcp-client.js:17:26)
+    at async OnchainMcpAdapter.fetchLargeTransfers (file:///Users/dev/Documents/gitlab-projects/sovereign-signal/packages/data-ingest/dist/adapters/onchain.js:71:24)
+    at async Promise.allSettled (index 0)
+    at async OnchainMcpAdapter.poll (file:///Users/dev/Documents/gitlab-projects/sovereign-signal/packages/data-ingest/dist/adapters/onchain.js:44:63)
+    at async DataIngestPipeline.pollAdapter (file:///Users/dev/Documents/gitlab-projects/sovereign-signal/packages/data-ingest/dist/index.js:73:31) {
+  [cause]: Error: connect ECONNREFUSED *********:8888
+      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+    errno: -61,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '*********',
+    port: 8888
+  }
+}
+[GDELT] Poll failed: SyntaxError: Unexpected token 'T', "Timespan i"... is not valid JSON
+    at JSON.parse (<anonymous>)
+    at parseJSONFromBytes (node:internal/deps/undici/undici:5738:19)
+    at successSteps (node:internal/deps/undici/undici:5719:27)
+    at fullyReadBody (node:internal/deps/undici/undici:4609:9)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async consumeBody (node:internal/deps/undici/undici:5728:7)
+    at async GdeltAdapter.fetchConflictArticles (file:///Users/dev/Documents/gitlab-projects/sovereign-signal/packages/data-ingest/dist/adapters/gdelt.js:117:23)
+    at async GdeltAdapter.poll (file:///Users/dev/Documents/gitlab-projects/sovereign-signal/packages/data-ingest/dist/adapters/gdelt.js:65:30)
+    at async DataIngestPipeline.pollAdapter (file:///Users/dev/Documents/gitlab-projects/sovereign-signal/packages/data-ingest/dist/index.js:73:31)
